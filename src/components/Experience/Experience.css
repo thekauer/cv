@@ -1,0 +1,14 @@
+
+.icon {
+    max-width: 1em;
+    max-height: 1em;
+}
+
+.icons .icon {
+    margin-top:0.3em;
+}
+.desc {
+    background-color: #001f34;
+    border-top: 2px solid #0569b1;
+    border-bottom: 2px solid #0569b1
+}

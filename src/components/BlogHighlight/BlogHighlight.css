@@ -1,0 +1,32 @@
+.blog-highlight {
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);   
+    transition: var(--transition-time);
+    margin-bottom: 2em;
+}
+
+.blog-highlight h1 {
+    cursor:pointer;
+    transition: var(--transition-time);
+    color: #bbb;
+}
+.blog-highlight h1:hover {
+    text-shadow: 0 0 10px black;
+    color: var(--font-color);
+}
+
+.blog-highlight:hover {
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.5);  
+}
+
+.blog-highlight img {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: solid 2px black;
+}
+
+.blog-highlight h1 {
+    padding: 0.3em 1em;
+}

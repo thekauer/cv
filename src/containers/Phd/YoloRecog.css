@@ -1,0 +1,77 @@
+.yolorecog {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.yolorecog  .button-container {
+    padding:2em;
+    display:flex;
+    flex-direction: row;
+}
+
+.yolorecog  button {
+    margin:0 1em;
+    padding:1em;
+    background: #252526;
+    border:solid 3px #ffe600;
+    color:#ccc;
+    font-weight: bolder;
+    transition: var(--transition-time);
+}
+
+.yolorecog  button:hover {
+    background-color: #ffe600;
+    color:white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.yolorecog  .sketch-canvas {
+    object-fit: contain;
+    background-repeat: no-repeat;
+    border: none !important;
+    box-shadow: 0 0 32px black;
+}
+
+.yolorecog  .sketch-canvas, .result {
+    width: 20em !important; 
+    height: 20em !important;
+}
+
+.yolorecog  .result {
+    background-color: #ffe600;
+    position: absolute;
+    top:0;
+    display:flex;
+    flex-direction: column;
+    color:white;
+    justify-content: center;
+    align-items: center;;
+}
+.yolorecog .hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+.yolorecog .visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+.yolorecog  .draw-result {
+    position: relative;
+    transition: var(--transition-time);
+}
+
+.yolorecog  .notfound {
+    display:flex;
+    flex-direction: column;
+}
+.yolorecog  .notfound * {
+    margin:1em;
+}
+.yolorecog .loader {
+    position: absolute;
+}

@@ -1,0 +1,32 @@
+.home {
+    padding: 1.5em 0;
+}
+
+.home header.head {
+    padding:10em 5em;
+}
+.home header h1 {
+    font-size: 5em;
+}
+
+.home section#portfolio {
+    background-color: #252526;
+}
+.portfolio-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    padding: 2em 0;
+}
+.home svg {
+    height: 10em;
+    width: 100%;
+    margin-bottom: -5px;
+}
+.home svg path#bottom {
+    fill:#252526;
+}
+.home #portfolio svg path#bottom {
+    fill:#1e1e1e;
+}
