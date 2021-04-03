@@ -10,7 +10,6 @@ import Blog from './containers/Blog/Blog'
 import BlogArticle from './containers/BlogArticle/BlogArticle';
 import { Fusion } from './containers/Fusion/Fusion';
 import { Phd } from './containers/Phd/Phd';
-import "firebase/auth";
 
 function App() {
   return (
