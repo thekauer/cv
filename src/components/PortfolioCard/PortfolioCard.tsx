@@ -14,8 +14,9 @@ interface PortfolioCardProps {
 };
 
 const PortfolioCard : React.FC<PortfolioCardProps>  = ({title,desc,color,icon,path}) => {
+    let history = useHistory();
     const handleClick = () => {
-           window.location.href=path;
+           history.push(path);
     }
     return (
         <div className="portfolio-card" style={{borderBottomColor:color}}>
