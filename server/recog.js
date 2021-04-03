@@ -6,24 +6,26 @@ const path = require('path');
 var Jimp = require('jimp');
 var rimraf = require("rimraf");
 
+const recogPath = '/app/server/recog/';
+
 function save_img(img) {
     var base64Data = img.replace(/^data:image\/png;base64,/, "");
     var buff = Buffer.from(base64Data,'base64');
-    Jimp.read(buff).then((image)=>{image.invert().resize(40,40).grayscale().write("./recog/out.png")});
+    Jimp.read(buff).then((image)=>{image.invert().resize(40,40).grayscale().write(recogPath+"out.png")});
 }
 async function recog_img() {
-    const cmd = "python ./recog/yolov5/detect.py --weights ./recog/weights.pt --source ./recog/out.png --img-size=40 --conf 0.4 --project recog/ --name res --save-txt --save-conf";
+    const cmd = "python3 "+recogPath+"yolov5/detect.py --weights "+ recogPath+ "weights.pt --source "+recogPath+ "out.png --img-size=40 --conf 0.4 --project "+recogPath+ " --name res --save-txt --save-conf";
     const { stdout, stderr } = await exec(cmd);
     return stderr;
 }
 async function post_process() {
-    const im =  await Jimp.read('recog/res/out.png');
+    const im =  await Jimp.read(recogPath+'res/out.png');
     return im.invert().resize(320,320);
 }
 
 async function get_result() {
-    if (fs.existsSync('./recog/res/labels/out.txt')) {
-        const res = await readFile('./recog/res/labels/out.txt','utf-8');
+    if (fs.existsSync(recogPath+'res/labels/out.txt')) {
+        const res = await readFile(recogPath+'res/labels/out.txt','utf-8');
         return scaleBoundingBox(res);
     } else {
         console.log('could not recognize');
@@ -51,7 +53,7 @@ module.exports =  async function recog(img) {
     const resp =await get_result();
     //const im = await post_process();
     //const b = await im.getBase64Async(Jimp.AUTO);
-    rimraf.sync('./recog/res');
+    rimraf.sync(recogPath+'res');
     return resp;
 
 }

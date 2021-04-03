@@ -10,28 +10,32 @@ import Blog from './containers/Blog/Blog'
 import BlogArticle from './containers/BlogArticle/BlogArticle';
 import { Fusion } from './containers/Fusion/Fusion';
 import { Phd } from './containers/Phd/Phd';
+import ScrollTop from './components/ScrollTop/ScrollTop';
 
 function App() {
   return (
     <>
-    <div className="main">
-      <div className="content">
-        <Toolbar/>
-        <div className="main-text">
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/resume" component={Resume}/>
-            <Route exact path="/contact" component={Contacts}/>
-            <Route exact path="/blog" component={Blog}/>
-            <Route exact path="/blog/article/:articleId" component={BlogArticle}/>
-            <Route exact path="/fusion" component={Fusion}/>
-            <Route exact path="/phd" component={Phd}/>
-          </Switch>
+      <ScrollTop/>
+      <div className="main">
+        <div className="content">
+          <Toolbar />
+          <div className="main-text">
+            <Switch>
+              <Route path="/*">
+                <Route exact path="/" component={Home} />
+                <Route exact path="/resume" component={Resume} />
+                <Route exact path="/contact" component={Contacts} />
+                <Route exact path="/blog" component={Blog} />
+                <Route exact path="/blog/article/:articleId" component={BlogArticle} />
+                <Route exact path="/fusion" component={Fusion} />
+                <Route exact path="/phd" component={Phd} />
+              </Route>
+            </Switch>
+          </div>
         </div>
-        </div>
-    </div>
-    <Footer/>
-      </>
+      </div>
+      <Footer />
+    </>
   );
 }
 
