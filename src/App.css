@@ -24,11 +24,6 @@ strong::selection {
 }
 
 
-.content {
-  background-color: var(--theme-dark);
-  position: relative;
-}
-
 .layout {
   display: flex;
   flex-direction: column;
@@ -37,6 +32,9 @@ strong::selection {
 .content {
   height: 100%;
   overflow-y: scroll;
+  overflow-x:hidden;
+  background-color: var(--theme-dark);
+  position: relative;
 }
 
 html,body,#root {
