@@ -9,7 +9,6 @@ export const Fusion = () => {
         <>
         <article className="fusion">
         <header>
-        <div className="header-bg"/>
         <h1>Fusion</h1>
         <em>Fordított, llvm-alapú programozási nyelv</em>
         
