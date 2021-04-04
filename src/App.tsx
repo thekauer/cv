@@ -16,10 +16,9 @@ function App() {
   return (
     <>
       <ScrollTop/>
-      <div className="main">
-        <div className="content">
+        <div className="layout">
           <Toolbar />
-          <div className="main-text">
+          <div className="content">
             <Switch>
               <Route path="/*">
                 <Route exact path="/" component={Home} />
@@ -33,7 +32,6 @@ function App() {
             </Switch>
           </div>
         </div>
-      </div>
       <Footer />
     </>
   );
