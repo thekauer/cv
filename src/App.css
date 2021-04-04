@@ -46,39 +46,10 @@ html,body,#root {
 
 
 @media (max-width: 1000px) {
-  .main {
-      flex-direction: row;
-  }
   .skill {
       width: auto;
   }
   .skill-container {
       flex-direction: column !important;
-  }
-}
-
-@media (max-width:700px) {
-
-  .main {
-      padding:0;
-      flex-direction: column;
-  }
-
-
-  .content {
-      border-radius: 0 0 0 0;
-      flex: 1 0 1000px;
-      
-  }
-  .footer {
-      border-radius: 0 0 0 0;
-  }
-
-  .nav {
-      border-radius: 0 0 0 0;
-  }
-
-  .side {
-      border-radius: 0 0 0 0;
   }
 }
