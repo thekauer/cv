@@ -2,13 +2,6 @@
   --selection:#343a40;
   --strong-selection:#346ba1;
 }
-.main {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  overflow-y: auto;
-  height: 100%;
-}
 
 ::-moz-selection {
   background: var(--selection);
@@ -35,12 +28,6 @@ strong::selection {
 .content {
   background-color: var(--theme-dark);
   position: relative;
-  overflow-y: hidden;
-  flex:0 1 100%;
-}
-
-.main-text {
-  height: 100%;
 }
 
 
