@@ -4,7 +4,7 @@ import { ReactSketchCanvas } from "react-sketch-canvas";
 import loadingAnim from './static/loading.svg';
 import { useRef, useState } from 'react';
 import axios from 'axios';
-
+const backend = process.env.REACT_APP_BACKEND;
 interface RecogType {
     l: string, x: number, y: number, w: number, h: number, c: number;
 }
@@ -38,7 +38,7 @@ export const YoloRecog = () => {
             setLoading(true);
             setDisplayLoadingAnim(true);
             canvasRef.current.exportImage('png').then((val) => {
-                axios.post('http://localhost:3001/recog', { img: val }).then((resp) => {
+                axios.post(backend+'recog', { img: val }).then((resp) => {
                     //canvasRef.current?.clearCanvas();
                     setDisplayLoadingAnim(false);
                     const { found, l, x, y, w, h, c } = resp.data;

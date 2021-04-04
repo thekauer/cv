@@ -3,7 +3,9 @@
 }
 
 .home header.head {
-    padding:10em 5em;
+    padding:10em 2em;
+    display: grid;
+    place-items: center;
 }
 .home header h1 {
     font-size: 5em;
