@@ -24,12 +24,25 @@ strong::selection {
 }
 
 
-
 .content {
   background-color: var(--theme-dark);
   position: relative;
 }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+html,body,#root {
+  height: 100%;
+  overflow:hidden;
+}
 
 
 @media (max-width: 1000px) {
