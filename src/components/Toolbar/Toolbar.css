@@ -24,25 +24,13 @@
 
 .nav a {
     background-color: var(--theme-light);
-    color:white;
+    color:#888888;
+    text-decoration: none;
     padding:0.5em;
     border-right: solid 1px black;
 }
 
 
-
-.nav a:link {
-    text-decoration: none;
-    color:white;
-}
-
-.nav a:visited {
-    color: #888888;
-}
-
 a:link {
-    color: #529ac3
-}
-a:visited {
     color:#6ac8ff
 }
