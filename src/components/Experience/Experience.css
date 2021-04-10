@@ -6,6 +6,7 @@
 .experience .icons {
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .experience .icons .icon {
@@ -15,4 +16,7 @@
 }
 .experience header h3 {
     font-size:2em;
+}
+.experience em {
+    max-width: 40ch;
 }

@@ -70,15 +70,20 @@ const Resume = () => {
                 </header>
                 <section className="school">
                     <header><h2>Iskoláim</h2></header>
-                    <p>
+                    <div className="row">
                     <img src={schoolIcon} alt="Iskola ikon"/>
+                    <p>
                         <h3>Programtervező Informatikus</h3>
                         <span>Eötvös Loránd Tudomány Egyetem</span>
                     </p>
+                    </div>
+                    <div className="row">
+                    <img src={schoolIcon} alt="Iskola ikon"/>
                     <p>
                         <h3>Két tanítási nyelvű informatika</h3>
                         <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
                     </p>
+                    </div>
                 </section>
                 <section>
                     <header><h2>Nyelvtudás</h2></header>
@@ -88,7 +93,7 @@ const Resume = () => {
                         <p>C1</p>
                     </div>
                 </section>
-                <section>
+                <section className="exp">
                     <header><h2>Tapasztalat</h2></header>
                     <Experience title="Programozási nyelv" desc="llvm alapú, fordított, általános célú programozási nyelv" icons={FusionIcons} path="fusion" />
                     <Experience title="Phd" desc="Több nyelven kézírásfelismerés módszerek mesterséges inteligenciával" icons={PhdIcons} path="phd" />
