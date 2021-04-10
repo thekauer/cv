@@ -14,6 +14,7 @@ import yolocpu from './static/yolocpu.svg';
 import { useRef, useState } from 'react';
 import axios from 'axios';
 import { YoloRecog } from './YoloRecog';
+import { Helmet } from 'react-helmet';
 
 interface RecogType {
     l: string, x: number, y: number, w: number, h: number, c: number;
@@ -74,6 +75,10 @@ export const Phd = () => {
         setLoading(false);
     }
     return (
+        <>
+        <Helmet>
+            <title>Phd - Kauer András</title>
+        </Helmet>
         <article className="phd">
             <header>
                 <div className="text">
@@ -137,5 +142,6 @@ export const Phd = () => {
                     <img src={yolocpu} width="500px" id="yolocpu" />
             </section>
         </article>
+        </>
     );
 }

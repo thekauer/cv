@@ -8,10 +8,14 @@ import BlogArticle from './containers/BlogArticle/BlogArticle';
 import { Fusion } from './containers/Fusion/Fusion';
 import { Phd } from './containers/Phd/Phd';
 import Layout from './Layout';
+import { Helmet } from 'react-helmet';
 
 function App() {
   return (
     <>
+    <Helmet>
+      <title>Kauer András</title>
+    </Helmet>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />

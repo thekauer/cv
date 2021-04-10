@@ -3,10 +3,14 @@ import './Fusion.css'
 import CountUp from 'react-countup';
 import fsCode from './images/fscode.svg';
 import {Slide,Fade} from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 export const Fusion = () => {
     return (
         <>
+        <Helmet>
+            <title>Fusion - Kauer András</title>
+        </Helmet>
         <article className="fusion">
         <header>
         <h1>Fusion</h1>
