@@ -1,7 +1,7 @@
 import '../../index.css';
 import './YoloRecog.css';
 import { ReactSketchCanvas } from "react-sketch-canvas";
-import loadingAnim from './static/loading.svg';
+import loadingAnim from './static/loading.svg'
 import { useRef, useState } from 'react';
 import axios from 'axios';
 const backend = process.env.REACT_APP_BACKEND;

@@ -1,19 +1,18 @@
 import CountUp from 'react-countup';
 import '../../index.css';
-import { Arrow } from './Arrow';
+import { Arrow } from '../../components/Arrow/Arrow';
 import './Phd.css';
 import cnnVideo from './static/cnn.mp4';
 import phdImg from './static/phd.png';
-import { Gear } from './Gear';
+import { Gear } from '../../components/Gear/Gear';
 import VisibilitySensor from 'react-visibility-sensor';
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import gan from './static/gan.svg';
 import lines from './static/lines.svg';
-import loadingAnim from './static/loading.svg';
 import yolocpu from './static/yolocpu.svg';
 import { useRef, useState } from 'react';
 import axios from 'axios';
-import { YoloRecog } from './YoloRecog';
+import { YoloRecog } from '../../components/YoloRecog/YoloRecog';
 import { Helmet } from 'react-helmet';
 
 interface RecogType {

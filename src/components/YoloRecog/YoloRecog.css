@@ -14,7 +14,7 @@
 .yolorecog  button {
     margin:0 1em;
     padding:1em;
-    background: #252526;
+    background: var(--theme-mid);
     border:solid 3px var(--yellow);
     color:var(--font-color);
     font-weight: bolder;

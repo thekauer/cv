@@ -215,6 +215,13 @@
 
 .phd .gear {
     position: relative;
+    width: 75%;
+    transform-origin:  center center;
+    animation-name: gearSpin;
+    animation-duration: 3s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 
@@ -227,17 +234,6 @@
     stroke:black;
 }
 
-
-
-.phd .gear-container {
-    width: 75%;
-    transform-origin:  center center;
-    animation-name: gearSpin;
-    animation-duration: 3s;
-    animation-direction: normal;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
 
 .phd .gearbox {
     height: 50%;
