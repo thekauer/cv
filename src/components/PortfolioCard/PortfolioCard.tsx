@@ -21,7 +21,7 @@ const PortfolioCard : React.FC<PortfolioCardProps>  = ({title,desc,color,icon,pa
             <div className="portfolio-card-content">
             <div className="portfolio-header">
             <div>
-            <h1>{title}</h1>
+            <h3>{title}</h3>
             <p>{desc}</p>
             </div>
             {icon && <Fade><img src={icon} alt={title}></img></Fade>}

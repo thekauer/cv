@@ -1,6 +1,3 @@
-.phd h1 {
-    font-size: 5em;
-}
 .phd header {
     background-color: var(--yellow);
     color:var(--active-font-color);
@@ -54,7 +51,6 @@
     padding:3em;
 }
 .phd .video1 h2 {
-    font-size: 3em;
     margin-bottom: 0.5em;
 }
 
