@@ -27,6 +27,21 @@
     color:var(--nav-font-color);
     text-decoration: none;
     padding:0.5em;
-    border-right: solid 1px black;
+    border-right: solid 1px var(--nav-border);
 }
 
+.nav .row {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1em;
+}
+.nav .sw-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.nav .sw-icon {
+    height: 80%;
+}

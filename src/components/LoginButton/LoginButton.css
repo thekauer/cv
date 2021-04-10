@@ -4,7 +4,7 @@
     justify-self: flex-end;
     border-radius: 100%;
     transition: var(--transition-time);
-	stroke:#888;
+	stroke:var(--nav-font-color);
 	stroke-width:30;
 	fill:transparent;
     cursor: pointer;
@@ -12,10 +12,11 @@
 
 .usr-icon:hover {
     box-shadow: 0px 0px 5px black;
-    stroke: white;
+    stroke: var(--active-font-color);
 }
 .loginbtn {
     display:flex;
     flex-direction: row;
     margin-right: 0.5em;
+    height: 1em;
 }

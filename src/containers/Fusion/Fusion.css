@@ -5,6 +5,9 @@
     justify-content: space-around;
     padding: 10em 2em;
 }
+.fusion *{
+    color:var(--active-font-color);
+}
 .fusion-data-container {
     margin-bottom: 2em;
     padding: 0 2em;

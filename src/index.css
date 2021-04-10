@@ -1,10 +1,4 @@
 :root {
-  --nav-font-color:#888;
-  --font-color:#ccc;
-  --active-font-color:white;
-  --theme-light: #2d2d2d;
-  --theme-mid: #252526;
-  --theme-dark: #1e1e1e;
   --transition-time: 350ms;
   --vs-comment-border-color:#0569b1;
   --vs-comment-background-color:#001f34;
@@ -12,18 +6,40 @@
   --yellow:#ffe600;
   --strong:#264f78;
   --react:#61DBFB;
+}
+.themedark {
+  --nav-font-color:#888;
+  --font-color:#ccc;
+  --active-font-color:white;
+  --theme-light: #2d2d2d;
+  --theme-mid: #252526;
+  --theme-dark: #1e1e1e;
   --scroll-thumb:#424242;
   --scroll-thumb-hover:#4f4f4f;
   --scroll-border:#393939;
   --scroll-border-hover:#575757;
+  --nav-border: black;
 }
 
+.themelight {
+  --theme-light: #e5e5e5;
+  --theme-mid: #eaeaeb;
+  --theme-dark: #fafafa;
+  --active-font-color:black;
+  --nav-font-color:#535486;
+  --font-color:#616161;
+  --nav-border:#dbdbdc;
+
+  --scroll-thumb:#424242;
+  --scroll-thumb-hover:#4f4f4f;
+}
 
 * {
   margin:0;
   padding: 0;
   font-family: Consolas;
   outline: none;
+  color:var(--font-color)
 }
 
 

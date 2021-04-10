@@ -8,6 +8,9 @@
     align-items: center;
     margin-bottom: 15em;
 }
+.phd *{
+    color:var(--active-font-color);
+}
 .phd .text {
     max-width: 600px;
     margin-bottom: 2em;

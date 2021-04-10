@@ -12,6 +12,7 @@
     transition: all var(--transition-time) ease;
     transition-delay: 100ms;
     width: 28ch;
+    color:var(--active-font-color);
 }
 
 .skill span {

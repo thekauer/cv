@@ -9,6 +9,7 @@
 }
 .home header h1 {
     font-size: 5em;
+    color:var(--font-color);
 }
 
 .home section#portfolio {

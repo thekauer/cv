@@ -7,7 +7,7 @@
     background-color: var(--theme-dark);
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);   
     border-radius: 5px;
-    border:solid 2px black; 
+    border:solid 2px var(--nav-border); 
     overflow: hidden;
     margin: 1em 0em;
     transition: var(--transition-time);
@@ -20,7 +20,7 @@
 .card img {
     width: 100%;
     max-height: 100px;
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px var(--nav-border);
     object-fit: cover;
 }
 

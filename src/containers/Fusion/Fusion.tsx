@@ -15,7 +15,6 @@ export const Fusion = () => {
         <header>
         <h1>Fusion</h1>
         <em>Fordított, llvm-alapú programozási nyelv</em>
-        
         </header>
         <section id="fusion-data">
             <Slide direction="up" triggerOnce fraction={0.5}>
