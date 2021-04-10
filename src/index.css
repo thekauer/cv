@@ -39,7 +39,8 @@
   padding: 0;
   font-family: Consolas;
   outline: none;
-  color:var(--font-color)
+  color:var(--font-color);
+  transition:var(--transition-time);
 }
 
 
