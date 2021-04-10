@@ -13,7 +13,7 @@ export const MoreButton = ({ to }: MoreButtonProps) => {
     }
     return (
         <>
-            <button onClick={handleClick} className="MoreButton">Read More</button>
+            <button onClick={handleClick} className="MoreButton">Több</button>
         </>
     );
 }

@@ -3,26 +3,30 @@
     flex-direction: column;
     width: 100%;
 }
+.resume h1 {
+    font-size:5em;
+}
 .resume section {
     background-color: var(--theme-mid);
     margin:4em 0;
+    padding-left: 1em;
 }
 
-.resume .school {
-    display:flex;
+.resume .language {
+    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
+    align-items: center ;
 }
-
-.resume .school .elte {
-    height: 400px;
-    min-width: 50%;
-    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 10% 100%);
-    background-attachment: fixed;
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size:contain;
+.resume .language img,.resume .school img {
+    width: 2em;
+    margin-right: 1em;
 }
-    
+.resume .language p{
+    margin-right: 1em;
+}
+.resume .school p {
+    margin:1em 0;
+}
+.resume h2 {
+    font-size:3em;
+}

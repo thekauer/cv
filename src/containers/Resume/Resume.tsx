@@ -1,18 +1,27 @@
 import '../../index.css';
 import './Resume.css';
 import { Experience, Icon } from '../../components/Experience/Experience';
-import cppIcon from './images/cpp.png';
-import llvmIcon from './images/llvm.png'
-import travisIcon from './images/travis.png'
-import googleIcon from './images/google.png'
-import cmakeIcon from './images/cmake.png'
-import gitIcon from './images/git.png'
-import bashIcon from './images/bash.png'
+import cppIcon from './images/cpp.svg';
+import llvmIcon from './images/llvm.svg'
+import travisIcon from './images/travis.svg'
+import googleIcon from './images/google.svg'
+import cmakeIcon from './images/cmake.svg'
+import gitIcon from './images/git.svg'
+import bashIcon from './images/bash.svg'
 import matlabIcon from './images/matlab.png'
-import pythonIcon from './images/python.png'
-import tfIcon from './images/tf.png'
-import torchIcon from './images/torch.png'
-import rustIcon from './images/rust.png'
+import pythonIcon from './images/python.svg'
+import tfIcon from './images/tf.svg'
+import torchIcon from './images/torch.svg'
+import rustIcon from './images/rust.svg'
+import csIcon from './images/cs.svg'
+import xamarinIcon from './images/xamarin.svg'
+import reactIcon from './images/react.svg'
+import tsIcon from './images/ts.svg'
+import nodeIcon from './images/node.svg'
+import dockerIcon from './images/docker.svg'
+import firebaseIcon from './images/firebase.svg'
+import langIcon from './images/lang.svg'
+import schoolIcon from './images/school.svg'
 
 const Resume = () => {
     const FusionIcons = (
@@ -38,34 +47,54 @@ const Resume = () => {
     const TdkIcons = (
         <Icon src={matlabIcon} alt="Matlab logo" />
     );
+    const PhoneAppIcons = (
+        <>
+        <Icon src={csIcon} alt="C# logo" />
+        <Icon src={xamarinIcon} alt="Xamarin logo" />
+        </>
+    );
+    const WebsiteIcons = (
+        <>
+            <Icon src={reactIcon} alt="React logo" />
+            <Icon src={tsIcon} alt="Typescript logo" />
+            <Icon src={nodeIcon} alt="Node logo" />
+            <Icon src={dockerIcon} alt="Docker logo" />
+            <Icon src={firebaseIcon} alt="Firebase logo" />
+        </>
+    )
     return (
         <>
             <article className="resume">
                 <header>
                     <h1>Resume</h1>
                 </header>
-                    <section>
-                        <div className="school">
-                            <div className="text">
-                                <header><h2>Iskoláim</h2></header>
-                                <p>
-                                    <h3>Programtervező Informatikus</h3>
-                                    <span>Eötvös Loránd Tudomány Egyetem</span>
-                                </p>
-                                <p>
-                                    <h3>Két tanítási nyelvű informatika</h3>
-                                    <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
-                                </p>
-                            </div>
-                        </div>
-                    </section>
+                <section className="school">
+                    <header><h2>Iskoláim</h2></header>
+                    <p>
+                    <img src={schoolIcon} alt="Iskola ikon"/>
+                        <h3>Programtervező Informatikus</h3>
+                        <span>Eötvös Loránd Tudomány Egyetem</span>
+                    </p>
+                    <p>
+                        <h3>Két tanítási nyelvű informatika</h3>
+                        <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
+                    </p>
+                </section>
+                <section>
+                    <header><h2>Nyelvtudás</h2></header>
+                    <div className="language">
+                        <img src={langIcon} alt="Nyelv ikon"/>
+                        <p>Angol</p>
+                        <p>C1</p>
+                    </div>
+                </section>
                 <section>
                     <header><h2>Tapasztalat</h2></header>
-                    <Experience title="Programozási nyelv" desc="llvm alapú, fordított, általános célú programozási nyelv" icons={FusionIcons} path="fusion"/>
-                    <Experience title="Phd" desc="Több nyelven kézírásfelismerés módszerek mesterséges inteligenciával" icons={PhdIcons} path="phd"/>
-                    <Experience title="Weboldal" desc="React alapú modern személyes weboldal" icons={"asd"} path=""/>
-                    <Experience title="Android Alkalmazás" desc="Native android alkalmazás, helymeghatározással és adatbázissal" icons={"asd"} path=""/>
-                    <Experience title="Tdk" desc="Adat augmentálási technikák kézirásfelsimeréshez" icons={"asd"} path=""/>
+                    <Experience title="Programozási nyelv" desc="llvm alapú, fordított, általános célú programozási nyelv" icons={FusionIcons} path="fusion" />
+                    <Experience title="Phd" desc="Több nyelven kézírásfelismerés módszerek mesterséges inteligenciával" icons={PhdIcons} path="phd" />
+                    <Experience title="Weboldal" desc="React alapú modern személyes weboldal" icons={WebsiteIcons} path="" />
+                    <Experience title="Android Alkalmazás" desc="Native android alkalmazás, helymeghatározással és adatbázissal" icons={PhoneAppIcons} path="" />
+                    <Experience title="Tdk" desc="Adat augmentálási technikák kézirásfelsimeréshez" icons={TdkIcons} path="" />
                 </section>
             </article>
         </>

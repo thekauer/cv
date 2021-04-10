@@ -2,6 +2,7 @@ import '../../index.css'
 import './Experience.css'
 import React from 'react';
 import { MoreButton } from '../MoreButton/MoreButton';
+import {Zoom} from 'react-awesome-reveal'
 
 interface ExperienceProps {
     title : string,
@@ -12,7 +13,7 @@ interface ExperienceProps {
 const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
     return (
         <>
-        <section>
+        <section className="experience">
         <header>
             <h3>{title}</h3>
         </header>
@@ -21,7 +22,7 @@ const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
             {icons}
         </div>
         <MoreButton to={path}/>
-    </section>
+        </section>
     </>
     );
 }
@@ -32,7 +33,9 @@ interface IconProps {
 const Icon : React.FC<IconProps> = ({src,alt}) => {
     return (
         <>
+        <Zoom cascade triggerOnce delay={200} fraction={1}>
         <img src={src} alt={alt} className="icon"/>
+        </Zoom> 
         </>
     );
 }
