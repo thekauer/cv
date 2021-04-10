@@ -13,12 +13,12 @@
 
 .footer {
     width: 100%;
-    color:white;
+    color:var(--active-font-color);
 
     font-size: 0.8em;
     padding: 0.3em 0;
     font-family: Consolas,Arial, Helvetica, sans-serif;;
-    background-color: #007acc;
+    background-color: var(--blue);
     display:flex;
     flex-direction: row;
 }

@@ -1,6 +1,6 @@
 .active {
     background-color: var(--theme-dark) !important;
-    color:white !important;
+    color:var(--active-font-color) !important;
 }
 .nav ul {
     list-style: none;
@@ -14,7 +14,7 @@
 
 .nav {
     padding:0.5em 0em;
-    background-color: #252526;
+    background-color: var(--theme-mid);
     font-family: Consolas,Arial, Helvetica, sans-serif;
     max-height: 1.1em;
     overflow-x: auto;
@@ -24,7 +24,7 @@
 
 .nav a {
     background-color: var(--theme-light);
-    color:#888888;
+    color:var(--nav-font-color);
     text-decoration: none;
     padding:0.5em;
     border-right: solid 1px black;

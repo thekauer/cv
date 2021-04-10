@@ -4,7 +4,7 @@
     width: 100%;
 }
 .resume section {
-    background-color: #252525;
+    background-color: var(--theme-mid);
     margin:4em 0;
 }
 

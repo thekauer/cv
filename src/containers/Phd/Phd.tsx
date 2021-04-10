@@ -41,8 +41,8 @@ export const Phd = () => {
         const {l,x,y,w,h,c} = args;
         return (
             <>
-            <div style={{position:"absolute",top:y+"px",left:x+"px",width:w+"px",height:h+"px",border:"4px solid #ffe600",backgroundColor:'transparent'}}/>
-            <div style={{position:"absolute",top:y-16+"px",left:x,backgroundColor:"#ffe600",color:'white'}}>{`${l} ${c}`}</div>
+            <div style={{position:"absolute",top:y+"px",left:x+"px",width:w+"px",height:h+"px",border:"4px solid var(--yellow)",backgroundColor:'transparent'}}/>
+            <div style={{position:"absolute",top:y-16+"px",left:x,backgroundColor:"var(--yellow)",color:'var(--active-font-color)'}}>{`${l} ${c}`}</div>
             </>
         );
     }

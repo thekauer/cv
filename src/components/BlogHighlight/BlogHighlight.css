@@ -9,11 +9,11 @@
 .blog-highlight h1 {
     cursor:pointer;
     transition: var(--transition-time);
-    color: #bbb;
+    color: var(--font-color);
 }
 .blog-highlight h1:hover {
     text-shadow: 0 0 10px black;
-    color: var(--font-color);
+    color: var(--active-font-color);
 }
 
 .blog-highlight:hover {

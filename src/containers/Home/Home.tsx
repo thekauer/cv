@@ -15,8 +15,8 @@ const Home = () => {
             </svg>
             <section id="portfolio">
                 <div className="portfolio-container">
-                    <PortfolioCard title="Fusion" desc="llvm alapú,fordított programozási nyelv" color="#007acc" icon="" path="/fusion"/>
-                    <PortfolioCard title="Phd" desc="Kézírásfelismerés mesterségesinteligenciával"color="#ffe600" icon="" path="/phd" />
+                    <PortfolioCard title="Fusion" desc="llvm alapú,fordított programozási nyelv" color="var(--blue)" icon="" path="/fusion"/>
+                    <PortfolioCard title="Phd" desc="Kézírásfelismerés mesterségesinteligenciával"color="var(--yellow)" icon="" path="/phd" />
                     <PortfolioCard title="android" desc="asd" color="rgb(76 203 45)" icon="" path=""/>
                     <PortfolioCard title="among us hack" desc="asd" color="rgb(211 2 2)" icon="" path=""/>
                 </div>

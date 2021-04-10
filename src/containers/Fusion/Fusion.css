@@ -25,7 +25,7 @@
 .fusion header {
     display:flex;
     flex-direction: column;
-    background-color: #007acc;
+    background-color: var(--blue);
     padding:15em 2em;
 }
 
@@ -34,7 +34,7 @@
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #007acc;
+    background-color: var(--blue);
     padding:5em 2em;
 }
 
