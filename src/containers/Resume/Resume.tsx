@@ -22,6 +22,7 @@ import dockerIcon from './images/docker.svg'
 import firebaseIcon from './images/firebase.svg'
 import langIcon from './images/lang.svg'
 import schoolIcon from './images/school.svg'
+import { appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
 
 const Resume = () => {
     const FusionIcons = (
@@ -95,11 +96,11 @@ const Resume = () => {
                 </section>
                 <section className="exp">
                     <header><h2>Tapasztalat</h2></header>
-                    <Experience title="Programozási nyelv" desc="llvm alapú, fordított, általános célú programozási nyelv" icons={FusionIcons} path="fusion" />
-                    <Experience title="Phd" desc="Több nyelven kézírásfelismerés módszerek mesterséges inteligenciával" icons={PhdIcons} path="phd" />
-                    <Experience title="Weboldal" desc="React alapú modern személyes weboldal" icons={WebsiteIcons} path="" />
-                    <Experience title="Android Alkalmazás" desc="Native android alkalmazás, helymeghatározással és adatbázissal" icons={PhoneAppIcons} path="" />
-                    <Experience title="Tdk" desc="Adat augmentálási technikák kézirásfelsimeréshez" icons={TdkIcons} path="" />
+                    <Experience title={fsName} desc={fsDesc} icons={FusionIcons} path="fusion" />
+                    <Experience title={phdName} desc={phdDesc} icons={PhdIcons} path="phd" />
+                    <Experience title={cvName} desc={cvDesc} icons={WebsiteIcons} path="" />
+                    <Experience title={appName} desc={cvDesc} icons={PhoneAppIcons} path="" />
+                    <Experience title={tdkName} desc={tdkDesc} icons={TdkIcons} path="" />
                 </section>
             </article>
         </>

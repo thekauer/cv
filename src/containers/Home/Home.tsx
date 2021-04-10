@@ -3,6 +3,7 @@ import './Home.css'
 import { Skill, SkillContainer } from '../../components/Skill/Skill'
 import React from 'react';
 import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
+import { appDesc, appName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
 const Home = () => {
     return (
         <article className="home">
@@ -15,10 +16,10 @@ const Home = () => {
             </svg>
             <section id="portfolio">
                 <div className="portfolio-container">
-                    <PortfolioCard title="Fusion" desc="llvm alapú,fordított programozási nyelv" color="var(--blue)" icon="" path="/fusion"/>
-                    <PortfolioCard title="Phd" desc="Kézírásfelismerés mesterségesinteligenciával"color="var(--yellow)" icon="" path="/phd" />
-                    <PortfolioCard title="android" desc="asd" color="rgb(76 203 45)" icon="" path=""/>
-                    <PortfolioCard title="among us hack" desc="asd" color="rgb(211 2 2)" icon="" path=""/>
+                    <PortfolioCard title={fsName} desc={fsDesc} color="var(--blue)" icon="" path="/fusion"/>
+                    <PortfolioCard title={phdName} desc={phdDesc} color="var(--yellow)" icon="" path="/phd" />
+                    <PortfolioCard title={appName} desc={appDesc} color="rgb(76 203 45)" icon="" path=""/>
+                    <PortfolioCard title={tdkName} desc={tdkDesc} color="rgb(211 2 2)" icon="" path=""/>
                 </div>
                 <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
                     <path d='m 0,100 h 100 l 0,-90z' id='bottom' />
