@@ -11,7 +11,7 @@
     justify-content:space-evenly;
     transition: all var(--transition-time) ease;
     transition-delay: 100ms;
-    width: 40ch;
+    width: 28ch;
 }
 
 .skill span {
@@ -19,4 +19,7 @@
     position: relative;
     background-color: var(--theme-dark);
     padding:0.7em;
+}
+.skill h3 {
+    font-size: 1.25em;
 }

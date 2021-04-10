@@ -1,7 +1,7 @@
 .portfolio-card {
     text-shadow: 0 1px 10px black;
     display:flex;
-    width: 15em;
+    width: clamp(30ch,40ch,40ch);
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--theme-dark);
@@ -70,6 +70,5 @@
 @media (max-width:1360px) {
     .portfolio-card {
         max-width: none;
-        width: 100%;
     }
 }
