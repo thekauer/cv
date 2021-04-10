@@ -1,0 +1,28 @@
+.resume {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+.resume section {
+    background-color: #252525;
+    margin:4em 0;
+}
+
+.resume .school {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.resume .school .elte {
+    height: 400px;
+    min-width: 50%;
+    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 10% 100%);
+    background-attachment: fixed;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+    

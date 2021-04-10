@@ -1,30 +1,26 @@
 import '../../index.css'
 import './Experience.css'
 import React from 'react';
+import { MoreButton } from '../MoreButton/MoreButton';
 
 interface ExperienceProps {
     title : string,
+    desc : string,
+    path : string,
     icons : any,
-    children :any
 };
-const Experience : React.FC<ExperienceProps> = ({title,icons,children}) => {
+const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
     return (
         <>
         <section>
         <header>
             <h3>{title}</h3>
         </header>
-        <details>
-            <summary>
-        <i>llvm alapú, fordított programozási nyelv</i>
-    </summary>
+        <em>{desc}</em>
         <div className="icons">
             {icons}
         </div>
-        <section className="desc">
-            {children}
-        </section>
-    </details>
+        <MoreButton to={path}/>
     </section>
     </>
     );
