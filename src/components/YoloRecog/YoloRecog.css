@@ -14,16 +14,16 @@
 .yolorecog  button {
     margin:0 1em;
     padding:1em;
-    background: #252526;
-    border:solid 3px #ffe600;
-    color:#ccc;
+    background: var(--theme-mid);
+    border:solid 3px var(--yellow);
+    color:var(--font-color);
     font-weight: bolder;
     transition: var(--transition-time);
 }
 
 .yolorecog  button:hover {
-    background-color: #ffe600;
-    color:white;
+    background-color: var(--yellow);
+    color:var(--active-font-color);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
@@ -41,12 +41,12 @@
 }
 
 .yolorecog  .result {
-    background-color: #ffe600;
+    background-color: var(--yellow);
     position: absolute;
     top:0;
     display:flex;
     flex-direction: column;
-    color:white;
+    color:var(--active-font-color);
     justify-content: center;
     align-items: center;;
 }

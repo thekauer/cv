@@ -1,14 +1,22 @@
 
 .icon {
-    max-width: 1em;
-    max-height: 1em;
+    width: 2em;
+    height: 2em;
+}
+.experience .icons {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.icons .icon {
+.experience .icons .icon {
     margin-top:0.3em;
+    margin-right: 1em;
+    margin-bottom: 1em;
 }
-.desc {
-    background-color: #001f34;
-    border-top: 2px solid #0569b1;
-    border-bottom: 2px solid #0569b1
+.experience header h3 {
+    font-size:2em;
+}
+.experience em {
+    max-width: 40ch;
 }

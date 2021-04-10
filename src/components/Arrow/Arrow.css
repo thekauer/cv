@@ -3,7 +3,7 @@
     height: 8em;
 }
 .right-arrow #path {
-    fill:#252526;
+    fill:var(--theme-mid);
     animation-name: moveRight;
     animation-timing-function: ease;
     animation-delay: 0s;

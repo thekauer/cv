@@ -1,19 +1,19 @@
 import CountUp from 'react-countup';
 import '../../index.css';
-import { Arrow } from './Arrow';
+import { Arrow } from '../../components/Arrow/Arrow';
 import './Phd.css';
 import cnnVideo from './static/cnn.mp4';
 import phdImg from './static/phd.png';
-import { Gear } from './Gear';
+import { Gear } from '../../components/Gear/Gear';
 import VisibilitySensor from 'react-visibility-sensor';
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import gan from './static/gan.svg';
 import lines from './static/lines.svg';
-import loadingAnim from './static/loading.svg';
 import yolocpu from './static/yolocpu.svg';
 import { useRef, useState } from 'react';
 import axios from 'axios';
-import { YoloRecog } from './YoloRecog';
+import { YoloRecog } from '../../components/YoloRecog/YoloRecog';
+import { Helmet } from 'react-helmet';
 
 interface RecogType {
     l: string, x: number, y: number, w: number, h: number, c: number;
@@ -40,8 +40,8 @@ export const Phd = () => {
         const {l,x,y,w,h,c} = args;
         return (
             <>
-            <div style={{position:"absolute",top:y+"px",left:x+"px",width:w+"px",height:h+"px",border:"4px solid #ffe600",backgroundColor:'transparent'}}/>
-            <div style={{position:"absolute",top:y-16+"px",left:x,backgroundColor:"#ffe600",color:'white'}}>{`${l} ${c}`}</div>
+            <div style={{position:"absolute",top:y+"px",left:x+"px",width:w+"px",height:h+"px",border:"4px solid var(--yellow)",backgroundColor:'transparent'}}/>
+            <div style={{position:"absolute",top:y-16+"px",left:x,backgroundColor:"var(--yellow)",color:'var(--active-font-color)'}}>{`${l} ${c}`}</div>
             </>
         );
     }
@@ -74,6 +74,10 @@ export const Phd = () => {
         setLoading(false);
     }
     return (
+        <>
+        <Helmet>
+            <title>Phd - Kauer András</title>
+        </Helmet>
         <article className="phd">
             <header>
                 <div className="text">
@@ -137,5 +141,6 @@ export const Phd = () => {
                     <img src={yolocpu} width="500px" id="yolocpu" />
             </section>
         </article>
+        </>
     );
 }

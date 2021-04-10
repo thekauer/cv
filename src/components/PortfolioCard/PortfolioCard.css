@@ -1,7 +1,6 @@
 .portfolio-card {
-    text-shadow: 0 1px 10px black;
     display:flex;
-    width: 15em;
+    width: clamp(30ch,40ch,40ch);
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--theme-dark);
@@ -13,6 +12,7 @@
     transition: var(--transition-time);
     border-bottom-width: 8px;
     border-bottom-style: solid;
+    color: var(--font-color)
 }
 .portfolio-card:hover {
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.5);  
@@ -66,25 +66,9 @@
 }
 
 
-.portfolio-card button {
-    border: solid 3px #2e2e2e;
-    border-radius: 1px;
-    background: #58585833;
-    padding:0.5em;
-    color:var(--font-color); 
-    transition: var(--transition-time);
-    font-weight:bold;   
-}
-
-.portfolio-card button:hover {
-    
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.5),0 0 5px black;
-     
-}
 
 @media (max-width:1360px) {
     .portfolio-card {
         max-width: none;
-        width: 100%;
     }
 }

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import {db} from '../../firebase';
 import formatDate from '../../util';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 export interface BlogItem {
     content : string,
@@ -79,6 +80,9 @@ const Blog = (props : any) => {
 
     const skeleton = (
         <>
+        <Helmet>
+            <title>Blog - Kauer András</title>
+        </Helmet>
         <BlogHighlight title={null} image={null} item={null} click={handleReadClicked}/>
         <BlogCardContainer>
             <BlogCard title={null} image={null} item={null} click={handleReadClicked} desc={null} date={null}/>

@@ -9,10 +9,11 @@
 }
 .home header h1 {
     font-size: 5em;
+    color:var(--font-color);
 }
 
 .home section#portfolio {
-    background-color: #252526;
+    background-color: var(--theme-mid);
 }
 .portfolio-container {
     display:flex;
@@ -27,8 +28,23 @@
     margin-bottom: -5px;
 }
 .home svg path#bottom {
-    fill:#252526;
+    fill:var(--theme-mid);
 }
 .home #portfolio svg path#bottom {
-    fill:#1e1e1e;
+    fill:var(--theme-dark);
+}
+.home .skills {
+    margin:5em 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home .skills h2 {
+    margin-bottom: 3em;
+}
+.home .skills .skill-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }

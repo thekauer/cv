@@ -1,5 +1,5 @@
 .blog-highlight {
-    border: solid 2px black;
+    border: solid 2px var(--nav-border);
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);   
     transition: var(--transition-time);
@@ -9,11 +9,10 @@
 .blog-highlight h1 {
     cursor:pointer;
     transition: var(--transition-time);
-    color: #bbb;
+    color: var(--font-color);
 }
 .blog-highlight h1:hover {
-    text-shadow: 0 0 10px black;
-    color: var(--font-color);
+    color: var(--active-font-color);
 }
 
 .blog-highlight:hover {
@@ -24,7 +23,7 @@
     max-height: 300px;
     width: 100%;
     object-fit: cover;
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px var(--nav-border);
 }
 
 .blog-highlight h1 {

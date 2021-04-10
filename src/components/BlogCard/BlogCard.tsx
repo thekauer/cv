@@ -25,7 +25,7 @@ const BlogCard : React.FC<BlogCardProps|null> = ({image,title,desc,date,click,it
                 <div className="date">
                     {date || <Skeleton/>}
                 </div>
-                <button onClick={() => {if(click!=null && item!=null){click(item)}}}>Read More</button>
+                <button onClick={() => {if(click!=null && item!=null){click(item)}}}>Több</button>
             </div>
             </SkeletonTheme>
         </div>

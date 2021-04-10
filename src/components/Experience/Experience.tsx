@@ -1,31 +1,28 @@
 import '../../index.css'
 import './Experience.css'
 import React from 'react';
+import { MoreButton } from '../MoreButton/MoreButton';
+import {Zoom} from 'react-awesome-reveal'
 
 interface ExperienceProps {
     title : string,
+    desc : string,
+    path : string,
     icons : any,
-    children :any
 };
-const Experience : React.FC<ExperienceProps> = ({title,icons,children}) => {
+const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
     return (
         <>
-        <section>
+        <section className="experience">
         <header>
             <h3>{title}</h3>
         </header>
-        <details>
-            <summary>
-        <i>llvm alapú, fordított programozási nyelv</i>
-    </summary>
+        <em>{desc}</em>
         <div className="icons">
             {icons}
         </div>
-        <section className="desc">
-            {children}
+        <MoreButton to={path}/>
         </section>
-    </details>
-    </section>
     </>
     );
 }
@@ -36,7 +33,9 @@ interface IconProps {
 const Icon : React.FC<IconProps> = ({src,alt}) => {
     return (
         <>
+        <Zoom cascade triggerOnce delay={200} fraction={1}>
         <img src={src} alt={alt} className="icon"/>
+        </Zoom> 
         </>
     );
 }

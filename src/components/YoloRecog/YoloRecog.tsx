@@ -1,7 +1,7 @@
 import '../../index.css';
 import './YoloRecog.css';
 import { ReactSketchCanvas } from "react-sketch-canvas";
-import loadingAnim from './static/loading.svg';
+import loadingAnim from './static/loading.svg'
 import { useRef, useState } from 'react';
 import axios from 'axios';
 const backend = process.env.REACT_APP_BACKEND;
@@ -25,7 +25,7 @@ export const YoloRecog = () => {
         return (
             <>
                 <div style={{ position: "absolute", top: y + "px", left: x + "px", width: w + "px", height: h + "px", border: "4px solid #ffe600", backgroundColor: 'transparent' }} onClick={bbClick} />
-                <div style={{ position: "absolute", top: y - 16 + "px", left: x, backgroundColor: "#ffe600", color: 'white' }} onClick={bbClick}>{`${l} ${c}%`}</div>
+                <div style={{ position: "absolute", top: y - 16 + "px", left: x, backgroundColor: "var(--yelow)", color: 'var(--active-font-color)' }} onClick={bbClick}>{`${l} ${c}%`}</div>
             </>
         );
     }

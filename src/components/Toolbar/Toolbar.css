@@ -1,6 +1,6 @@
 .active {
     background-color: var(--theme-dark) !important;
-    color:white !important;
+    color:var(--active-font-color) !important;
 }
 .nav ul {
     list-style: none;
@@ -14,7 +14,7 @@
 
 .nav {
     padding:0.5em 0em;
-    background-color: #252526;
+    background-color: var(--theme-mid);
     font-family: Consolas,Arial, Helvetica, sans-serif;
     max-height: 1.1em;
     overflow-x: auto;
@@ -24,25 +24,24 @@
 
 .nav a {
     background-color: var(--theme-light);
-    color:white;
-    padding:0.5em;
-    border-right: solid 1px black;
-}
-
-
-
-.nav a:link {
+    color:var(--nav-font-color);
     text-decoration: none;
-    color:white;
+    padding:0.5em;
+    border-right: solid 1px var(--nav-border);
 }
 
-.nav a:visited {
-    color: #888888;
+.nav .row {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1em;
 }
-
-a:link {
-    color: #529ac3
+.nav .sw-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
-a:visited {
-    color:#6ac8ff
+.nav .sw-icon {
+    height: 80%;
 }

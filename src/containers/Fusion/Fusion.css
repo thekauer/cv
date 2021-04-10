@@ -5,6 +5,9 @@
     justify-content: space-around;
     padding: 10em 2em;
 }
+.fusion *{
+    color:var(--active-font-color);
+}
 .fusion-data-container {
     margin-bottom: 2em;
     padding: 0 2em;
@@ -25,7 +28,7 @@
 .fusion header {
     display:flex;
     flex-direction: column;
-    background-color: #007acc;
+    background-color: var(--blue);
     padding:15em 2em;
 }
 
@@ -34,7 +37,7 @@
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #007acc;
+    background-color: var(--blue);
     padding:5em 2em;
 }
 
@@ -50,12 +53,6 @@
     overflow: hidden;
 }
 
-.fusion h1{
-    font-size: 5em;
-}
-.fusion h2 {
-    font-size: 2em;
-}
 .fusion header em {
     font-size: 1.5em;
 }
