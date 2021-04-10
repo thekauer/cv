@@ -52,6 +52,7 @@ const Resume = () => {
         <>
         <Icon src={csIcon} alt="C# logo" />
         <Icon src={xamarinIcon} alt="Xamarin logo" />
+        <Icon src={gitIcon} alt="Git logo" />
         </>
     );
     const WebsiteIcons = (
@@ -61,6 +62,7 @@ const Resume = () => {
             <Icon src={nodeIcon} alt="Node logo" />
             <Icon src={dockerIcon} alt="Docker logo" />
             <Icon src={firebaseIcon} alt="Firebase logo" />
+            <Icon src={gitIcon} alt="Git logo" />
         </>
     )
     return (
