@@ -32,3 +32,17 @@
 .home #portfolio svg path#bottom {
     fill:var(--theme-dark);
 }
+.home .skills {
+    margin:5em 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home .skills h2 {
+    margin-bottom: 3em;
+}
+.home .skills .skill-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
