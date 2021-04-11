@@ -22,7 +22,7 @@ import dockerIcon from './images/docker.svg'
 import firebaseIcon from './images/firebase.svg'
 import langIcon from './images/lang.svg'
 import schoolIcon from './images/school.svg'
-import { appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
+import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
 
 const Resume = () => {
     const FusionIcons = (
@@ -101,7 +101,7 @@ const Resume = () => {
                     <Experience title={fsName} desc={fsDesc} icons={FusionIcons} path="fusion" />
                     <Experience title={phdName} desc={phdDesc} icons={PhdIcons} path="phd" />
                     <Experience title={cvName} desc={cvDesc} icons={WebsiteIcons} path="" />
-                    <Experience title={appName} desc={cvDesc} icons={PhoneAppIcons} path="" />
+                    <Experience title={appName} desc={appDesc} icons={PhoneAppIcons} path="androidapp" />
                     <Experience title={tdkName} desc={tdkDesc} icons={TdkIcons} path="" />
                 </section>
             </article>

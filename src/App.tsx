@@ -9,6 +9,7 @@ import { Fusion } from './containers/Fusion/Fusion';
 import { Phd } from './containers/Phd/Phd';
 import Layout from './Layout';
 import { Helmet } from 'react-helmet';
+import { AndroidApp } from './containers/AndroidApp/AndroidApp';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/blog/article/:articleId" component={BlogArticle} />
           <Route exact path="/fusion" component={Fusion} />
           <Route exact path="/phd" component={Phd} />
+          <Route exact path="/androidapp" component={AndroidApp} />
         </Switch>
       </Layout>
     </>

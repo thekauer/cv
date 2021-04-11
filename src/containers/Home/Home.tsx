@@ -19,7 +19,7 @@ const Home = () => {
                     <PortfolioCard title={fsName} desc={fsDesc} color="var(--blue)" icon="" path="/fusion" />
                     <PortfolioCard title={phdName} desc={phdDesc} color="var(--yellow)" icon="" path="/phd" />
                     <PortfolioCard title={cvName} desc={cvDesc} color="var(--react)" icon="" path="" />
-                    <PortfolioCard title={appName} desc={appDesc} color="rgb(76 203 45)" icon="" path="" />
+                    <PortfolioCard title={appName} desc={appDesc} color="var(--green)" icon="" path="/androidapp" />
                     <PortfolioCard title={tdkName} desc={tdkDesc} color="rgb(211 2 2)" icon="" path="" />
                 </div>
                 <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
