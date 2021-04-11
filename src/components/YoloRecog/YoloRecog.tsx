@@ -39,7 +39,6 @@ export const YoloRecog = () => {
             setDisplayLoadingAnim(true);
             canvasRef.current.exportImage('png').then((val) => {
                 axios.post(backend+'recog', { img: val }).then((resp) => {
-                    //canvasRef.current?.clearCanvas();
                     setDisplayLoadingAnim(false);
                     const { found, l, x, y, w, h, c } = resp.data;
                     if (!found) {
@@ -48,6 +47,9 @@ export const YoloRecog = () => {
                         setLoading(false);
                         setBb({ l, x, y, w, h, c });
                     }
+                }).catch(()=>{
+                    setDisplayLoadingAnim(false);
+                    setNotFound(true);
                 });
             })
         }
