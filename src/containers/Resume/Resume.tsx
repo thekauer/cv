@@ -22,7 +22,8 @@ import dockerIcon from './images/docker.svg'
 import firebaseIcon from './images/firebase.svg'
 import langIcon from './images/lang.svg'
 import schoolIcon from './images/school.svg'
-import { appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
+import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
+import { Helmet } from 'react-helmet';
 
 const Resume = () => {
     const FusionIcons = (
@@ -50,8 +51,9 @@ const Resume = () => {
     );
     const PhoneAppIcons = (
         <>
-        <Icon src={csIcon} alt="C# logo" />
-        <Icon src={xamarinIcon} alt="Xamarin logo" />
+            <Icon src={csIcon} alt="C# logo" />
+            <Icon src={xamarinIcon} alt="Xamarin logo" />
+            <Icon src={gitIcon} alt="Git logo" />
         </>
     );
     const WebsiteIcons = (
@@ -61,10 +63,14 @@ const Resume = () => {
             <Icon src={nodeIcon} alt="Node logo" />
             <Icon src={dockerIcon} alt="Docker logo" />
             <Icon src={firebaseIcon} alt="Firebase logo" />
+            <Icon src={gitIcon} alt="Git logo" />
         </>
     )
     return (
         <>
+            <Helmet>
+                <title>Resmue - Kauer András</title>
+            </Helmet>
             <article className="resume">
                 <header>
                     <h1>Resume</h1>
@@ -72,24 +78,24 @@ const Resume = () => {
                 <section className="school">
                     <header><h2>Iskoláim</h2></header>
                     <div className="row">
-                    <img src={schoolIcon} alt="Iskola ikon"/>
-                    <p>
-                        <h3>Programtervező Informatikus</h3>
-                        <span>Eötvös Loránd Tudomány Egyetem</span>
-                    </p>
+                        <img src={schoolIcon} alt="Iskola ikon" />
+                        <p>
+                            <h3>Programtervező Informatikus</h3>
+                            <span>Eötvös Loránd Tudomány Egyetem</span>
+                        </p>
                     </div>
                     <div className="row">
-                    <img src={schoolIcon} alt="Iskola ikon"/>
-                    <p>
-                        <h3>Két tanítási nyelvű informatika</h3>
-                        <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
-                    </p>
+                        <img src={schoolIcon} alt="Iskola ikon" />
+                        <p>
+                            <h3>Két tanítási nyelvű informatika</h3>
+                            <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
+                        </p>
                     </div>
                 </section>
                 <section>
                     <header><h2>Nyelvtudás</h2></header>
                     <div className="language">
-                        <img src={langIcon} alt="Nyelv ikon"/>
+                        <img src={langIcon} alt="Nyelv ikon" />
                         <p>Angol</p>
                         <p>C1</p>
                     </div>
@@ -99,7 +105,7 @@ const Resume = () => {
                     <Experience title={fsName} desc={fsDesc} icons={FusionIcons} path="fusion" />
                     <Experience title={phdName} desc={phdDesc} icons={PhdIcons} path="phd" />
                     <Experience title={cvName} desc={cvDesc} icons={WebsiteIcons} path="" />
-                    <Experience title={appName} desc={cvDesc} icons={PhoneAppIcons} path="" />
+                    <Experience title={appName} desc={appDesc} icons={PhoneAppIcons} path="androidapp" />
                     <Experience title={tdkName} desc={tdkDesc} icons={TdkIcons} path="" />
                 </section>
             </article>

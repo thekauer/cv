@@ -6,6 +6,9 @@
   --yellow:#ffe600;
   --strong:#264f78;
   --react:#61DBFB;
+  --green:#2ECB2D;
+  --selection:#343a40;
+  --strong-selection:#346ba1;
 }
 .themedark {
   --nav-font-color:#888;
@@ -39,7 +42,8 @@
   padding: 0;
   font-family: Consolas;
   outline: none;
-  color:var(--font-color)
+  color:var(--font-color);
+  transition:var(--transition-time);
 }
 
 
@@ -92,4 +96,24 @@ strong,b {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scroll-thumb-hover); 
   border-left: solid 1px var(--scroll-border-hover);
+}
+
+::-moz-selection {
+  background: var(--selection);
+}
+::-webkit-selection {
+  background: var(--selection);
+}
+::selection {
+  background: var(--selection);
+}
+
+strong::-moz-selection {
+  background: var(--strong-selection);
+}
+strong::-webkit-selection {
+  background: var(--strong-selection);
+}
+strong::selection {
+  background: var(--strong-selection);
 }
