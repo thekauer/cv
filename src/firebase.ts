@@ -9,5 +9,4 @@ export const auth = firebase.auth();
 export const doGoogleSignIn = () =>  auth.signInWithPopup(googleProvider);
 export const signOut = () => auth.signOut();
 export const db = firebase.firestore();
-const perf = firebase.performance();
 export default firebase;
