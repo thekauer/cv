@@ -14,6 +14,9 @@ app.post('/recog',async (req,res) => {
     res.send(resp);
 })
 
+app.get('/heroku',async (req,res)=>{
+  res.send({hot:true});
+})
 
 
 app.listen(port, () => {

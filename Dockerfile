@@ -18,7 +18,8 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-RUN pip3 install -r /app/server/recog/yolov5/requirements.txt
+RUN --mount=type=cache,target=/root/.cache \
+    pip3 install -r /app/server/recog/yolov5/requirements.txt
 
 CMD ["node","server/server.js"]
 

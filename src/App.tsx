@@ -10,13 +10,22 @@ import { Phd } from './containers/Phd/Phd';
 import Layout from './Layout';
 import { Helmet } from 'react-helmet';
 import { AndroidApp } from './containers/AndroidApp/AndroidApp';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { HerokuContext } from './components/HerokuBar/HerokuBar';
 
 function App() {
+  const backend = process.env.REACT_APP_BACKEND;
+  const [loading,setLoading] = useState(true);
+  useEffect(() => {
+    axios.get(backend+'heroku').then((res=>setLoading(false)));
+  },[])
   return (
     <>
     <Helmet>
       <title>Kauer András</title>
     </Helmet>
+    <HerokuContext.Provider value={{loading}}>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -29,6 +38,7 @@ function App() {
           <Route exact path="/androidapp" component={AndroidApp} />
         </Switch>
       </Layout>
+    </HerokuContext.Provider>
     </>
   );
 }
