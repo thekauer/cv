@@ -37,7 +37,7 @@ interface HerokuBarProps {
     color: string,
 }
 export const HerokuBar = ({color} : HerokuBarProps) => {
-    const {loading,setLoading} = useContext(HerokuContext);
+    const {loading} = useContext(HerokuContext);
     return (
         <>
             <BarWrapper display={loading} color={color}>
@@ -51,7 +51,4 @@ export const HerokuBar = ({color} : HerokuBarProps) => {
         </>
     );
 }
-export const HerokuContext = React.createContext({
-    loading:true,
-    setLoading:(b:boolean):any=>{}
-});
+export const HerokuContext = React.createContext({loading:true});

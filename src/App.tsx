@@ -10,7 +10,7 @@ import { Phd } from './containers/Phd/Phd';
 import Layout from './Layout';
 import { Helmet } from 'react-helmet';
 import { AndroidApp } from './containers/AndroidApp/AndroidApp';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { HerokuContext } from './components/HerokuBar/HerokuBar';
 
@@ -25,7 +25,7 @@ function App() {
     <Helmet>
       <title>Kauer András</title>
     </Helmet>
-    <HerokuContext.Provider value={{loading,setLoading}}>
+    <HerokuContext.Provider value={{loading}}>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
