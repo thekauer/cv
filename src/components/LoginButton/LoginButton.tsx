@@ -5,21 +5,24 @@ import settingsIcon from './images/settings.png'
 import { doGoogleSignIn, signOut, auth } from '../../firebase';
 
 const LoginButton = () => {
+    useEffect(() =>{
+        auth.onAuthStateChanged((user) => {
+            if(user!=null) {
+                setUserProfile(user.photoURL);
+                setLoggedIn(true);
+                if(user.email==="thekauer@gmail.com") {
+                    setLoggedInAsAdmin(true);
+                }
+            }
+        });
+    },[])
     const [userProfile, setUserProfile] = useState<string|null>(null);
     const [loggedIn, setLoggedIn] = useState(false);
     const [loggedInAsAdmin, setLoggedInAsAdmin] = useState(false);
 
     const authUser = () => {
         if (!loggedIn) {
-            doGoogleSignIn().then((cred) => {
-                if (cred.user != null && cred.user.photoURL) {
-                    setUserProfile(cred.user.photoURL);
-                    setLoggedIn(true);
-                    if (cred.user.email === "thekauer@gmail.com") {
-                        setLoggedInAsAdmin(true);
-                    }
-                }
-            })
+            doGoogleSignIn();
         } else {
             signOut().then(() => {
                 setUserProfile(null);
