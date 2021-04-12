@@ -89,7 +89,6 @@ export const Phd = () => {
             </section>
             <section id="recog">
             <div className="draw-container">
-                <HerokuBar color="#ffe600"/>
                <YoloRecog/>
                </div>
                 <Arrow deg={180} id="arrow4" />
