@@ -14,10 +14,8 @@ import { useRef, useState } from 'react';
 import axios from 'axios';
 import { YoloRecog } from '../../components/YoloRecog/YoloRecog';
 import { Helmet } from 'react-helmet';
+import { HerokuBar } from '../../components/HerokuBar/HerokuBar';
 
-interface RecogType {
-    l: string, x: number, y: number, w: number, h: number, c: number;
-}
 export const Phd = () => {
     const drawCountUp = (end: number) => {
         return (
@@ -29,49 +27,6 @@ export const Phd = () => {
                 )}
             </CountUp>
         );
-    }
-    const canvasRef = useRef<ReactSketchCanvas>(null);
-    const erease = () => {
-        if (canvasRef.current) {
-            canvasRef.current.resetCanvas();
-        }
-    }
-    const drawFound = (args : RecogType) => {
-        const {l,x,y,w,h,c} = args;
-        return (
-            <>
-            <div style={{position:"absolute",top:y+"px",left:x+"px",width:w+"px",height:h+"px",border:"4px solid var(--yellow)",backgroundColor:'transparent'}}/>
-            <div style={{position:"absolute",top:y-16+"px",left:x,backgroundColor:"var(--yellow)",color:'var(--active-font-color)'}}>{`${l} ${c}`}</div>
-            </>
-        );
-    }
-    const [loading,setLoading] = useState(false);
-    const [displayLoadingAnim,setDisplayLoadingAnim] = useState(false);
-    const [notFound,setNotFound] = useState(false);
-    const [bb,setBb] = useState<RecogType|null>(null);
-    const send = () => {
-        if (canvasRef.current) {
-            setLoading(true);
-            setDisplayLoadingAnim(true);
-            canvasRef.current.exportImage('png').then((val) => {
-                axios.post('http://localhost:3001/recog', { img: val }).then((resp) => {
-                    //canvasRef.current?.clearCanvas();
-                    setDisplayLoadingAnim(false);
-                    const { found, l, x, y, w, h, c } = resp.data;
-                    if (!found) {
-                        setNotFound(true);
-                    } else {
-                        setLoading(false);
-                        setBb({l,x,y,w,h,c});
-                    }
-                });
-            })
-        }
-    }
-    const notFoundClick = () => {
-        canvasRef.current?.clearCanvas();
-        setNotFound(false);
-        setLoading(false);
     }
     return (
         <>
@@ -134,6 +89,7 @@ export const Phd = () => {
             </section>
             <section id="recog">
             <div className="draw-container">
+                <HerokuBar color="#ffe600"/>
                <YoloRecog/>
                </div>
                 <Arrow deg={180} id="arrow4" />
