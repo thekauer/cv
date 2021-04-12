@@ -2,7 +2,8 @@ import '../../index.css';
 import './LoginButton.css'
 import React, { useEffect, useState } from 'react';
 import settingsIcon from './images/settings.png'
-import { doGoogleSignIn, signOut, auth } from '../../firebase';
+import { doGoogleSignIn, signOut, auth, isMe } from '../../firebase';
+import { useHistory } from 'react-router';
 
 const LoginButton = () => {
     useEffect(() =>{
@@ -10,7 +11,7 @@ const LoginButton = () => {
             if(user!=null) {
                 setUserProfile(user.photoURL);
                 setLoggedIn(true);
-                if(user.email==="thekauer@gmail.com") {
+                if(isMe(user.uid)) {
                     setLoggedInAsAdmin(true);
                 }
             }
@@ -19,7 +20,7 @@ const LoginButton = () => {
     const [userProfile, setUserProfile] = useState<string|null>(null);
     const [loggedIn, setLoggedIn] = useState(false);
     const [loggedInAsAdmin, setLoggedInAsAdmin] = useState(false);
-
+    let history = useHistory();
     const authUser = () => {
         if (!loggedIn) {
             doGoogleSignIn();
@@ -32,7 +33,7 @@ const LoginButton = () => {
         }
     }
     const toAdminPage = () => {
-        document.location.host = "admin." + document.location.host;
+        history.push('/admin');
     }
 
     return (

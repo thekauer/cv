@@ -13,6 +13,7 @@ import { AndroidApp } from './containers/AndroidApp/AndroidApp';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { HerokuContext } from './components/HerokuBar/HerokuBar';
+import { Admin } from './containers/Admin/Admin';
 
 function App() {
   const backend = process.env.REACT_APP_BACKEND;
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/fusion" component={Fusion} />
           <Route exact path="/phd" component={Phd} />
           <Route exact path="/androidapp" component={AndroidApp} />
+          <Route exact path="/admin" component={Admin} />
         </Switch>
       </Layout>
     </HerokuContext.Provider>
