@@ -4,70 +4,7 @@ import styled from 'styled-components';
 import { AdminBlogItem } from '../../containers/Admin/Admin';
 import { useHistory } from 'react-router';
 import formatDate from '../../util';
-
-
-const StyledAdminBlogCard = styled.div`
-    width: 40ch;
-    margin:0 2em;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--theme-dark);
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);   
-    border-radius: 5px;
-    border:solid 2px var(--nav-border); 
-    overflow: hidden;
-    margin: 1em 2em;
-    transition: var(--transition-time);
-    &:hover {
-        box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.5);  
-    }
-`
-const H1 = styled.h1`
-    font-size:2em;
-`
-
-const CoverImg = styled.img`
-    width: 100%;
-    height:100px;
-    max-height: 100px;
-    border-bottom: solid 2px var(--nav-border);
-    object-fit: cover;
-`
-
-const Description = styled.div`
-    padding:1em;
-    padding-top: 0.5em;
-`
-
-const Footer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding:0 1em 1em 0.5em;
-    margin:0 0.5em;
-`
-const Button = styled.button`
-    border: solid 3px #2e2e2e;
-    border-radius: 1px;
-    background: transparent;
-    padding:0.5em;
-    color:var(--font-color); 
-    transition: var(--transition-time);
-    font-weight:bold;  
-    &:hover {
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.5),0 0 5px black;
-    }
-`
-const P = styled.p`
-    word-wrap: break-word;
-    max-width: 30ch;
-    min-height: 4em;
-    padding: 0;
-`
-
+import {Card,Cover,Description,H1,P,Footer,Button} from '../BlogCard/BlogCard'
 
 
 export const AdminBlogCard = (item: AdminBlogItem) => {
@@ -76,9 +13,9 @@ export const AdminBlogCard = (item: AdminBlogItem) => {
         history.push(`/edit/${item?.id}`,item);
     }
     return (
-        <StyledAdminBlogCard>
+        <Card>
             <SkeletonTheme color="#888" highlightColor="var(--font-color)">
-                {item.image ? <CoverImg src={item.image} /> : <Skeleton height={100} />}
+                {item.image ? <Cover src={item.image} /> : <Skeleton height={100} />}
                 <Description>
                     <H1>{item.title || <Skeleton width={100} />}</H1>
                     <P>{item.desc || <Skeleton count={4} />}</P>
@@ -88,7 +25,7 @@ export const AdminBlogCard = (item: AdminBlogItem) => {
                     <Button onClick={handleClick}>Szerkeszt</Button>
                 </Footer>
             </SkeletonTheme>
-        </StyledAdminBlogCard>
+        </Card>
     );
 }
 const Plus = () => {
@@ -121,11 +58,11 @@ const PlusWrapper = styled.div`
 export  const AddAdminBlogCard = () => {
     return (
         <>
-        <StyledAdminBlogCard>
+        <Card>
                 <PlusWrapper>
                     <Plus/>
                 </PlusWrapper>
-        </StyledAdminBlogCard>
+        </Card>
         </>
     );
 }
