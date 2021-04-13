@@ -57,6 +57,7 @@ export const Button = styled.button`
     color:var(--font-color); 
     transition: var(--transition-time);
     font-weight:bold;  
+    margin:0 0.5em;
     &:hover {
         box-shadow: inset 0 0 5px rgba(0,0,0,0.5),0 0 5px black;
     }
