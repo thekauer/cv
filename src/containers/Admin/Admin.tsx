@@ -3,10 +3,9 @@ import { useHistory } from 'react-router';
 import firebase, { auth, isMe, db } from '../../firebase'
 import '../../index.css';
 import './Admin.css'
-import formatDate from '../../util';
-import {AdminBlogCard} from '../../components/AdminBlogCard/AdminBlogCard'
+import {AddAdminBlogCard, AdminBlogCard} from '../../components/AdminBlogCard/AdminBlogCard'
 
-interface AdminBlogItem {
+export interface AdminBlogItem {
     content: string,
     desc: string,
     image: string,
@@ -26,7 +25,7 @@ export const Admin = () => {
         postsRef.limit(10).onSnapshot((snapshots) => {
             snapshots.forEach((doc) => {
                 const data = doc.data()
-                const item: any = {
+                const item: AdminBlogItem|any = {
                     ...data,
                     date: data.date.toDate(),
                     id: doc.id,
@@ -58,18 +57,12 @@ export const Admin = () => {
         );
     }
 
-    const handleEdit = () => {
-
-    };
 
     const blogItems = posts.map((post) => {
-        const p = {
-            ...post
-        }
-
+        const p = {...post};
         return (
             <div className="post">
-                <AdminBlogCard title={p.title} desc={p.desc} date={formatDate(p.date)} image={p.image} item={p} click={handleEdit} />
+                <AdminBlogCard {...p} />
             </div>
         )
     });
@@ -78,9 +71,9 @@ export const Admin = () => {
             <article className="admin">
                 <header className="title"><h1>Hey {admin.displayName?.split(' ').reverse()[0]}</h1></header>
                 <section>
-                    <header><h2>Adj hozzá postot</h2></header>
+                    <header><h2>Postok</h2></header>
                     <div className="posts">
-                        {blogItems}
+                        <AddAdminBlogCard/>{blogItems}
                     </div>
                 </section>
             </article>
