@@ -4,7 +4,7 @@ import formatDate from '../../util';
 import {BlogItem} from '../Blog/Blog'
 import styled from 'styled-components';
 
-const StyledBlogArticle = styled.div`
+export const StyledBlogArticle = styled.div`
     height: 100%;
     display:flex;
     flex-direction: column;
@@ -17,24 +17,24 @@ const StyledBlogArticle = styled.div`
     transition: var(--transition-time);
     margin: 2em 4em;
 `
-const Cover = styled.img`
+export const Cover = styled.img`
     width: 100%;
     max-height: 400px;
     object-fit: cover;
     border-bottom: solid 2px black;
 `
 
-const Description = styled.div`
+export const Description = styled.div`
     padding:1em;
     padding-top: 0.5em;
 `
-const P = styled.p`
+export const P = styled.p`
     word-wrap: break-word;
     max-width: 300px;
     min-height: 4em;
     padding: 0;
 `
-const Footer = styled.div`
+export const Footer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
