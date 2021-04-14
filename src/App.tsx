@@ -15,6 +15,8 @@ import axios from 'axios';
 import { HerokuContext } from './components/HerokuBar/HerokuBar';
 import { Admin } from './containers/Admin/Admin';
 import { AdminEdit } from './containers/AdminEdit/AdminEdit';
+import { positions, Provider as AlertProvider } from 'react-alert'
+import { AlertTemplate } from './components/AlertProvider/AlertProvider';
 
 function App() {
   const backend = process.env.REACT_APP_BACKEND;
@@ -22,12 +24,21 @@ function App() {
   useEffect(() => {
     axios.get(backend+'heroku').then((res=>setLoading(false)));
   },[])
+  const options = {
+    position: positions.BOTTOM_CENTER,
+    timeout: 2000,
+    containerStyle: {
+      zIndex: 100,
+      marginBottom:40,
+    }
+  }
   return (
     <>
     <Helmet>
       <title>Kauer András</title>
     </Helmet>
     <HerokuContext.Provider value={{loading}}>
+    <AlertProvider template={AlertTemplate} {...options}>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -42,6 +53,7 @@ function App() {
           <Route exact path="/edit/:articleId" component={AdminEdit}/>
         </Switch>
       </Layout>
+    </AlertProvider>
     </HerokuContext.Provider>
     </>
   );

@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import '../../index.css'
 import { AdminBlogItem } from '../Admin/Admin';
-import crossIcon from './static/cross.svg';
-import tickIcon from './static/check.svg';
 import { Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle/BlogArticle';
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
 import { db } from '../../firebase';
 import { MD } from '../../components/MD/MD';
+import { useAlert } from 'react-alert';
 
 
 const RowContainer = styled.div`
@@ -71,19 +70,14 @@ const EditRow = ({ children }: any) => {
             <path d="M418.77 158.14C413.89 163.02 413.89 170.94 418.77 175.82C421.21 178.26 424.41 179.48 427.61 179.48C430.81 179.48 434.01 178.26 436.45 175.82C438.48 173.79 454.73 157.54 456.77 155.5C461.65 150.62 461.65 142.71 456.77 137.83C451.89 132.94 443.97 132.94 439.09 137.83C435.02 141.89 420.8 156.11 418.77 158.14Z" />
         </svg>
     );
-    const cross = (
-        <Icon><img src={crossIcon} onClick={toggleEditing} /></Icon>
-    );
+
     const clickTick = () => {
         toggleEditing();
     }
-    const tick = (
-        <Icon><img src={tickIcon} onClick={clickTick} /></Icon>
-    );
     return (
         <RowContainer>
             <TextInput>{children}</TextInput>
-            {editing ? <IconContainer>{cross}{tick}</IconContainer> : <PencilIcon><Icon>{pencil}</Icon></PencilIcon>}
+            {editing ? <IconContainer></IconContainer> : <PencilIcon><Icon>{pencil}</Icon></PencilIcon>}
         </RowContainer>
     );
 }
@@ -120,6 +114,14 @@ export const AdminEdit = (props: any) => {
     const back = () => {
         props.history.goBack()
     }
+    const alert = useAlert();
+    const alertUploadStatus = (promise : Promise<any>) => {
+        promise.then(()=>{
+            alert.success("Sikeresen frissítetted a postot.");
+        }).catch(()=>{
+            alert.error("Nem sikerült frissíteni a postot.");
+        });
+    }
     const upload = () => {
         const payload = {
             content: content,
@@ -130,9 +132,11 @@ export const AdminEdit = (props: any) => {
         }
         const blogRef = db.collection('blog');
         if (item != undefined) {
-            blogRef.doc(item.id).set(payload).then(() => console.log('yey')).catch(() => console.log('ohoh'));
+            let promise = blogRef.doc(item.id).set(payload);
+            alertUploadStatus(promise)
         } else {
-            blogRef.add(payload).then(() => console.log('yey')).catch(() => console.log('ohoh'));
+            let promise = blogRef.add(payload);
+            alertUploadStatus(promise);
         }
     }
     const changeTitle = (event: any) => {
