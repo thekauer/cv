@@ -6,17 +6,25 @@ import styled from 'styled-components';
 import { MD } from '../../components/MD/MD';
 import { Button } from '../../components/BlogCard/BlogCard';
 
+export const BlogArticleContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+`
 export const StyledBlogArticle = styled.div`
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    justify-self:center;
     background-color: var(--theme-dark);
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);   
     border-radius: 5px;
     border:solid 2px black; 
     overflow: hidden;
     transition: var(--transition-time);
-    margin: 2em 4em;
+    margin: 2em 0;
+    max-width:768px;
 `
 export const Cover = styled.img`
     width: 100%;
@@ -56,6 +64,7 @@ const BlogArticle = (props : any) =>  {
         if(item!=null) {
             return (
             <>
+            <BlogArticleContainer>
             <StyledBlogArticle>
             <Cover src={item.image} />
             <Description>
@@ -70,7 +79,7 @@ const BlogArticle = (props : any) =>  {
             <Button onClick={() => {props.history.goBack();} }>Vissza</Button>  
             </Footer>
             </StyledBlogArticle>
-
+            </BlogArticleContainer>
             </>
             );
         }

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import '../../index.css'
 import { AdminBlogItem } from '../Admin/Admin';
-import { Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle/BlogArticle';
+import { BlogArticleContainer, Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle/BlogArticle';
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
 import { db } from '../../firebase';
@@ -148,6 +148,7 @@ export const AdminEdit = (props: any) => {
 
     return (
         <>
+            <BlogArticleContainer>
             <StyledBlogArticle>
                 <Cover src={item?.image} />
                 <Description>
@@ -168,6 +169,7 @@ export const AdminEdit = (props: any) => {
                     </div>
                 </Footer>
             </StyledBlogArticle>
+            </BlogArticleContainer>
         </>
     );
 }
