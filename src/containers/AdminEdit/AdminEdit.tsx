@@ -5,7 +5,7 @@ import { AdminBlogItem } from '../Admin/Admin';
 import { BlogArticleContainer, Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle/BlogArticle';
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
-import { db } from '../../firebase';
+import firebase,{ db } from '../../firebase';
 import { MD } from '../../components/MD/MD';
 import { useAlert } from 'react-alert';
 
@@ -135,7 +135,8 @@ export const AdminEdit = (props: any) => {
             let promise = blogRef.doc(item.id).set(payload);
             alertUploadStatus(promise)
         } else {
-            let promise = blogRef.add(payload);
+            let date = firebase.firestore.Timestamp.now();
+            let promise = blogRef.add({...payload,date:date});
             alertUploadStatus(promise);
         }
     }
