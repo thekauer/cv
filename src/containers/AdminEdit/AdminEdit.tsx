@@ -8,6 +8,7 @@ import { Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
 import { db } from '../../firebase';
+import { useFormik } from 'formik';
 
 
 const RowContainer = styled.div`
@@ -90,9 +91,17 @@ const EditRow = ({ children }: any) => {
 
 export const AdminEdit = (props: any) => {
     const [item, setItem] = useState<AdminBlogItem>();
+    const [title,setTitle] = useState<string>()
+    const [desc,setDesc] = useState<string>();
     useEffect(() => {
         setItem(props.history.location.state);
-    }, [])
+        if(item) {
+            setTitle(item.title);
+            setDesc(item.desc);
+        }
+    }, [item])
+
+
     const back = () => {
         props.history.goBack()
     }
@@ -100,9 +109,9 @@ export const AdminEdit = (props: any) => {
         const payload = {
             content:item?.content,
             date:item?.date,
-            desc:item?.desc,
+            desc:desc,
             image:item?.image,
-            title:item?.title
+            title:title
         }
         const blogRef =db.collection('blog');
         if(item!=undefined){
@@ -111,13 +120,20 @@ export const AdminEdit = (props: any) => {
             blogRef.add(payload).then(()=>console.log('yey')).catch(()=>console.log('ohoh'));
         }
     }
+    const changeTitle = (event : any) => {
+        setTitle(event.target.value)
+    }
+    const changeDesc = (event : any) => {
+        setDesc(event.target.value);
+    }
+
     return (
         <>
             <StyledBlogArticle>
                 <Cover src={item?.image} />
                 <Description>
-                    <EditRow><input placeholder={item?.title} /></EditRow>
-                    <EditRow><textarea placeholder={item?.desc} /></EditRow>
+                    <EditRow><input value={title} onChange={changeTitle} /></EditRow>
+                    <EditRow><textarea value={desc} onChange={changeDesc}  /></EditRow>
                     {item && <P dangerouslySetInnerHTML={{__html: item.content}}/>}
                 </Description>
                 <Footer>
