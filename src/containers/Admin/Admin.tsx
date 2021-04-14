@@ -4,6 +4,7 @@ import firebase, { auth, isMe, db } from '../../firebase'
 import '../../index.css';
 import './Admin.css'
 import {AddAdminBlogCard, AdminBlogCard} from '../../components/AdminBlogCard/AdminBlogCard'
+import { Fade } from 'react-awesome-reveal';
 
 export interface AdminBlogItem {
     content: string,
@@ -62,7 +63,9 @@ export const Admin = () => {
         const p = {...post};
         return (
             <div className="post">
+                <Fade triggerOnce>
                 <AdminBlogCard {...p} />
+                </Fade>
             </div>
         )
     });
@@ -73,7 +76,7 @@ export const Admin = () => {
                 <section>
                     <header><h2>Postok</h2></header>
                     <div className="posts">
-                        <AddAdminBlogCard/>{blogItems}
+                        <Fade triggerOnce><AddAdminBlogCard/></Fade>{blogItems}
                     </div>
                 </section>
             </article>
