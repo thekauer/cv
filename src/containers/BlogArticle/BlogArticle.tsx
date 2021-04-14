@@ -25,6 +25,9 @@ export const StyledBlogArticle = styled.div`
     transition: var(--transition-time);
     margin: 2em 0;
     max-width:768px;
+    & h1 {
+        font-size:2.5em;
+    }
 `
 export const Cover = styled.img`
     width: 100%;
@@ -36,12 +39,12 @@ export const Cover = styled.img`
 export const Description = styled.div`
     padding:1em;
     padding-top: 0.5em;
-`
-export const P = styled.p`
-    word-wrap: break-word;
-    max-width: 300px;
-    min-height: 4em;
-    padding: 0;
+    & p {
+        word-wrap: break-word;
+        max-width: 300px;
+        min-height: 4em;
+        padding: 0;
+    }
 `
 export const Footer = styled.div`
     display: flex;

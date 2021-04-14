@@ -54,7 +54,7 @@ const Icon : React.FC<IconProps> = ({src,alt}) => {
     return (
         <>
         <Zoom cascade triggerOnce delay={200} fraction={1}>
-        <Icon src={src} alt={alt}/>
+        <StyledIcon src={src} alt={alt}/>
         </Zoom> 
         </>
     );

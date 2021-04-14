@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import '../../index.css'
 import { AdminBlogItem } from '../Admin/Admin';
-import { BlogArticleContainer, Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle/BlogArticle';
+import { BlogArticleContainer, Cover, Description, Footer, StyledBlogArticle } from '../BlogArticle/BlogArticle';
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
 import firebase,{ db } from '../../firebase';

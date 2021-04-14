@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { AdminBlogItem } from '../../containers/Admin/Admin';
 import { useHistory } from 'react-router';
 import formatDate from '../../util';
-import { Card, Cover, Description, H1, P, Footer, Button } from '../BlogCard/BlogCard'
+import { Card, Cover, Description, Footer, Button } from '../BlogCard/BlogCard'
 
 
 export const AdminBlogCard = (item: AdminBlogItem) => {
@@ -17,8 +17,8 @@ export const AdminBlogCard = (item: AdminBlogItem) => {
             <SkeletonTheme color="#888" highlightColor="var(--font-color)">
                 {item.image ? <Cover src={item.image} /> : <Skeleton height={100} />}
                 <Description>
-                    <H1>{item.title || <Skeleton width={100} />}</H1>
-                    <P>{item.desc || <Skeleton count={4} />}</P>
+                    <h1>{item.title || <Skeleton width={100} />}</h1>
+                    <p>{item.desc || <Skeleton count={4} />}</p>
                 </Description>
                 <Footer>
                     {formatDate(item.date) || <Skeleton />}
