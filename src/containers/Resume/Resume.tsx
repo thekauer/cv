@@ -24,6 +24,7 @@ import langIcon from './images/lang.svg'
 import schoolIcon from './images/school.svg'
 import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
 import { Helmet } from 'react-helmet';
+import { Fade } from 'react-awesome-reveal';
 
 const Resume = () => {
     const FusionIcons = (
@@ -78,14 +79,14 @@ const Resume = () => {
                 <section className="school">
                     <header><h2>Iskoláim</h2></header>
                     <div className="row">
-                        <img src={schoolIcon} alt="Iskola ikon" />
+                        <Fade triggerOnce><img src={schoolIcon} alt="Iskola ikon" /></Fade>
                         <p>
                             <h3>Programtervező Informatikus</h3>
                             <span>Eötvös Loránd Tudomány Egyetem</span>
                         </p>
                     </div>
                     <div className="row">
-                        <img src={schoolIcon} alt="Iskola ikon" />
+                        <Fade triggerOnce><img src={schoolIcon} alt="Iskola ikon" /></Fade>
                         <p>
                             <h3>Két tanítási nyelvű informatika</h3>
                             <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
@@ -95,7 +96,7 @@ const Resume = () => {
                 <section>
                     <header><h2>Nyelvtudás</h2></header>
                     <div className="language">
-                        <img src={langIcon} alt="Nyelv ikon" />
+                        <Fade triggerOnce><img src={langIcon} alt="Nyelv ikon" /></Fade>
                         <p>Angol</p>
                         <p>C1</p>
                     </div>
