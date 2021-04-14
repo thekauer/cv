@@ -14,9 +14,6 @@ const StyledBlog = styled.article`
     height: 100%;
     padding: 1.5em 2.5em;
 `
-const H1 = styled.h1`
-    font-size: 2em;
-`
 const PlaceHolder = styled.div`
     height: 50px;
     width: auto;

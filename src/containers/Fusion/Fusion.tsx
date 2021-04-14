@@ -26,9 +26,9 @@ const Header = styled.header`
     flex-direction: column;
     background-color: var(--blue);
     padding:15em 2em;
-`
-const Em = styled.em`
-    font-size: 1.5em;
+    & em {
+        font-size: 1.5em !important;
+    }
 `
 
 const Syntax = styled.section`
@@ -97,7 +97,7 @@ export const Fusion = () => {
         <Fade triggerOnce fraction={0.5}>
             <CleanSyntax>
             <h2>Tiszta szintakszis</h2>
-            <Em>Ne tévesszen meg a fusion letisztult szintakszisa, a nyelv erősen típusos, sőt ígyekszik minimalizálni a futás idejű hibák számát.</Em>
+            <em>Ne tévesszen meg a fusion letisztult szintakszisa, a nyelv erősen típusos, sőt ígyekszik minimalizálni a futás idejű hibák számát.</em>
             </CleanSyntax>
         <CodeImg src={fsCode}/>
         </Fade>

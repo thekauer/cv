@@ -33,13 +33,13 @@ const StyledResume = styled.article`
     justify-content: center;
     padding: 0 5%;
     background-color: var(--theme-mid);
-`
-const H1 = styled.h1`
-    font-size:5em;
-    margin-bottom: 1em;
-`
-const H2 = styled.h2`
-    font-size:3em;
+    & h1 {
+        font-size:5em;
+        margin-bottom: 1em;
+    }
+    & h2 {
+        font-size:3em;
+    }
 `
 const Section = styled.section`
     margin:2em 0;
@@ -123,10 +123,10 @@ const Resume = () => {
             </Helmet>
             <StyledResume>
                 <header>
-                    <H1>Resume</H1>
+                    <h1>Resume</h1>
                 </header>
                 <School>
-                    <header><H2>Iskoláim</H2></header>
+                    <header><h2>Iskoláim</h2></header>
                     <Row>
                         <Fade triggerOnce><Img src={schoolIcon} alt="Iskola ikon" /></Fade>
                         <p>
@@ -142,16 +142,16 @@ const Resume = () => {
                         </p>
                     </Row>
                 </School>
-                <section>
-                    <header><H2>Nyelvtudás</H2></header>
+                <Section>
+                    <header><h2>Nyelvtudás</h2></header>
                     <Language>
                         <Fade triggerOnce><Img src={langIcon} alt="Nyelv ikon" /></Fade>
                         <p>Angol</p>
                         <p>C1</p>
                     </Language>
-                </section>
+                </Section>
                 <Exp>
-                    <header><H2>Tapasztalat</H2></header>
+                    <header><h2>Tapasztalat</h2></header>
                     <Experience title={fsName} desc={fsDesc} icons={FusionIcons} path="fusion" />
                     <Experience title={phdName} desc={phdDesc} icons={PhdIcons} path="phd" />
                     <Experience title={cvName} desc={cvDesc} icons={WebsiteIcons} path="" />
