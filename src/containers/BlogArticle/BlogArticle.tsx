@@ -3,7 +3,7 @@ import '../../index.css'
 import formatDate from '../../util';
 import {BlogItem} from '../Blog/Blog'
 import styled from 'styled-components';
-import { MD } from '../../components/Editor/Editor';
+import { MD } from '../../components/MD/MD';
 import { Button } from '../../components/BlogCard/BlogCard';
 
 export const StyledBlogArticle = styled.div`

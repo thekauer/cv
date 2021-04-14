@@ -8,7 +8,7 @@ import { Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
 import { db } from '../../firebase';
-import { Editor } from '../../components/Editor/Editor';
+import { MD } from '../../components/MD/MD';
 
 
 const RowContainer = styled.div`
@@ -88,16 +88,31 @@ const EditRow = ({ children }: any) => {
     );
 }
 
+const Wrapper = styled.div`
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    max-width:100ch;
+    justify-content:space-between;
+`
+const MDWrap = styled.div`
+    margin-left:1em;
+    display:flex;
+    flex-direction:column;
+`
+
 
 export const AdminEdit = (props: any) => {
     const [item, setItem] = useState<AdminBlogItem>();
-    const [title,setTitle] = useState<string>()
-    const [desc,setDesc] = useState<string>();
+    const [title, setTitle] = useState<string>()
+    const [desc, setDesc] = useState<string>();
+    const [content, setContent] = useState("");
     useEffect(() => {
         setItem(props.history.location.state);
-        if(item) {
+        if (item) {
             setTitle(item.title);
             setDesc(item.desc);
+            setContent(item.content);
         }
     }, [item])
 
@@ -107,23 +122,23 @@ export const AdminEdit = (props: any) => {
     }
     const upload = () => {
         const payload = {
-            content:item?.content,
-            date:item?.date,
-            desc:desc,
-            image:item?.image,
-            title:title
+            content: content,
+            date: item?.date,
+            desc: desc,
+            image: item?.image,
+            title: title
         }
-        const blogRef =db.collection('blog');
-        if(item!=undefined){
-            blogRef.doc(item.id).set(payload).then(()=>console.log('yey')).catch(()=>console.log('ohoh'));
+        const blogRef = db.collection('blog');
+        if (item != undefined) {
+            blogRef.doc(item.id).set(payload).then(() => console.log('yey')).catch(() => console.log('ohoh'));
         } else {
-            blogRef.add(payload).then(()=>console.log('yey')).catch(()=>console.log('ohoh'));
+            blogRef.add(payload).then(() => console.log('yey')).catch(() => console.log('ohoh'));
         }
     }
-    const changeTitle = (event : any) => {
+    const changeTitle = (event: any) => {
         setTitle(event.target.value)
     }
-    const changeDesc = (event : any) => {
+    const changeDesc = (event: any) => {
         setDesc(event.target.value);
     }
 
@@ -133,16 +148,19 @@ export const AdminEdit = (props: any) => {
                 <Cover src={item?.image} />
                 <Description>
                     <EditRow><input value={title} onChange={changeTitle} /></EditRow>
-                    <EditRow><textarea value={desc} onChange={changeDesc}  /></EditRow>
-                    {item && <Editor initialContent={item.content}/>}
+                    <EditRow><textarea value={desc} onChange={changeDesc} /></EditRow>
+                    <Wrapper>
+                        <TextInput><textarea value={content} onChange={(e) => setContent(e.target.value)} rows={10} cols={40} /></TextInput>
+                        <MDWrap><MD content={content} /></MDWrap>
+                    </Wrapper>
                 </Description>
                 <Footer>
                     <div>
                         {item && formatDate(item?.date)}
                     </div>
                     <div>
-                    <Button onClick={back}>Vissza</Button>
-                    <Button onClick={upload}>Feltölt</Button>
+                        <Button onClick={back}>Vissza</Button>
+                        <Button onClick={upload}>Feltölt</Button>
                     </div>
                 </Footer>
             </StyledBlogArticle>
