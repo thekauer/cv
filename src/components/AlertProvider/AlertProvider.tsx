@@ -33,7 +33,6 @@ export const AlertTemplate = ({ style, options, message, close }:any) => {
       {options.type === 'success' && tick}
       {options.type === 'error' && cross}
       {message}
-      <button onClick={close}>X</button>
     </Alert>
   );
 }
