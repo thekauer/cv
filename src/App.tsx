@@ -12,20 +12,28 @@ import { Helmet } from 'react-helmet';
 import { AndroidApp } from './containers/AndroidApp/AndroidApp';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { HerokuContext } from './components/HerokuBar/HerokuBar';
+import { Admin } from './containers/Admin/Admin';
+import { AdminEdit } from './containers/AdminEdit/AdminEdit';
+import { positions, Provider as AlertProvider } from 'react-alert'
+import { AlertTemplate } from './components/AlertProvider/AlertProvider';
 
 function App() {
   const backend = process.env.REACT_APP_BACKEND;
   const [loading,setLoading] = useState(true);
-  useEffect(() => {
-    axios.get(backend+'heroku').then((res=>setLoading(false)));
-  },[])
+  const options = {
+    position: positions.BOTTOM_CENTER,
+    timeout: 2000,
+    containerStyle: {
+      zIndex: 100,
+      marginBottom:40,
+    }
+  }
   return (
     <>
     <Helmet>
       <title>Kauer András</title>
     </Helmet>
-    <HerokuContext.Provider value={{loading}}>
+    <AlertProvider template={AlertTemplate} {...options}>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -36,9 +44,11 @@ function App() {
           <Route exact path="/fusion" component={Fusion} />
           <Route exact path="/phd" component={Phd} />
           <Route exact path="/androidapp" component={AndroidApp} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/edit/:articleId" component={AdminEdit}/>
         </Switch>
       </Layout>
-    </HerokuContext.Provider>
+    </AlertProvider>
     </>
   );
 }

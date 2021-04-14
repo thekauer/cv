@@ -1,25 +1,52 @@
 import '../../index.css';
-import './LoginButton.css'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import settingsIcon from './images/settings.png'
-import { doGoogleSignIn, signOut, auth } from '../../firebase';
+import { doGoogleSignIn, signOut, auth, isMe } from '../../firebase';
+import { useHistory } from 'react-router';
+import styled from 'styled-components';
 
+
+
+const StyledLoginButton = styled.div`
+    display:flex;
+    flex-direction: row;
+    margin-right: 0.5em;
+    height: 1em;
+`
+const UserIcon = styled.img`
+    max-height: 1em;
+    margin: 0 0.5em;
+    justify-self: flex-end;
+    border-radius: 100%;
+    transition: var(--transition-time);
+	stroke:var(--nav-font-color);
+	stroke-width:30;
+	fill:transparent;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0px 0px 5px black;
+        stroke: var(--active-font-color);
+    }
+`
 const LoginButton = () => {
+    useEffect(() =>{
+        auth.onAuthStateChanged((user) => {
+            if(user!=null) {
+                setUserProfile(user.photoURL);
+                setLoggedIn(true);
+                if(isMe(user.uid)) {
+                    setLoggedInAsAdmin(true);
+                }
+            }
+        });
+    },[])
     const [userProfile, setUserProfile] = useState<string|null>(null);
     const [loggedIn, setLoggedIn] = useState(false);
     const [loggedInAsAdmin, setLoggedInAsAdmin] = useState(false);
-
+    let history = useHistory();
     const authUser = () => {
         if (!loggedIn) {
-            doGoogleSignIn().then((cred) => {
-                if (cred.user != null && cred.user.photoURL) {
-                    setUserProfile(cred.user.photoURL);
-                    setLoggedIn(true);
-                    if (cred.user.email === "thekauer@gmail.com") {
-                        setLoggedInAsAdmin(true);
-                    }
-                }
-            })
+            doGoogleSignIn();
         } else {
             signOut().then(() => {
                 setUserProfile(null);
@@ -29,23 +56,23 @@ const LoginButton = () => {
         }
     }
     const toAdminPage = () => {
-        document.location.host = "admin." + document.location.host;
+        history.push('/admin');
     }
 
     return (
         <>
-            <div className="loginbtn">
-            {loggedInAsAdmin && <img src={settingsIcon} className="usr-icon" alt="gear" onClick={toAdminPage}></img>}
+            <StyledLoginButton>
+            {loggedInAsAdmin && <UserIcon src={settingsIcon}  alt="gear" onClick={toAdminPage}/>}
             <div className="profile" onClick={authUser}>
-            {userProfile ? <img src={userProfile} alt="Profile" className="usr-icon"/> :
-            <svg width="16px" height="16px" className="usr-icon" fill="none" viewBox="0 0 600 600" strokeWidth="30px">
+            {userProfile ? <UserIcon src={userProfile} alt="Profile"/> :
+            <svg width="16px" height="16px" fill="none" viewBox="0 0 600 600" strokeWidth="30px">
                 <circle cx="300" cy="300" r="265" />
                 <circle cx="300" cy="230" r="115"/>
                 <path d="M106.81863443903,481.4 a205,205 1 0,1 386.36273112194,0" stroke-linecap="butt" />
             </svg>
             }
             </div>
-            </div>
+            </StyledLoginButton>
         </>
     );
 }
