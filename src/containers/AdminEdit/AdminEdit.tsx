@@ -4,8 +4,10 @@ import '../../index.css'
 import { AdminBlogItem } from '../Admin/Admin';
 import crossIcon from './static/cross.svg';
 import tickIcon from './static/check.svg';
-import { Cover, Description, Footer, StyledBlogArticle } from '../BlogArticle/BlogArticle';
+import { Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle/BlogArticle';
 import formatDate from '../../util';
+import { Button } from '../../components/BlogCard/BlogCard';
+import { db } from '../../firebase';
 
 
 const RowContainer = styled.div`
@@ -91,6 +93,24 @@ export const AdminEdit = (props: any) => {
     useEffect(() => {
         setItem(props.history.location.state);
     }, [])
+    const back = () => {
+        props.history.goBack()
+    }
+    const upload = () => {
+        const payload = {
+            content:item?.content,
+            date:item?.date,
+            desc:item?.desc,
+            image:item?.image,
+            title:item?.title
+        }
+        const blogRef =db.collection('blog');
+        if(item!=undefined){
+            blogRef.doc(item.id).set(payload).then(()=>console.log('yey')).catch(()=>console.log('ohoh'));
+        } else {
+            blogRef.add(payload).then(()=>console.log('yey')).catch(()=>console.log('ohoh'));
+        }
+    }
     return (
         <>
             <StyledBlogArticle>
@@ -98,10 +118,15 @@ export const AdminEdit = (props: any) => {
                 <Description>
                     <EditRow><input placeholder={item?.title} /></EditRow>
                     <EditRow><textarea placeholder={item?.desc} /></EditRow>
+                    {item && <P dangerouslySetInnerHTML={{__html: item.content}}/>}
                 </Description>
                 <Footer>
                     <div>
                         {item && formatDate(item?.date)}
+                    </div>
+                    <div>
+                    <Button onClick={back}>Vissza</Button>
+                    <Button onClick={upload}>Feltölt</Button>
                     </div>
                 </Footer>
             </StyledBlogArticle>
