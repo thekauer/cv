@@ -95,9 +95,11 @@ export const Phd = () => {
                </div>
                 <Arrow deg={180} id="arrow4" />
                     <Arrow deg={90} id="arrow3"/>
+                    <div id="yolocpu">
                     <Fade triggerOnce>
-                    <img src={yolocpu} width="500px" id="yolocpu" />
+                    <img src={yolocpu} width="500px"  />
                     </Fade>
+                    </div>
             </section>
         </article>
         </>
