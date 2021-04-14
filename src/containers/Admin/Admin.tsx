@@ -76,7 +76,7 @@ export const Admin = () => {
                 <section>
                     <header><h2>Postok</h2></header>
                     <div className="posts">
-                        <Fade triggerOnce><AddAdminBlogCard/></Fade>{blogItems}
+                        <AddAdminBlogCard/>{blogItems}
                     </div>
                 </section>
             </article>
