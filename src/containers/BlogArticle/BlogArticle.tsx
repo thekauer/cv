@@ -3,9 +3,10 @@ import '../../index.css'
 import formatDate from '../../util';
 import {BlogItem} from '../Blog/Blog'
 import styled from 'styled-components';
+import { MD } from '../../components/Editor/Editor';
+import { Button } from '../../components/BlogCard/BlogCard';
 
 export const StyledBlogArticle = styled.div`
-    height: 100%;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -60,13 +61,13 @@ const BlogArticle = (props : any) =>  {
             <Description>
             <h1>{item.title}</h1>
             <p>{item.desc}</p>
-            <P dangerouslySetInnerHTML={{__html: item.content}} />
-            <button onClick={() => {props.history.goBack();} }>go back {props.history.length}</button>
+            <MD content={item.content}/>
             </Description>
             <Footer>
                 <div>
                     {formatDate(item.date)}
                 </div>
+            <Button onClick={() => {props.history.goBack();} }>Vissza</Button>  
             </Footer>
             </StyledBlogArticle>
 

@@ -8,7 +8,7 @@ import { Cover, Description, Footer, P, StyledBlogArticle } from '../BlogArticle
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard/BlogCard';
 import { db } from '../../firebase';
-import { useFormik } from 'formik';
+import { Editor } from '../../components/Editor/Editor';
 
 
 const RowContainer = styled.div`
@@ -47,7 +47,7 @@ const Icon = styled.div`
         fill:white;
     }
 `
-const TextInput = styled.div`
+export const TextInput = styled.div`
     & > * {
     background-color: var(--theme-mid);
     color:var(--font-color);
@@ -134,7 +134,7 @@ export const AdminEdit = (props: any) => {
                 <Description>
                     <EditRow><input value={title} onChange={changeTitle} /></EditRow>
                     <EditRow><textarea value={desc} onChange={changeDesc}  /></EditRow>
-                    {item && <P dangerouslySetInnerHTML={{__html: item.content}}/>}
+                    {item && <Editor initialContent={item.content}/>}
                 </Description>
                 <Footer>
                     <div>
