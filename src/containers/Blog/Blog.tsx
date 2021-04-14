@@ -2,13 +2,25 @@ import '../../index.css'
 import BlogCardContainer from '../BlogCardContainer/BlogCardContainer';
 import BlogCard from '../../components/BlogCard/BlogCard';
 import BlogHighlight from '../../components/BlogHighlight/BlogHighlight';
-import './Blog.css'
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 import formatDate from '../../util';
-import React from 'react';
 import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
 
+
+const StyledBlog = styled.article`
+    max-width: 100%;
+    height: 100%;
+    padding: 1.5em 2.5em;
+`
+const H1 = styled.h1`
+    font-size: 2em;
+`
+const PlaceHolder = styled.div`
+    height: 50px;
+    width: auto;
+`
 export interface BlogItem {
     content: string,
     desc: string,
@@ -93,10 +105,10 @@ const Blog = (props: any) => {
             <Helmet>
                 <title>Blog - Kauer András</title>
             </Helmet>
-            <div className="blog">
+            <StyledBlog>
             {loading ? skeleton : createBlogFeed()}
-            <div className="test" />
-            </div>
+            <PlaceHolder />
+            </StyledBlog>
         </>
     );
 }

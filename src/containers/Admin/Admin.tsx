@@ -2,10 +2,25 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import firebase, { auth, isMe, db } from '../../firebase'
 import '../../index.css';
-import './Admin.css'
 import {AddAdminBlogCard, AdminBlogCard} from '../../components/AdminBlogCard/AdminBlogCard'
 import { Fade } from 'react-awesome-reveal';
+import styled from 'styled-components';
 
+const StyledAdmin = styled.article`
+    & header {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding:5em 0;
+    }
+`
+const Posts = styled.div`
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding:2em 0;
+`
 export interface AdminBlogItem {
     content: string,
     desc: string,
@@ -71,15 +86,15 @@ export const Admin = () => {
     });
     return (
         <>
-            <article className="admin">
-                <header className="title"><h1>Hey {admin.displayName?.split(' ').reverse()[0]}</h1></header>
+            <StyledAdmin>
+                <header><h1>Hey {admin.displayName?.split(' ').reverse()[0]}</h1></header>
                 <section>
                     <header><h2>Postok</h2></header>
-                    <div className="posts">
+                    <Posts>
                         <AddAdminBlogCard/>{blogItems}
-                    </div>
+                    </Posts>
                 </section>
-            </article>
+            </StyledAdmin>
         </>
     );
 }

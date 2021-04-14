@@ -1,19 +1,66 @@
-import './Toolbar.css';
 import '../../index.css';
-import {NavLink, Switch} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import LoginButton from '../LoginButton/LoginButton';
-import  React, { useState } from 'react';
+import  React from 'react';
 import Sw from 'react-switch';
 import sun from './images/sun.svg';
 import moon from './images/moon.svg';
+import styled from 'styled-components';
 
+
+const Nav = styled.nav`
+    padding:0.5em 0em;
+    background-color: var(--theme-mid);
+    font-family: Consolas,Arial, Helvetica, sans-serif;
+    max-height: 1.1em;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    & .active {
+        background-color: var(--theme-dark) !important;
+        color:var(--active-font-color) !important;
+    }
+    &::-webkit-scrollbar {
+        display:none;
+    }
+    & a {
+        background-color: var(--theme-light);
+        color:var(--nav-font-color);
+        text-decoration: none;
+        padding:0.5em;
+        border-right: solid 1px var(--nav-border);
+    }
+    & ul {
+        list-style: none;
+        display: flex;
+        text-align: left;
+    }
+
+`
+
+const SwitchContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+`
+const SwitchIcon = styled.img`
+    height: 80%;
+`
+const NavRight = styled.div`
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1em;
+    margin-left:auto;
+`
 interface ToolbarProps {
     checked : boolean,
     setChecked : React.Dispatch<React.SetStateAction<boolean>>
 };
 const Toolbar = ({checked,setChecked} : ToolbarProps) => {
-    const sunIcon = (<div className="sw-container"><img src={sun} alt="sun" className="sw-icon"/></div>);
-    const moonIcon = (<div className="sw-container"><img src={moon} alt="moon" className="sw-icon"/></div>);
+    const sunIcon = (<SwitchContainer><SwitchIcon src={sun} alt="sun" className="sw-icon"/></SwitchContainer>);
+    const moonIcon = (<SwitchContainer><SwitchIcon src={moon} alt="moon" className="sw-icon"/></SwitchContainer>);
     const swProps = {
         onChange:setChecked,
         checked:checked,
@@ -26,15 +73,15 @@ const Toolbar = ({checked,setChecked} : ToolbarProps) => {
     };
     return (
         <>
-        <nav className="nav">
+        <Nav>
                     <ul>
                         <li><NavLink activeClassName="active" exact to="/">Főoldal</NavLink></li>
                         <li><NavLink activeClassName="active" exact to="/resume">Resume</NavLink></li>
                         <li><NavLink activeClassName="active" strict to="/blog/">Blog</NavLink></li>
                         <li><NavLink activeClassName="active" exact to="/contacts">Kapcsolat</NavLink></li>
-                        <div className="leftmost"><div className="row"><Sw {...swProps}/><LoginButton/></div></div>
+                        <NavRight><Sw {...swProps}/><LoginButton/></NavRight>
                     </ul>
-        </nav>
+        </Nav>
         </>
     );
 }
