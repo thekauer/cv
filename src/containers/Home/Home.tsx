@@ -4,11 +4,12 @@ import { Skill } from '../../components/Skill/Skill'
 import React from 'react';
 import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
 import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../../content';
+import { Fade } from 'react-awesome-reveal';
 const Home = () => {
     return (
         <article className="home">
             <header className="head">
-                <h1>Kauer András</h1>
+                <Fade triggerOnce><h1>Kauer András</h1></Fade>
 
             </header>
             <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
