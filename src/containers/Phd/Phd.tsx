@@ -15,6 +15,7 @@ import axios from 'axios';
 import { YoloRecog } from '../../components/YoloRecog/YoloRecog';
 import { Helmet } from 'react-helmet';
 import { HerokuBar } from '../../components/HerokuBar/HerokuBar';
+import { Fade } from 'react-awesome-reveal';
 
 export const Phd = () => {
     const drawCountUp = (end: number) => {
@@ -39,17 +40,18 @@ export const Phd = () => {
                     <h1>Phd</h1>
                     <em>Társszerzője vagyok egy Phd-nek ami kézírás felismérés teknikákkal foglalkozik. Az én feladatom volt implementálni a papír tartalmát, illetve szerepet vállaltam a tervezésben is.</em>
                 </div>
-                <img src={phdImg}></img>
+                <Fade triggerOnce><img src={phdImg}></img></Fade>
             </header>
             <section className="video1">
                 <div className="text">
                     <h2>CNN felismerés</h2>
                     <em>Az első működő prototípusa a projektnek. Ez viszont nem tudja magától megtalálni a betűket. Éppen ezért az az ötletem támadt, hogy a YOLO technológiát kéne használnunk a jővőben, aminek egy demoja lentebb látható.</em>
                 </div>
-
+                <Fade triggerOnce>
                 <video width="640" controls>
                     <source src={cnnVideo} type="video/mp4" />
                 </video>
+                </Fade>
             </section>
             <section className="process">
                 <div className="route1">
@@ -93,7 +95,9 @@ export const Phd = () => {
                </div>
                 <Arrow deg={180} id="arrow4" />
                     <Arrow deg={90} id="arrow3"/>
+                    <Fade triggerOnce>
                     <img src={yolocpu} width="500px" id="yolocpu" />
+                    </Fade>
             </section>
         </article>
         </>
