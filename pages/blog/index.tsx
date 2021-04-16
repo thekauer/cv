@@ -5,9 +5,9 @@ import BlogHighlight from '../../components/BlogHighlight';
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 import formatDate from '../../util';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 
 const StyledBlog = styled.article`
@@ -101,9 +101,9 @@ const Blog = (props: any) => {
     )
     return (
         <>
-            <Helmet>
+            <Head>
                 <title>Blog - Kauer András</title>
-            </Helmet>
+            </Head>
             <StyledBlog>
             {loading ? skeleton : createBlogFeed()}
             <PlaceHolder />

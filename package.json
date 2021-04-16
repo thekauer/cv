@@ -18,7 +18,6 @@
     "react-confetti": "latest",
     "react-countup": "latest",
     "react-dom": "latest",
-    "react-helmet": "latest",
     "react-loading-skeleton": "latest",
     "react-markdown": "latest",
     "react-sketch-canvas": "latest",
@@ -56,7 +55,6 @@
   "devDependencies": {
     "@types/react-alert": "latest",
     "@types/react-dom": "latest",
-    "@types/react-helmet": "latest",
     "@types/styled-components": "latest",
     "babel-plugin-styled-components": "latest"
   }

@@ -1,9 +1,9 @@
 ;
 import { Experience, Icon } from '../components/Experience';
 import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../content';
-import { Helmet } from 'react-helmet';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
+import Head from 'next/head';
 
 
 const StyledResume = styled.article`
@@ -97,9 +97,9 @@ const Resume = () => {
     )
     return (
         <>
-            <Helmet>
+            <Head>
                 <title>Resmue - Kauer András</title>
-            </Helmet>
+            </Head>
             <StyledResume>
                 <header>
                     <h1>Resume</h1>

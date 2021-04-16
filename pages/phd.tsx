@@ -6,9 +6,9 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { YoloRecog as YC} from '../components/YoloRecog';
 import dynamic from 'next/dynamic';
 const YoloRecog = dynamic(()=>(import('@components/YoloRecog')as any).then((mod:any)=>mod.YoloRecog),{ssr:false});
-import { Helmet } from 'react-helmet';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
+import Head from 'next/head';
 
 //#region  "Style"
 const StyledPhd = styled.article`
@@ -379,9 +379,9 @@ export default function Phd()  {
     }
     return (
         <>
-            <Helmet>
+            <Head>
                 <title>Phd - Kauer András</title>
-            </Helmet>
+            </Head>
             <StyledPhd>
                 <Header>
                     <Text>

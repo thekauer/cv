@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import styled from 'styled-components';
 import { appDesc, appName } from '../content';
 ;
@@ -20,9 +20,9 @@ const Header = styled.header`
 export default function AndroidApp() {
     return (
         <>
-            <Helmet>
+            <Head>
                 <title>Android Alkalmazás - Kauer András</title>
-            </Helmet>
+            </Head>
             <StyledAndroid>
                 <Header>
                     <div>
