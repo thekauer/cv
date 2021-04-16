@@ -75,7 +75,7 @@ const LoginButton = () => {
     return (
         <>
             <StyledLoginButton>
-            {loggedInAsAdmin && <UserIcon src={"static/settings.png"}  alt="gear" onClick={toAdminPage}/>}
+            {loggedInAsAdmin && <UserIcon src={"/static/settings.png"}  alt="gear" onClick={toAdminPage}/>}
             <div className="profile" onClick={authUser}>
             {userProfile ? <UserIcon src={userProfile} alt="Profile"/> :
             <UserSvg width="16px" height="16px" fill="none" viewBox="0 0 600 600" strokeWidth="30px">
