@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 
 import formatDate from '../../../util';
-import {BlogItem} from '..'
 import styled from 'styled-components';
-import { MD } from '../../../components/MD';
-import { Button } from '../../../components/BlogCard';
+import { MD } from '@components/MD';
+import { Button } from '@components/BlogCard';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { fetchPost } from 'firebase';
+import {useFetchPost} from '@hooks/useFetchPost'
 
 export const BlogArticleContainer = styled.div`
     display:flex;
@@ -59,21 +58,16 @@ export const Footer = styled.div`
     margin:0 0.5em;
 `
 export const getServerSideProps: GetServerSideProps = async context => {
-    const {id} = context.params as any;
-    const items = fetchPost(id);
-    return { props: {posts:JSON.stringify(items)} };
+    const {id}  = context.params as any;
+    return { props: {id:id as string} };
 }
 
 
-const BlogArticle = () =>  {
+const BlogArticle = ({id}:{id:string}) =>  {
     const router = useRouter();
-    const [item, setItem] = useState<BlogItem |null>(null);
-    useEffect( () => {
-
-    }, [])
-
+    const item = useFetchPost(id);
     const createArticle = () => {
-        if(item!=null) {
+        if(item) {
             return (
             <>
             <BlogArticleContainer>

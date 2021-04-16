@@ -38,19 +38,3 @@ export const fetchPosts = async () => {
       });
       return items;
 }
-export const fetchPost = async (id : string) => {
-  const postsRef = db.collection('blog');
-  const post: AdminBlogItem[] = [];
-  const snapshot = await postsRef.limit(10).orderBy('date','desc').where('id','==',id).get();
-      snapshot.forEach((doc) => {
-          const data = doc.data()
-          const item: AdminBlogItem|any = {
-              ...data,
-              date:(data.date as firebase.firestore.Timestamp).toDate().toString(),
-              id: doc.id,
-              highlighted:false
-          }
-          post.push(item);
-      });
-      return post[0];
-} 
