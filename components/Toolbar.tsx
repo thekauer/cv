@@ -1,10 +1,10 @@
-;
-import Link from 'next/link'
 import LoginButton from './LoginButton';
 import  React from 'react';
 import Sw from 'react-switch';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import ActiveLink from './ActiveLink';
 
 
 const Nav = styled.nav`
@@ -58,6 +58,7 @@ interface ToolbarProps {
     setChecked : React.Dispatch<React.SetStateAction<boolean>>
 };
 const Toolbar = ({checked,setChecked} : ToolbarProps) => {
+    const router = useRouter();
     const sunIcon = (<SwitchContainer><SwitchIcon src={"/static/sun.svg"} alt="sun" height={20} width={30}/></SwitchContainer>);
     const moonIcon = (<SwitchContainer><SwitchIcon src={"/static/moon.svg"} alt="moon" height={20} width={30}/></SwitchContainer>);
     const swProps = {
@@ -74,10 +75,10 @@ const Toolbar = ({checked,setChecked} : ToolbarProps) => {
         <>
         <Nav>
                     <ul>
-                        <li><Link href="/">Főoldal</Link></li>
-                        <li><Link href="/resume">Resume</Link></li>
-                        <li><Link href="/blog/">Blog</Link></li>
-                        <li><Link href="/contacts">Kapcsolat</Link></li>
+                        <li><ActiveLink href="/" activeClassName="active"><a>Főoldal</a></ActiveLink></li>
+                        <li><ActiveLink href="/resume" activeClassName="active"><a>Resume</a></ActiveLink></li>
+                        <li><ActiveLink href="/blog/" activeClassName="active" matchAny={true}><a>Blog</a></ActiveLink></li>
+                        <li><ActiveLink href="/contacts" activeClassName="active"><a>Kapcsolat</a></ActiveLink></li>
                         <NavRight><Sw {...swProps}/><LoginButton/></NavRight>
                     </ul>
         </Nav>
