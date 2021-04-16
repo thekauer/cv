@@ -44,7 +44,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
             }
             items.push(item);
         });
-
     return { props: {posts:JSON.stringify(items)} };
 }
 
@@ -52,7 +51,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const posts : any[] = JSON.parse(props.posts);
     if(posts.length>0) posts[0].highlighted=true;
-    console.log(posts);
     const [admin, setAdmin] = useState<firebase.User | null>(null);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {

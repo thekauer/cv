@@ -9,6 +9,8 @@ import firebase,{ db } from '../../firebase';
 import { MD } from '../../components/MD';
 import { useAlert } from 'react-alert';
 import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
+import { useFetchPost } from '@hooks/useFetchPost';
 
 
 const RowContainer = styled.div`
@@ -96,9 +98,14 @@ const MDWrap = styled.div`
     flex-direction:column;
 `
 
+export const getServerSideProps: GetServerSideProps = async context => {
+    const {id}  = context.params as any;
+    return { props: {id:id as string} };
+}
 
-export default function AdminEdit() {
-    const [item, setItem] = useState<AdminBlogItem>();
+export default function AdminEdit({id}:{id:string}) {
+    const item = useFetchPost(id);
+    console.log(item);
     const [title, setTitle] = useState<string>()
     const [desc, setDesc] = useState<string>();
     const [content, setContent] = useState("");
