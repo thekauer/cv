@@ -31,11 +31,17 @@ export const StyledBlogArticle = styled.div`
         font-size:2.5em;
     }
 `
-export const Cover = styled.img`
+interface CoverProps {
+    src :string
+}
+export const Cover = styled.div<CoverProps>`
+    min-width:50vw;
+    min-height:300px;
     width: 100%;
     max-height: 400px;
     object-fit: cover;
     border-bottom: solid 2px black;
+    background: url(data:image/png;base64,${props=>props.src});
 `
 
 export const Description = styled.div`

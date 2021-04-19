@@ -109,6 +109,15 @@ const DescriptionInput = styled.textarea`
     margin-top:0.25em;
     margin-bottom:2em;
 `
+const EditCover = styled(Cover)`
+    &:hover {
+        background: url('/static/add.svg');
+        cursor: pointer;
+        background-position:center center;
+        background-repeat:no-repeat;
+        background-size:contain;
+    }
+`
 export const getServerSideProps: GetServerSideProps = async context => {
     const {id}  = context.params as any;
     return { props: {id:id as string} };
@@ -116,18 +125,19 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 export default function AdminEdit({id}:{id:string}) {
     const item = useFetchPost(id);
-    console.log(item);
     const [title, setTitle] = useState<string>()
     const [desc, setDesc] = useState<string>();
     const [content, setContent] = useState("");
+    const [image,setImage] = useState<string>();
     useEffect(() => {
         if (item) {
             setTitle(item.title);
             setDesc(item.desc);
             setContent(item.content);
+            setImage(item.image);
         }
     }, [item])
-
+    const inputFile = useRef<HTMLInputElement>(null) 
     let router = useRouter();
     const back = () => {
         router.back();
@@ -145,7 +155,7 @@ export default function AdminEdit({id}:{id:string}) {
             content: content,
             date: item?.date,
             desc: desc,
-            image: item?.image,
+            image: image,
             title: title
         }
         const blogRef = db.collection('blog');
@@ -165,11 +175,30 @@ export default function AdminEdit({id}:{id:string}) {
         setDesc(event.target.value);
     }
 
+    const handleFileUpload = () => {
+       inputFile.current?.click();
+    };
+    const handleLoaded = (read:ProgressEvent<FileReader>) => {
+        let bs = read.target?.result;
+        setImage(btoa(bs as string));
+        console.log(btoa(bs as string))
+    }
+    const onChangeFile = (event: any) => {
+        event.stopPropagation();
+        event.preventDefault();
+        let file = event.target.files[0];
+        if(file) {
+            const reader = new FileReader();
+            reader.onload = handleLoaded;
+            reader.readAsBinaryString(file);
+        }
+    }
     return (
         <>
             <BlogArticleContainer>
             <StyledBlogArticle>
-                <Cover src={item?.image} />
+                {image &&<EditCover src={image} onClick={handleFileUpload}/>}
+                <input type='file' id='file' ref={inputFile} style={{display: 'none'}} accept="image/png" onChange={onChangeFile}/>
                 <Description>
                     <EditRow><Title value={title} onChange={changeTitle} /></EditRow>
                     <EditRow><DescriptionInput value={desc} onChange={changeDesc} /></EditRow>
