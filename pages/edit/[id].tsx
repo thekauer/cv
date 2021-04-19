@@ -54,7 +54,6 @@ export const TextInput = styled.div`
     background-color: var(--theme-mid);
     color:var(--font-color);
     padding:0.5em;
-    margin:0.5em 0;
     border:none;
     }
     &>*:focus {
@@ -79,7 +78,7 @@ const EditRow = ({ children }: any) => {
     }
     return (
         <RowContainer>
-            <TextInput>{children}</TextInput>
+            {children}
             {editing ? <IconContainer></IconContainer> : <PencilIcon><Icon>{pencil}</Icon></PencilIcon>}
         </RowContainer>
     );
@@ -97,7 +96,19 @@ const MDWrap = styled.div`
     display:flex;
     flex-direction:column;
 `
-
+const Title = styled.input`
+    background:transparent;
+    border:none;
+    font-size:2.5em;
+    font-weight:bold;
+`
+const DescriptionInput = styled.textarea`
+    background:transparent;
+    border:none;
+    font-size:1em;
+    margin-top:0.25em;
+    margin-bottom:2em;
+`
 export const getServerSideProps: GetServerSideProps = async context => {
     const {id}  = context.params as any;
     return { props: {id:id as string} };
@@ -160,8 +171,8 @@ export default function AdminEdit({id}:{id:string}) {
             <StyledBlogArticle>
                 <Cover src={item?.image} />
                 <Description>
-                    <EditRow><input value={title} onChange={changeTitle} /></EditRow>
-                    <EditRow><textarea value={desc} onChange={changeDesc} /></EditRow>
+                    <EditRow><Title value={title} onChange={changeTitle} /></EditRow>
+                    <EditRow><DescriptionInput value={desc} onChange={changeDesc} /></EditRow>
                     <Wrapper>
                         <TextInput><textarea value={content} onChange={(e) => setContent(e.target.value)} rows={10} cols={40} /></TextInput>
                         <MDWrap><MD content={content} /></MDWrap>
