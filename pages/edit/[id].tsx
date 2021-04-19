@@ -90,7 +90,7 @@ const Wrapper = styled.div`
     flex-direction:row;
     flex-wrap:wrap;
     max-width:100ch;
-    justify-content:space-between;
+    justify-content:end;
 `
 const MDWrap = styled.div`
     margin-left:1em;
