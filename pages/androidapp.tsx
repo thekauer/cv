@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { appDesc, appName } from '../content';
+import { Fade } from 'react-awesome-reveal';
 
 const StyledAndroid = styled.article`
     & * {
@@ -94,6 +95,12 @@ const Cabinet = styled(Row)`
         width:4em;
     }
 `
+const Column = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:3em;
+`
 export default function AndroidApp() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [loaded, setLoaded] = useState(false);
@@ -114,6 +121,16 @@ export default function AndroidApp() {
         preload: "none",
         poster: "/static/appthumb.png"
     }
+
+    const list = [
+        {path:'/static/add.svg',name:'hozzáadás'},
+        {path:"/static/remove.svg",name:'Törlés'},
+        {path:"/static/edit.svg",name:"Szerkesztés"},
+        {path:"/static/place.svg",name:"GPS"},
+        {path:"/static/exif.svg",name:"Exif helymeghatározás"},
+        {path:"/static/import_export.svg",name:"Importálás/Exportálás"}
+                ];
+    list.map
     return (
         <>
             <Head>
@@ -129,18 +146,18 @@ export default function AndroidApp() {
                 <VideoSection>
                         <p>
                             <em>Az alkalmazásban lehetőség van adatok:</em>
-                            <Row><Icon path='/static/add.svg' />Hozzáadására</Row>
-                            <Row><Icon path="/static/remove.svg" />Törlésére</Row>
-                            <Row><Icon path="/static/edit.svg" />Szerkesztésére</Row>
-                            <Row><Icon path="/static/place.svg" />GPS</Row>
-                            <Row><Icon path="/static/exif.svg" />Exif helymeghatározás</Row>
-                            <Row><Icon path="/static/import_export.svg" />Importálás/Exportálás</Row>
+                            { list.map( (item,idx) => 
+                                (<Fade delay={idx*100} triggerOnce><Row><Icon path={item.path} />{item.name}</Row></Fade>) 
+                            )}
                         </p>
+                    <Column>
                     <Phone>
                     <video {...props}>
                         <source type="video/mp4" src="/static/app.mp4" />
                     </video>
                     </Phone>
+                    <em>Kattits a lejátszáshoz</em>
+                    </Column>
                 </VideoSection>
                 <WaveSection>
                 <Paragraph>
@@ -149,7 +166,7 @@ export default function AndroidApp() {
                 <Cabinet>
                     <img src="/static/cs.svg"/>
                     <img src="/static/xamarin.svg"/>
-                    <img src="/static/github.svg"/>
+                    <a href="https://gist.github.com/thekauer/45c71636e70fb5989114e62a27359d2a" target="_blank"><img src="/static/github.svg"/></a>
                 </Cabinet>
                 </Paragraph>
                 </WaveSection>
