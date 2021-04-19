@@ -41,8 +41,7 @@ const YoloButton = styled.button`
     
     &:hover {
         background-color: var(--yellow);
-        color:var(--active-font-color);
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        color:black;
     }
 `
 const ButtonContainer = styled.div`
