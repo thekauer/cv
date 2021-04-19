@@ -33,6 +33,17 @@ const StyledBlogHighLight = styled.div`
     }
 
 `
+interface CoverProps {
+    src:string
+}
+export const Cover = styled.div<CoverProps>`
+    height:300px;
+    border-bottom: solid 2px var(--nav-border);
+    background: url(data:image/png;base64,${props=>props.src});
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:cover;
+`
 interface BlogHighlightProps {
     image : string | null,
     title : string | null,
@@ -44,7 +55,7 @@ const BlogHighlight : React.FC<BlogHighlightProps> = ({title,image,click,item}) 
     return (
         <StyledBlogHighLight>
         <SkeletonTheme color="#888" highlightColor="var(--font-color)">
-        {image?<img src={image} alt="cover"></img> : <Skeleton height={300}/>}
+        {image?<Cover src={image}/> : <Skeleton height={300}/>}
         <h1 onClick={ () => {if(click&&item){click(item)} }}>{title || <Skeleton />}</h1>
         </SkeletonTheme>
         </StyledBlogHighLight>

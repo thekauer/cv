@@ -152,9 +152,11 @@ export default function AndroidApp() {
                         </p>
                     <Column>
                     <Phone>
+                    <Fade triggerOnce>
                     <video {...props}>
                         <source type="video/mp4" src="/static/app.mp4" />
                     </video>
+                    </Fade>
                     </Phone>
                     <em>Kattits a lejátszáshoz</em>
                     </Column>
