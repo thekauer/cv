@@ -19,6 +19,7 @@ const App = ({Component,pageProps} : AppProps) => {
         <>
         <Head>
             <title>Kauer András</title>
+            <meta name="author" content="Kauer András"></meta>
         </Head>
         <AlertProvider template={AlertTemplate} {...options}>
         <Layout>
