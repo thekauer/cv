@@ -44,6 +44,9 @@ const VideoSection = styled.section`
 `
 const Paragraph = styled.div`
     width: clamp(28ch,70ch,90ch);
+    padding:1em;
+    border-radius:15px;
+    backdrop-filter:blur(50px);
     margin:2em 1em;
     & h2 {
         margin-bottom:0.5em;
@@ -72,7 +75,7 @@ const Row = styled.div`
     display:flex;
     flex-direction:row;
     align-items:center;
-    margin:0.5em 0;
+    margin:0.75em 0;
 `
 const Icon = styled.div<{ path: string }>`
     width:2em;
@@ -80,6 +83,13 @@ const Icon = styled.div<{ path: string }>`
     margin-right:0.5em;
     background: linear-gradient(to bottom right,var(--green) 0%,#00ffff 100%); 
     mask: url(${(props: any) => props.path}) no-repeat center / contain;
+`
+const Cabinet = styled(Row)`
+    justify-content:space-evenly;
+    margin-top:2em;
+    & img {
+        width:4em;
+    }
 `
 export default function AndroidApp() {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -123,7 +133,8 @@ export default function AndroidApp() {
                             <Row><Icon path="/static/exif.svg" />Exif helymeghatározás</Row>
                             <Row><Icon path="/static/import_export.svg" />Importálás/Exportálás</Row>
                         </p>
-                    <Phone><video {...props}>
+                    <Phone>
+                    <video {...props}>
                         <source type="video/mp4" src="/static/app.mp4" />
                     </video>
                     </Phone>
@@ -132,6 +143,11 @@ export default function AndroidApp() {
                 <Paragraph>
                 <h2>Az alkalmazásról</h2>
                 <p>Egy ismerős cég megkérésére készítettem. Gyakorlatialg azzal foglalkoznak, hogy amikor a körzetükben valakinél megszólal a riasztó, akkor ők mennek ki. Ezt úgy oldották meg, hogy mindig volt egy készenléti diszpécser és autós. A diszpécser, ha riasztanak, felhívja az autóst és bemondja a hely kódját, amit utánna ki kell keresnie egy nagy papírhalomból és ha megtalálta akkor indult. Az alkalmazás segítségével viszont csak beírja az általában 4 jegyű kódot és a telefon már naviglás is. Az is problémát jelentett, hogy gyakran a cím még nem elég, hogy megtalálják, hogy pontosan hova kell menni. Ezért az alkalmazásban lehetőség van képet készíteni és a képből már tudja is az app, hogy hova kell menni.</p>
+                <Cabinet>
+                    <img src="/static/cs.svg"/>
+                    <img src="/static/xamarin.svg"/>
+                    <img src="/static/github.svg"/>
+                </Cabinet>
                 </Paragraph>
                 </WaveSection>
             </StyledAndroid>
