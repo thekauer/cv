@@ -23,13 +23,16 @@ export const Card = styled.div`
         box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.5);  
     }
 `
-
-export const Cover = styled.img`
+interface CoverProps {
+    src:string
+}
+export const Cover = styled.div<CoverProps>`
     width: 100%;
     height:100px;
     max-height: 100px;
     border-bottom: solid 2px var(--nav-border);
     object-fit: cover;
+    background: url(data:image/png;base64,${props=>props.src});
 `
 
 export const Description = styled.div`
@@ -85,7 +88,7 @@ const BlogCard : React.FC<BlogCardProps|null> = ({image,title,desc,date,click,it
     return (
         <Card>
             <SkeletonTheme color="#888" highlightColor="var(--font-color)">
-            {image?<Cover src={image} alt="cover"/> : <Skeleton height={100} />}
+            {image?<Cover src={image}/> : <Skeleton height={100} />}
             <Description>
             <h1>{title || <Skeleton width={100}/>}</h1>
             <p>{desc || <Skeleton count={4}/>}</p>
