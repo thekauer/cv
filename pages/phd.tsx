@@ -198,6 +198,7 @@ const Video = styled.section`
         width: 100%;
         max-width: 480px;
         box-shadow: 1px 0px 16px #131100;
+        object-fit: fill;
     }
 `
 
@@ -396,7 +397,7 @@ export default function Phd()  {
                         <em>Az első működő prototípusa a projektnek. Ez viszont nem tudja magától megtalálni a betűket. Éppen ezért az az ötletem támadt, hogy a YOLO technológiát kéne használnunk a jővőben, aminek egy demoja lentebb látható.</em>
                     </Text>
                     <Fade triggerOnce>
-                        <video width="640" controls>
+                        <video width="496" height="273" controls preload="none" poster='/static/matlab_thumb.png'>
                             <source src="static/cnn.mp4" type="video/mp4" />
                         </video>
                     </Fade>
