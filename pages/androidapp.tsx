@@ -13,10 +13,13 @@ const Header = styled.header`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    word-wrap:wrap;
-    padding:5em 0;
+    word-break:break-word;
+    padding:5em 1em;
     background: linear-gradient(to bottom right,var(--green) 0%,#00ffff 100%);
     box-shadow:0 7px 20px rgba(0,0,0,0.5);
+    & h1 {
+        font-size:15vmin;
+    }
 `
 const videoWidth = 0.75 * 288;
 const videoHeight = 0.75 * 640;
