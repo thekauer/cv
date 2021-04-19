@@ -96,6 +96,8 @@ const Blog = (props: any) => {
                 <BlogCard title={null} image={null} item={null} click={handleReadClicked} desc={null} date={null} />
                 <BlogCard title={null} image={null} item={null} click={handleReadClicked} desc={null} date={null} />
                 <BlogCard title={null} image={null} item={null} click={handleReadClicked} desc={null} date={null} />
+                <BlogCard title={null} image={null} item={null} click={handleReadClicked} desc={null} date={null} />
+                <BlogCard title={null} image={null} item={null} click={handleReadClicked} desc={null} date={null} />
             </BlogCardContainer>
         </>
     )

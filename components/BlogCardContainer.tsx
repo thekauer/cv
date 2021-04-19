@@ -6,7 +6,7 @@ const StyledBlogCardContainer = styled.div`
     max-height: 1000px;
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 2em;
 `
