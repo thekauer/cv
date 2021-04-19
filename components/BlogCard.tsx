@@ -31,8 +31,10 @@ export const Cover = styled.div<CoverProps>`
     height:100px;
     max-height: 100px;
     border-bottom: solid 2px var(--nav-border);
-    object-fit: cover;
     background: url(data:image/png;base64,${props=>props.src});
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:cover;
 `
 
 export const Description = styled.div`
