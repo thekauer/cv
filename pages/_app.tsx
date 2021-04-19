@@ -4,7 +4,7 @@ import { AlertTemplate } from '@components/AlertProvider';
 import Layout from '../components/Layout';
 import { positions,Provider as AlertProvider } from 'react-alert';
 import type { AppProps } from 'next/app';
-
+import useScrollToTop from '@hooks/useScrollToTop'
 const App = ({Component,pageProps} : AppProps) => {
     const options = {
         position: positions.BOTTOM_CENTER,
@@ -14,6 +14,7 @@ const App = ({Component,pageProps} : AppProps) => {
           marginBottom:40,
         }
       }
+      useScrollToTop();
     return (
         <>
         <Head>
