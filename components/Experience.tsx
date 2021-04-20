@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { MoreButton } from './MoreButton';
-import {Zoom} from 'react-awesome-reveal'
+import {Fade, Zoom} from 'react-awesome-reveal'
 import styled from 'styled-components';
 
 const StyledExperience = styled.section`
@@ -28,7 +28,7 @@ interface ExperienceProps {
     title : string,
     desc : string,
     path : string,
-    icons : any,
+    icons : {src:string,alt:string}[],
 };
 const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
     return (
@@ -39,7 +39,9 @@ const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
         </header>
         <em>{desc}</em>
         <Icons>
-            {icons}
+            {icons.map((icon : any,index)=>(
+                <Fade delay={100*index} triggerOnce><Icon src={icon.src} alt={icon.alt}/></Fade>
+            ))}
         </Icons>
         <MoreButton to={path}/>
         </StyledExperience>

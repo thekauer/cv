@@ -1,10 +1,10 @@
 ;
-import { Experience, Icon } from '../components/Experience';
+import { Experience } from '../components/Experience';
 import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../content';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Head from 'next/head';
-
+import { FusionIcons, PhdIcons, TdkIcons, PhoneAppIcons, WebsiteIcons } from '../icons';
 
 const StyledResume = styled.article`
     display:flex;
@@ -55,46 +55,6 @@ const Img = styled.img`
 `
 
 const Resume = () => {
-    const FusionIcons = (
-        <>
-            <Icon src={"static/cpp.svg"} alt="c++ ikon" />
-            <Icon src={"static/llvm.svg"} alt="llvm logo" />
-            <Icon src={"static/travis.svg"} alt="travis CI logo" />
-            <Icon src={"static/google.svg"} alt="Google (Test) logo" />
-            <Icon src={"static/cmake.svg"} alt="Cmake logo" />
-            <Icon src={"static/git.svg"} alt="Git logo" />
-            <Icon src={"static/bash.svg"} alt="Bash (script) logo" />
-        </>
-    );
-    const PhdIcons = (
-        <>
-            <Icon src={"static/matlab.png"} alt="Matlab logo" />
-            <Icon src={"static/python.svg"} alt="Python logo" />
-            <Icon src={"static/tf.svg"} alt="Tensorflow logo" />
-            <Icon src={"static/torch.svg"} alt="Torch logo" />
-            <Icon src={"static/rust.svg"} alt="Rust logo" />
-        </>
-    );
-    const TdkIcons = (
-        <Icon src={"static/matlab.png"} alt="Matlab logo" />
-    );
-    const PhoneAppIcons = (
-        <>
-            <Icon src={"static/cs.svg"} alt="C# logo" />
-            <Icon src={"static/xamarin.svg"} alt="Xamarin logo" />
-            <Icon src={"static/git.svg"} alt="Git logo" />
-        </>
-    );
-    const WebsiteIcons = (
-        <>
-            <Icon src={"static/react.svg"} alt="React logo" />
-            <Icon src={"static/ts.svg"} alt="Typescript logo" />
-            <Icon src={"static/node.svg"} alt="Node logo" />
-            <Icon src={"static/docker.svg"} alt="Docker logo" />
-            <Icon src={"static/firebase.svg"} alt="Firebase logo" />
-            <Icon src={"static/git.svg"} alt="Git logo" />
-        </>
-    )
     return (
         <>
             <Head>
@@ -107,14 +67,14 @@ const Resume = () => {
                 <School>
                     <header><h2>Iskoláim</h2></header>
                     <Row>
-                        <Fade triggerOnce><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
+                        <Fade triggerOnce delay={100}><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
                         <p>
                             <h3>Programtervező Informatikus</h3>
                             <span>Eötvös Loránd Tudomány Egyetem</span>
                         </p>
                     </Row>
                     <Row>
-                        <Fade triggerOnce><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
+                        <Fade triggerOnce delay={200}><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
                         <p>
                             <h3>Két tanítási nyelvű informatika</h3>
                             <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
@@ -124,7 +84,7 @@ const Resume = () => {
                 <Section>
                     <header><h2>Nyelvtudás</h2></header>
                     <Language>
-                        <Fade triggerOnce><Img src={"static/lang.svg"} alt="Nyelv ikon" /></Fade>
+                        <Fade triggerOnce delay={300}><Img src={"static/lang.svg"} alt="Nyelv ikon" /></Fade>
                         <p>Angol</p>
                         <p>C1</p>
                     </Language>

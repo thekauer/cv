@@ -164,6 +164,7 @@ const PhdImage = styled.div`
     min-width:300px;
     max-width: 310px;
     border:solid 8px white;
+    background-color:white;
     position: relative;
     box-shadow: 1px 0 16px #1b1900;
     object-fit: cover;
