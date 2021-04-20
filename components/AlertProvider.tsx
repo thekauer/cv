@@ -19,10 +19,10 @@ const Icon = styled.div`
 
 export const AlertTemplate = ({ style, options, message, close }:any) => {
     const cross = (
-        <Icon><img src={"static/cross.svg"} /></Icon>
+        <Icon><img src={"/static/cross.svg"} /></Icon>
     );
     const tick = (
-        <Icon><img src={"static/check.svg"} /></Icon>
+        <Icon><img src={"/static/check.svg"} /></Icon>
     );
     return (
     <Alert>
