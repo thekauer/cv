@@ -107,14 +107,14 @@ const Resume = () => {
                 <School>
                     <header><h2>Iskoláim</h2></header>
                     <Row>
-                        <Fade triggerOnce><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
+                        <Fade triggerOnce delay={100}><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
                         <p>
                             <h3>Programtervező Informatikus</h3>
                             <span>Eötvös Loránd Tudomány Egyetem</span>
                         </p>
                     </Row>
                     <Row>
-                        <Fade triggerOnce><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
+                        <Fade triggerOnce delay={200}><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
                         <p>
                             <h3>Két tanítási nyelvű informatika</h3>
                             <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
@@ -124,7 +124,7 @@ const Resume = () => {
                 <Section>
                     <header><h2>Nyelvtudás</h2></header>
                     <Language>
-                        <Fade triggerOnce><Img src={"static/lang.svg"} alt="Nyelv ikon" /></Fade>
+                        <Fade triggerOnce delay={300}><Img src={"static/lang.svg"} alt="Nyelv ikon" /></Fade>
                         <p>Angol</p>
                         <p>C1</p>
                     </Language>
