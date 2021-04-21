@@ -3,6 +3,8 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { appDesc, appName } from '../content';
 import { Fade } from 'react-awesome-reveal';
+import { ExperienceDescription } from '../components/ExperienceDescription';
+import { PhoneAppIcons } from '../icons';
 
 const StyledAndroid = styled.article`
     & * {
@@ -121,6 +123,10 @@ export default function AndroidApp() {
         preload: "none",
         poster: "/static/appthumb.png"
     }
+    const xpprops = {
+        link:"https://gist.github.com/thekauer/45c71636e70fb5989114e62a27359d2a",
+        icons: PhoneAppIcons
+    }
 
     const list = [
         {path:'/static/add.svg',name:'hozzáadás'},
@@ -130,7 +136,6 @@ export default function AndroidApp() {
         {path:"/static/exif.svg",name:"Exif helymeghatározás"},
         {path:"/static/import_export.svg",name:"Importálás/Exportálás"}
                 ];
-    list.map
     return (
         <>
             <Head>
@@ -162,15 +167,10 @@ export default function AndroidApp() {
                     </Column>
                 </VideoSection>
                 <WaveSection>
-                <Paragraph>
+                <ExperienceDescription {...xpprops}>
                 <h2>Az alkalmazásról</h2>
                 <p>Egy ismerős cég megkérésére készítettem. Gyakorlatialg azzal foglalkoznak, hogy amikor a körzetükben valakinél megszólal a riasztó, akkor ők mennek ki. Ezt úgy oldották meg, hogy mindig volt egy készenléti diszpécser és autós. A diszpécser, ha riasztanak, felhívja az autóst és bemondja a hely kódját, amit utánna ki kell keresnie egy nagy papírhalomból és ha megtalálta akkor indult. Az alkalmazás segítségével viszont csak beírja az általában 4 jegyű kódot és a telefon már naviglás is. Az is problémát jelentett, hogy gyakran a cím még nem elég, hogy megtalálják, hogy pontosan hova kell menni. Ezért az alkalmazásban lehetőség van képet készíteni és a képből már tudja is az app, hogy hova kell menni.</p>
-                <Cabinet>
-                    <img src="/static/cs.svg"/>
-                    <img src="/static/xamarin.svg"/>
-                    <a href="https://gist.github.com/thekauer/45c71636e70fb5989114e62a27359d2a" target="_blank"><img src="/static/github.svg"/></a>
-                </Cabinet>
-                </Paragraph>
+                </ExperienceDescription>
                 </WaveSection>
             </StyledAndroid>
         </>
