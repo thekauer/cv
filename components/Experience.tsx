@@ -3,6 +3,7 @@ import React from 'react';
 import { MoreButton } from './MoreButton';
 import {Fade, Zoom} from 'react-awesome-reveal'
 import styled from 'styled-components';
+import { IIcons } from '../icons';
 
 const StyledExperience = styled.section`
     & header h3 {
@@ -28,7 +29,7 @@ interface ExperienceProps {
     title : string,
     desc : string,
     path : string,
-    icons : {src:string,alt:string}[],
+    icons : IIcons[],
 };
 const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
     return (
