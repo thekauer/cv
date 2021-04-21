@@ -329,7 +329,6 @@ const Line = styled.div`
 
 const Recog = styled.section`
     padding:3em;
-    box-shadow: inset 0 10px 16px black;
     display:grid;
     align-items: center;
     justify-content: center;
@@ -365,6 +364,13 @@ const DrawContainer = styled.div`
             grid-column: 1;
         }
     }
+`
+
+const DescriptionSection = styled.section`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 `
 //#endregion "Style"
 
@@ -445,6 +451,7 @@ export default function Phd()  {
                         </Fade>
                     </YoloCpu>
                 </Recog>
+                <DescriptionSection>
                 <ExperienceDescription {...xpprops}>
                     <p>Pár évvel ezelőtt az egyik tanárom felajánlott egy munkalehetőséget amit én el is vállaltam. Éppen a Phd-jén dolgozott amiben szeretett volna valamilyen módon betűfelismeréssel foglalkozni.</p>
                     <p>Ehhez nagyon sok betűre volt szüksége, amiekt önkéntesekkel íratott, majd beszkennelt. Az én feladatom volt ezeket körbevágni eggyesével majd átnézzni és normalizálni. Legalább 1000 darabra volt szükség minden betűből de végül inkább többet általában nagyjából 1500at gyűjtöttem. A fizetésemet nem óránként hanem kivágott betűnként kaptam.</p>
@@ -477,6 +484,7 @@ export default function Phd()  {
                         <figcaption>GAN által generált betűk</figcaption>
                     </figure>
                 </ExperienceDescription>
+                </DescriptionSection>
             </StyledPhd>
         </>
     );
