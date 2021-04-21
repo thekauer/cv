@@ -2,7 +2,8 @@
 import CountUp from 'react-countup';
 import {Slide,Fade} from 'react-awesome-reveal';
 import styled from 'styled-components';
-
+import { ExperienceDescription } from '@components/ExperienceDescription'
+import { FusionIcons } from 'icons';
 
 const StyledFusion = styled.article`
     display: flex;
@@ -65,6 +66,10 @@ const Data = styled.div`
     }
 `
 export default function Fusion() {
+    const xpprops = {
+        link:"https://github.com/thekauer/fusion",
+        icons:FusionIcons
+    }
     return (
         <>
         <StyledFusion>
@@ -97,6 +102,10 @@ export default function Fusion() {
         <CodeImg src={"static/fscode.svg"}/>
         </Fade>
         </Syntax>
+        <ExperienceDescription {...xpprops}>
+            <p>A Fusion a saját programnyelvem és egyben hobbi projektem amin már évek óta dolgozom, csak sajnos nem sok időm jut rá. A végső cél egy olyan programnyelv megírása aminek egyszerű a szintakszisa mint a pythonnak, gyors és biztonságos mint a rust, és könnyen lehet vele folytatni bármilyen másik nyelvben írt projektet.</p>
+            <p>C++ban írom és llvm-et használok a kódgeneráláshoz. A jővőben pedig lld fogja linkelni az objekt fájlokat. Teszteléshez a Google Test keretrendszert használom. Az eggyik első számú priorításom most, a coverage reportok készítése és még több teszt eset írása.</p>
+        </ExperienceDescription>
         </StyledFusion>
         </>
     );
