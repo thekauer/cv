@@ -16,7 +16,6 @@ const Cabinet = styled(Row)`
     }
 `
 const Paragraph = styled.div`
-
     padding:1em;
     border-radius:15px;
     backdrop-filter:blur(50px);
@@ -26,6 +25,20 @@ const Paragraph = styled.div`
     }
     & p{
         margin:1em 0;
+    }
+    & img {
+        max-width:100%;
+    }
+    & figure {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        margin:2em 0;
+    }
+    & figcaption {
+        font-style:italic;
+        margin-top:0.5em;
     }
 `
 const Center = styled.div`
