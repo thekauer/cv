@@ -3,7 +3,7 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { ComponentType, useRef, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-const backend = process.env.REACT_APP_BACKEND;
+const backend = process.env.NEXT_PUBLIC_BACKEND;
 
 const StyledYoloRecog = styled.div`
     display:flex;
@@ -50,8 +50,8 @@ const ButtonContainer = styled.div`
     flex-direction: row;
 `
 const Result = styled.div`
-
-
+    width:100%;
+    height:100%;
     background-color: var(--yellow);
     position: absolute;
     top:0;
@@ -69,8 +69,22 @@ const DrawResult = styled.div`
 const NotFound = styled.div`
     display:flex;
     flex-direction: column;
+    align-items:center;
+    & button {
+        border:none;
+        width:min-content;
+        padding:0.33em 1em;
+        background-color: var(--yellow);
+        border:solid 3px black;
+    }
+    & button:hover {
+        background-color:black;
+        color:var(--yellow);
+    }
     & * {
         margin:1em;
+        font-weight:bold;
+        color:black;
     }
 `
 const Loader = styled.img`
