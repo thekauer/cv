@@ -26,15 +26,16 @@ const Paragraph = styled.div`
     & p{
         margin:1em 0;
     }
-    & img {
-        max-width:100%;
-    }
     & figure {
         display:flex;
         flex-direction:column;
         align-items:center;
         justify-content:center;
         margin:2em 0;
+    }
+    & figure img {
+        box-shadow: 0 0 32px #00000038;
+        max-width:100%;
     }
     & figcaption {
         font-style:italic;
