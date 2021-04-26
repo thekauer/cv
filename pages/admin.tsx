@@ -5,6 +5,7 @@ import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Router from 'next/router';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { MailBox, Message } from '../components/MailBox';
 
 const StyledAdmin = styled.article`
     & header {
@@ -15,11 +16,24 @@ const StyledAdmin = styled.article`
         padding:5em 0;
     }
 `
+const Mails = styled.section`
+    display:flex;
+    flex-direction:column;
+`
 const Posts = styled.div`
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding:2em 0;
+`
+
+const MailboxContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:90%;
+    align-self:center;
 `
 export interface AdminBlogItem {
     content: string,
@@ -44,11 +58,21 @@ export const getServerSideProps: GetServerSideProps = async context => {
             }
             items.push(item);
         });
-    return { props: {posts:JSON.stringify(items)} };
+
+    
+    return { props: {
+        posts:JSON.stringify(items),
+    } };
 }
 
-
 const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => {
+    const [ messages, setMessages ] = useState<Message[]>();
+    const getMessages = async () => {
+        const mailRef = db.collection('mail');
+        const snapshot = await mailRef.limit(40).get();
+        const msgs = snapshot.docs.map(doc => doc.data() as Message);
+        setMessages(msgs);
+    }
     const posts : any[] = JSON.parse(props.posts);
     if(posts.length>0) posts[0].highlighted=true;
     const [admin, setAdmin] = useState<firebase.User | null>(null);
@@ -56,6 +80,7 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
         auth.onAuthStateChanged((user) => {
             if (isMe(user?.uid)) {
                 setAdmin(user);
+                getMessages();
             } else {
                 setAdmin(null);
                 Router.push('/')
@@ -82,6 +107,12 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
         <>
             <StyledAdmin>
                 <header><h1>Hey {admin.displayName?.split(' ').reverse()[0]}</h1></header>
+                <Mails>
+                    <header><h2>Mail</h2></header>
+                    <MailboxContainer>
+                        <MailBox messages={messages ?? []}/>
+                    </MailboxContainer>
+                </Mails>
                 <section>
                     <header><h2>Postok</h2></header>
                     <Posts>
