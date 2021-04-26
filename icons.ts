@@ -1,3 +1,8 @@
+export interface IIcons {
+    src: string;
+    alt: string;
+}
+
 export const FusionIcons = 
     [
         {src:"static/cpp.svg" ,alt:"c++ ikon"},

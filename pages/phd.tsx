@@ -9,6 +9,8 @@ const YoloRecog = dynamic(()=>(import('@components/YoloRecog')as any).then((mod:
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { ExperienceDescription } from '../components/ExperienceDescription';
+import { PhdIcons } from '../icons';
 
 //#region  "Style"
 const StyledPhd = styled.article`
@@ -327,7 +329,6 @@ const Line = styled.div`
 
 const Recog = styled.section`
     padding:3em;
-    box-shadow: inset 0 10px 16px black;
     display:grid;
     align-items: center;
     justify-content: center;
@@ -364,6 +365,13 @@ const DrawContainer = styled.div`
         }
     }
 `
+
+const DescriptionSection = styled.section`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+`
 //#endregion "Style"
 
 
@@ -378,6 +386,10 @@ export default function Phd()  {
                 )}
             </CountUp>
         );
+    }
+    const xpprops = {
+        link:"https://gist.github.com/thekauer/055a7ba092c811449b1c0b521eaf1024",
+        icons:PhdIcons
     }
     return (
         <>
@@ -439,6 +451,40 @@ export default function Phd()  {
                         </Fade>
                     </YoloCpu>
                 </Recog>
+                <DescriptionSection>
+                <ExperienceDescription {...xpprops}>
+                    <p>Pár évvel ezelőtt az egyik tanárom felajánlott egy munkalehetőséget amit én el is vállaltam. Éppen a Phd-jén dolgozott amiben szeretett volna valamilyen módon betűfelismeréssel foglalkozni.</p>
+                    <p>Ehhez nagyon sok betűre volt szüksége, amiekt önkéntesekkel íratott, majd beszkennelt. Az én feladatom volt ezeket körbevágni eggyesével majd átnézzni és normalizálni. Legalább 1000 darabra volt szükség minden betűből de végül inkább többet általában nagyjából 1500at gyűjtöttem. A fizetésemet nem óránként hanem kivágott betűnként kaptam.</p>
+                    <p>Mivel elég monoton és lassú folyamat volt eggyesével kivagdosni a betűket, óránként legjobb esetben olyan 800 darabot tudtam kivágni, már a harmadik betűnél "feladtam" és elhatároztam, hogy a szabadidőmben írni fogok egy programot ami felgyorsítja a folyamatot. Akkor nagyon tetszett a rust programozási nyelv ezért azt használtam. Elhatároztam, hogyha sikerül egy működő prototípust összehozni egy hétvége alatt akkor azt fogom használni. Végül a <a href="https://github.com/thekauer/rustycrop" target="_blank">prototípus</a> olyan jó lett, bár nagyon messze volt a tökéletestől, hogy sose kellett tovább fejlesztenem. Az új programommal már akár 2000-2500 darab betűt is ki tudtam vágni egy óra alatt,de legrosszabb esetben is kétszer olyan gyors voltam mint előtte. Pedig ekkor még csak nem is hallotam olyan algoritmusokrol mint például az MSER.</p>
+                    <p>Ahogy gyűltek a betűk egyre többször fordult elő, hogy rendezni, alakítani kellet őket. Kiderült, hogy én sokkal gyorsabban meg tudtam írni ezeket a scripteket ezért innentől már ez is a feladatommá vált. Ennek köszönhető például, hogy több formátumban is elérhető az adathalmaz amit készítettünk.</p>
+                    <p>A következő fázis a betűfelismerés volt. Ekkorra már teljes mértékben én programoztam az egész projektet. Először CNN-eket használtunk. Megtanultam, hogy hogyan kell neurális hálózatokat felépíteni és megprogramozni és több száz modelt készítetteem, és teszteltem le a betűinken.</p>
+                    <figure>
+                    <img src="/static/cnn_result.png"/>
+                    <figcaption>Az egyik CNN model</figcaption>
+                    </figure>
+                    <p>A CNN-nek viszont meg van az a hátránya, hogy csak fix méretű inputtal működik. Szóval ha írott szöveget szeretnénk felismerni akkor nekünk kell megkeresni és különválasztani a betűket. Ami még angol kézírással egész kivitelezhető, ahogy a fenti videó is mutatja. De ha az ember kicsit össze-vissza ír és összeköti a betűket akkor már közel sem ilyen jók az eredmények.</p>
+                    <p>Ekkor támadt az ötletem, hogy használjunk YOLO hálózatot. Ez egy olyan neurális háló ami nem csak felismeri hanem meg is találja, hogy hol helyezekedik el az adott betű. Megvizsgáltam gyakorlatilag minden lehetőségünket RCNN téren és végül az Ultralitics Yolov5-öt választottam.</p>
+                    <p>A yolohoz már olyan bemenet kellet amin írott szöveg van nem csak egy-egy betű. Nem ált szándékunban hosszú paragrafusokat íratni önkéntesekkel és ezeket címkézni betünként, ezért írtam egy python programot ami a Sherlock Holmos-t leírja a mi betűinkel. Egy bemenet 14 sorbol minden sorban egy szóból ált úgy rendezve, hogy minden hova kerüljön betű. </p>
+                    <figure>
+                        <img src="/static/sherlock_input.jpg"/>
+                        <figcaption>A Sherlock Holmes-os bemenet</figcaption>
+                    </figure>
+                    <p>Ennek az implementációja közben írtam meg a kedvenc bugomat is. Amitől a bemenetnek csak a körvonala látszott.</p>
+                    <figure>
+                        <img src="/static/coolest_bug.png"/>
+                        <figcaption>Bug a bemenetgenerálás kódjában</figcaption>
+                    </figure>
+                    <p>Ehez viszont még több betűre volt szükségünk, úgyhogy egyrészt a már a CNN-eknél is alkalmazott augmentáláshoz fordultunk. Amiből írtam is egy TDK dolgozatot. Illetve az az ötletem támadt, hogy használhatnánk úgynevezett GAN modelleket, hogy mesterséges inteligenciával is tudjunk betűket generálni. Írtam erre is egy programot, és egy kis tökéletesítés után egész meggyőző betűket generált és végül minden betűből generáltam 500-at vele.</p>
+                    <figure>
+                        <div>
+                        <img src="/static/GAN_A.png"/>
+                        <img src="/static/GAN_Q.png"/>
+                        <img src="/static/GAN_P.png"/>
+                        </div>
+                        <figcaption>GAN által generált betűk</figcaption>
+                    </figure>
+                </ExperienceDescription>
+                </DescriptionSection>
             </StyledPhd>
         </>
     );

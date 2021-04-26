@@ -20,6 +20,14 @@ const App = ({Component,pageProps} : AppProps) => {
         <Head>
             <title>Kauer András</title>
             <meta name="author" content="Kauer András"></meta>
+            <meta name="robots" content="index, follow"/>
+            <meta name="keywords" content="Kauer András, Resmue, Cv, Portfolio, Webdev, Frontend, Fullstack,C++,cpp,Python,Machine learning, CNN,GAN,"></meta>
+            <meta name="description" content="Kauer András vagyok. Szoftverfejlesztő. Üdvözöllek a portfoliómon."/>
+            <meta name="og:description" content="Kauer András vagyok. Szoftverfejlesztő. Üdvözöllek a portfoliómon."/>
+            <meta name="twitter:description" content="Kauer András vagyok. Szoftverfejlesztő. Üdvözöllek a portfoliómon."/>
+            <meta name="og:title" content="Kauer András Resume"/>
+            <meta name="twitter:title" content="Kauer András Resume"/>
+            <meta name="og:url" content="kauerandras.me"/>
         </Head>
         <AlertProvider template={AlertTemplate} {...options}>
         <Layout>
