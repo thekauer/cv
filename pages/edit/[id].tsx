@@ -197,7 +197,7 @@ export default function AdminEdit({id}:{id:string}) {
         <>
             <BlogArticleContainer>
             <StyledBlogArticle>
-                {image &&<EditCover src={image} onClick={handleFileUpload}/>}
+                <EditCover src={image ?? ""} onClick={handleFileUpload}/>
                 <input type='file' id='file' ref={inputFile} style={{display: 'none'}} accept="image/png" onChange={onChangeFile}/>
                 <Description>
                     <EditRow><Title value={title} onChange={changeTitle} /></EditRow>
