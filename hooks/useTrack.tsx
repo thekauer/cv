@@ -1,8 +1,14 @@
 import { useEffect } from 'react'
 import firebase,{ db } from '../firebase'
+export const dateToDays = (date: Date) => {
+    return Math.floor(date as any as number /8.64e7);
+}
+export const todayToDays = () => {
+    const today = firebase.firestore.Timestamp.now().toDate();
+    return dateToDays(today);
+}
 export const useTrack = (name : string) => {
-    const today = firebase.firestore.Timestamp.now().toDate() as any as number;
-    const days = Math.floor(today/8.64e7);
+    const days = todayToDays();
     const clicks = db.collection('clicks');
     const update = async () => {
         const event = await clicks.where('days','==',days).where('name','==',name).get();
