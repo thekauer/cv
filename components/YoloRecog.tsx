@@ -3,6 +3,7 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { ComponentType, useRef, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { useTrack } from '@hooks/useTrack';
 const backend = process.env.NEXT_PUBLIC_BACKEND;
 
 const StyledYoloRecog = styled.div`
@@ -96,6 +97,7 @@ interface RecogType {
 export const YoloRecog = () => {
     const canvasRef = useRef<ReactSketchCanvas>(null);
     const erease = () => {
+        useTrack('button:recogErease')
         setBb(null);
         if (canvasRef.current) {
             canvasRef.current.resetCanvas();
@@ -119,6 +121,7 @@ export const YoloRecog = () => {
     const [notFound, setNotFound] = useState(false);
     const [bb, setBb] = useState<RecogType | null>(null);
     const send = () => {
+        useTrack('button:recogSend')
         if (canvasRef.current) {
             setLoading(true);
             setDisplayLoadingAnim(true);
@@ -140,6 +143,7 @@ export const YoloRecog = () => {
         }
     }
     const notFoundClick = () => {
+        useTrack('button:recogNotFound')
         canvasRef.current?.clearCanvas();
         setNotFound(false);
         setLoading(false);
