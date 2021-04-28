@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { MailBox, Message } from '../components/MailBox';
+import { TrackChart } from '@components/TrackChart'
 
 const StyledAdmin = styled.article`
     & header {
@@ -34,6 +35,11 @@ const MailboxContainer = styled.div`
     justify-content:center;
     width:90%;
     align-self:center;
+`
+const Views = styled.section`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 `
 export interface AdminBlogItem {
     content: string,
@@ -69,7 +75,7 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
     const [ messages, setMessages ] = useState<Message[]>();
     const getMessages = async () => {
         const mailRef = db.collection('mail');
-        const snapshot = await mailRef.limit(40).get();
+        const snapshot = await mailRef.limit(40).orderBy('ticks','desc').get();
         const msgs = snapshot.docs.map(doc => doc.data() as Message);
         setMessages(msgs);
     }
@@ -107,6 +113,10 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
         <>
             <StyledAdmin>
                 <header><h1>Hey {admin.displayName?.split(' ').reverse()[0]}</h1></header>
+                <Views>
+                    <header><h2>Megtekintések</h2></header>
+                    <TrackChart/>
+                </Views>
                 <Mails>
                     <header><h2>Mail</h2></header>
                     <MailboxContainer>

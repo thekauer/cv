@@ -1,6 +1,8 @@
 import { db } from '../firebase';
 import { useRef } from 'react';
 import styled from 'styled-components';
+import { useAlert } from 'react-alert';
+import firebase from '../firebase';
 
 const StyledContacts = styled.article`
     display:flex;
@@ -108,6 +110,7 @@ const Social = styled.div`
     height:100%;
 `
 const Contacts = () => {
+    const alert = useAlert();
     const name = useRef<HTMLInputElement>(null);
     const email = useRef<HTMLInputElement>(null);
     const message = useRef<HTMLTextAreaElement>(null)
@@ -116,14 +119,15 @@ const Contacts = () => {
         if(name.current && email.current && message.current) {
             const payload = {name:name.current?.value,
                 email:email.current?.value,
-                message:message.current?.value
+                message:message.current?.value,
+                ticks: firebase.firestore.Timestamp.now().toDate().getTime()
             };
             db.collection('mail').add(payload)
             .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
+                alert.success('sikeresen elküldve');
             })
             .catch((error) => {
-                console.error("Error adding document: ", error);
+                alert.error('Valami probléma történt. Próbálkozz újra később.');
             });;
         }
     }
@@ -143,9 +147,9 @@ const Contacts = () => {
         </Social>
         </Side>
         <Form onSubmit={clickSubmit}>
-            <Fieldset><label>Név</label><Input type="text" ref={name}/></Fieldset>
-            <Fieldset><label>Email</label><Input type="email" ref={email}/></Fieldset>
-            <Fieldset><label>Üzenet</label><Textarea name="textarea" cols={40} rows={5} ref={message}/></Fieldset>
+            <Fieldset><label>Név</label><Input type="text" ref={name} required/></Fieldset>
+            <Fieldset><label>Email</label><Input type="email" ref={email} required/></Fieldset>
+            <Fieldset><label>Üzenet</label><Textarea name="textarea" cols={40} rows={5} ref={message} required/></Fieldset>
             <Submit type="submit" value="Küldés"/>
         </Form>
         </Content>

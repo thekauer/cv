@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { appDesc, appName } from '../content';
 import { Fade } from 'react-awesome-reveal';
 import { ExperienceDescription } from '../components/ExperienceDescription';
 import { PhoneAppIcons } from '../icons';
+import { useTrack } from '@hooks/useTrack';
 
 const StyledAndroid = styled.article`
     & * {
@@ -57,9 +58,10 @@ const Paragraph = styled.div`
     & h2 {
         margin-bottom:0.5em;
     }
-    & p{
-        margin:1em 0;
-    }
+`
+//Must be div
+const P = styled.div`
+    margin:1em 0;
 `
 
 const WaveSection = styled.section`
@@ -104,22 +106,20 @@ const Column = styled.div`
     margin-top:3em;
 `
 export default function AndroidApp() {
-    const videoRef = useRef<HTMLVideoElement>(null);
     const [loaded, setLoaded] = useState(false);
-    const videoClick = () => {
-        const vid = videoRef.current;
+    const videoClick = (e:any) => {
+        useTrack('button:androidPlay');
+        const vid = e.target;
         if (!loaded) {
             vid?.load();
             setLoaded(true);
         }
         vid?.paused ? vid?.play() : vid?.pause();
     }
-
     const props = {
         width: videoWidth,
         height: videoHeight,
         onClick: videoClick,
-        ref: videoRef,
         preload: "none",
         poster: "/static/appthumb.png"
     }
@@ -149,12 +149,12 @@ export default function AndroidApp() {
                     </div>
                 </Header>
                 <VideoSection>
-                        <p>
+                        <P>
                             <em>Az alkalmazásban lehetőség van adatok:</em>
                             { list.map( (item,idx) => 
-                                (<Fade delay={idx*100} triggerOnce><Row><Icon path={item.path} />{item.name}</Row></Fade>) 
+                                (<Fade delay={idx*100} triggerOnce key={idx}><Row><Icon path={item.path} />{item.name}</Row></Fade>) 
                             )}
-                        </p>
+                        </P>
                     <Column>
                     <Phone>
                     <Fade triggerOnce>

@@ -21,6 +21,7 @@
     "react-loading-skeleton": "latest",
     "react-markdown": "latest",
     "react-sketch-canvas": "latest",
+    "react-sparklines": "latest",
     "react-switch": "latest",
     "react-use-konami": "latest",
     "react-visibility-sensor": "latest",
@@ -55,6 +56,7 @@
   "devDependencies": {
     "@types/react-alert": "latest",
     "@types/react-dom": "latest",
+    "@types/react-sparklines": "latest",
     "@types/styled-components": "latest",
     "babel-plugin-styled-components": "latest"
   }

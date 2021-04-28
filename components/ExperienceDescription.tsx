@@ -62,8 +62,8 @@ export const ExperienceDescription = ({children,link,icons} : ExperienceDescript
     <Paragraph>
         {children}
     <Cabinet>
-        {icons.map(({src,alt})=>(<img src={src} alt={alt}/>))}
-        <a href={link} target="_blank"><img src="/static/github.svg"/></a>
+        {icons.map(({src,alt},idx)=>(<img src={src} alt={alt} key={idx+1}/>))}
+        <a href={link} target="_blank"><img src="/static/github.svg" key={0}/></a>
     </Cabinet>
     </Paragraph>
     </Center>
