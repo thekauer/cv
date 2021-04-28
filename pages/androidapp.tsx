@@ -57,9 +57,10 @@ const Paragraph = styled.div`
     & h2 {
         margin-bottom:0.5em;
     }
-    & p{
-        margin:1em 0;
-    }
+`
+//Must be div
+const P = styled.div`
+    margin:1em 0;
 `
 
 const WaveSection = styled.section`
@@ -149,12 +150,12 @@ export default function AndroidApp() {
                     </div>
                 </Header>
                 <VideoSection>
-                        <p>
+                        <P>
                             <em>Az alkalmazásban lehetőség van adatok:</em>
                             { list.map( (item,idx) => 
-                                (<Fade delay={idx*100} triggerOnce><Row><Icon path={item.path} />{item.name}</Row></Fade>) 
+                                (<Fade delay={idx*100} triggerOnce key={idx}><Row><Icon path={item.path} />{item.name}</Row></Fade>) 
                             )}
-                        </p>
+                        </P>
                     <Column>
                     <Phone>
                     <Fade triggerOnce>
