@@ -5,6 +5,7 @@ import { appDesc, appName } from '../content';
 import { Fade } from 'react-awesome-reveal';
 import { ExperienceDescription } from '../components/ExperienceDescription';
 import { PhoneAppIcons } from '../icons';
+import { useTrack } from '@hooks/useTrack';
 
 const StyledAndroid = styled.article`
     & * {
@@ -107,6 +108,7 @@ const Column = styled.div`
 export default function AndroidApp() {
     const [loaded, setLoaded] = useState(false);
     const videoClick = (e:any) => {
+        useTrack('button:androidPlay');
         const vid = e.target;
         if (!loaded) {
             vid?.load();
