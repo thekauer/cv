@@ -1,3 +1,4 @@
+import { db } from '../firebase';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { MD } from './MD';
@@ -51,6 +52,12 @@ const MessageView = styled.div`
         width:40ch;
     }
 `
+const MenuBar = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    margin-bottom:1em;
+`
 export interface Message {
     name: string;
     email: string;
@@ -63,15 +70,32 @@ interface MailBoxProps {
 }
 export const MailBox = ({ messages }: MailBoxProps) => {
     const [msg, setMsg] = useState<Message | null>(null);
+    const back = () => {
+        setMsg(null);
+    }
+    const del = async () => {
+        const doc = await db.collection('mail').where('ticks','==',msg?.ticks).get();
+        if(!doc.empty) {
+            doc.docs.map((d)=>db.collection('mail').doc(d.id).delete());
+        }
+        back();
+    }
+    const displayDate = (ticks : number) => {
+        const date = new Date(ticks);
+        return date.toLocaleDateString() + " " + date.toLocaleTimeString();
+    }
     const ViewMessage = (msg : Message) => {
         return (
             <>
             <MessageView>
+            <MenuBar>
+                <a onClick={back}><Icon path="/static/back.svg" /></a>
+                <a onClick={del}><Icon path="/static/bin.svg" /></a>
+            </MenuBar>
             <h2>{msg.name}</h2>
             <span>{msg.email}</span>
             <p>{msg.message}</p>
-            <span>{new Date(msg.ticks).toLocaleDateString()}</span>
-            <a onClick={() => setMsg(null)}><Icon path="/static/back.svg" /></a>
+            <span>{displayDate(msg.ticks)}</span>
             </MessageView>
             </>
         );
