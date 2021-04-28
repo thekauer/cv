@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { appDesc, appName } from '../content';
 import { Fade } from 'react-awesome-reveal';
@@ -105,22 +105,19 @@ const Column = styled.div`
     margin-top:3em;
 `
 export default function AndroidApp() {
-    const videoRef = useRef<HTMLVideoElement>(null);
     const [loaded, setLoaded] = useState(false);
-    const videoClick = () => {
-        const vid = videoRef.current;
+    const videoClick = (e:any) => {
+        const vid = e.target;
         if (!loaded) {
             vid?.load();
             setLoaded(true);
         }
         vid?.paused ? vid?.play() : vid?.pause();
     }
-
     const props = {
         width: videoWidth,
         height: videoHeight,
         onClick: videoClick,
-        ref: videoRef,
         preload: "none",
         poster: "/static/appthumb.png"
     }
