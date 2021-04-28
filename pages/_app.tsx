@@ -5,6 +5,9 @@ import Layout from '../components/Layout';
 import { positions,Provider as AlertProvider } from 'react-alert';
 import type { AppProps } from 'next/app';
 import useScrollToTop from '@hooks/useScrollToTop'
+import {useTrack} from '@hooks/useTrack'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 const App = ({Component,pageProps} : AppProps) => {
     const options = {
         position: positions.BOTTOM_CENTER,
@@ -15,6 +18,13 @@ const App = ({Component,pageProps} : AppProps) => {
         }
       }
       useScrollToTop();
+      const {pathname} = useRouter();
+      useEffect(()=>{
+        useTrack('visit');
+      },[])
+      useEffect(()=> {
+        useTrack('page:'+pathname);
+      },[pathname])
     return (
         <>
         <Head>
