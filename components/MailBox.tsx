@@ -55,6 +55,7 @@ export interface Message {
     name: string;
     email: string;
     message: string;
+    ticks: number
 }
 
 interface MailBoxProps {
@@ -69,6 +70,7 @@ export const MailBox = ({ messages }: MailBoxProps) => {
             <h2>{msg.name}</h2>
             <span>{msg.email}</span>
             <p>{msg.message}</p>
+            <span>{new Date(msg.ticks).toLocaleDateString()}</span>
             <a onClick={() => setMsg(null)}><Icon path="/static/back.svg" /></a>
             </MessageView>
             </>

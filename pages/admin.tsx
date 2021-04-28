@@ -69,7 +69,7 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
     const [ messages, setMessages ] = useState<Message[]>();
     const getMessages = async () => {
         const mailRef = db.collection('mail');
-        const snapshot = await mailRef.limit(40).get();
+        const snapshot = await mailRef.limit(40).orderBy('ticks','desc').get();
         const msgs = snapshot.docs.map(doc => doc.data() as Message);
         setMessages(msgs);
     }

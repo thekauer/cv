@@ -2,6 +2,7 @@ import { db } from '../firebase';
 import { useRef } from 'react';
 import styled from 'styled-components';
 import { useAlert } from 'react-alert';
+import firebase from '../firebase';
 
 const StyledContacts = styled.article`
     display:flex;
@@ -118,15 +119,14 @@ const Contacts = () => {
         if(name.current && email.current && message.current) {
             const payload = {name:name.current?.value,
                 email:email.current?.value,
-                message:message.current?.value
+                message:message.current?.value,
+                ticks: firebase.firestore.Timestamp.now().toDate().getTime()
             };
             db.collection('mail').add(payload)
             .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
                 alert.success('sikeresen elküldve');
             })
             .catch((error) => {
-                console.error("Error adding document: ", error);
                 alert.error('Valami probléma történt. Próbálkozz újra később.');
             });;
         }
