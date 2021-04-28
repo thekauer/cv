@@ -123,7 +123,7 @@ const Contacts = () => {
             db.collection('mail').add(payload)
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);
-                alert.info('sikeresen elküldve');
+                alert.success('sikeresen elküldve');
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
