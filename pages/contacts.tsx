@@ -1,3 +1,5 @@
+import { db } from '../firebase';
+import { useRef } from 'react';
 import styled from 'styled-components';
 
 const StyledContacts = styled.article`
@@ -27,7 +29,7 @@ const Side = styled.section`
     & h1 {
         font-size:3em;
     }
-    @media (max-width:598px) {
+    @media (max-width:675px) {
         border-radius:10px 10px 0 0;
     }
 `
@@ -40,7 +42,7 @@ const Form = styled.form`
     color:var(--blue);
     border:solid 3px var(--blue);
     border-radius: 0 10px 10px 0;
-    @media (max-width:598px) {
+    @media (max-width:675px) {
         border-radius:0 0 10px 10px;
     }
     & label {
@@ -54,6 +56,15 @@ const Fieldset = styled.fieldset`
         flex-direction:column;
 `
 const Input = styled.input`
+    border:none;
+    background:var(--theme-mid);
+    border:solid 3px transparent;
+    padding:0.5em;
+    & :focus {
+        border-bottom:solid 3px var(--blue);
+    }
+`
+const Textarea = styled.textarea`
     border:none;
     background:var(--theme-mid);
     border:solid 3px transparent;
@@ -97,6 +108,25 @@ const Social = styled.div`
     height:100%;
 `
 const Contacts = () => {
+    const name = useRef<HTMLInputElement>(null);
+    const email = useRef<HTMLInputElement>(null);
+    const message = useRef<HTMLTextAreaElement>(null)
+    const clickSubmit = (event:any) => {
+        event.preventDefault();
+        if(name.current && email.current && message.current) {
+            const payload = {name:name.current?.value,
+                email:email.current?.value,
+                message:message.current?.value
+            };
+            db.collection('mail').add(payload)
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });;
+        }
+    }
     return (
         <>
         <StyledContacts>
@@ -112,10 +142,10 @@ const Contacts = () => {
             <a href="https://www.linkedin.com/in/andr%C3%A1s-kauer-75967b208/"><Icon path="/static/linkedin.svg"/></a>
         </Social>
         </Side>
-        <Form  method="post">
-            <Fieldset><label>Név</label><Input type="text"/></Fieldset>
-            <Fieldset><label>Email</label><Input type="email"/></Fieldset>
-            <Fieldset><label>Üzenet</label><Input type="text"/></Fieldset>
+        <Form onSubmit={clickSubmit}>
+            <Fieldset><label>Név</label><Input type="text" ref={name}/></Fieldset>
+            <Fieldset><label>Email</label><Input type="email" ref={email}/></Fieldset>
+            <Fieldset><label>Üzenet</label><Textarea name="textarea" cols={40} rows={5} ref={message}/></Fieldset>
             <Submit type="submit" value="Küldés"/>
         </Form>
         </Content>
