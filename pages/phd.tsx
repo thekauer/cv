@@ -447,7 +447,7 @@ export default function Phd()  {
                     <Arrow deg={90} id="arrow3" />
                     <YoloCpu>
                         <Fade triggerOnce>
-                            <Image src={"static/yolocpu.svg"} width={500} height={500} />
+                            <Image src={"/static/yolocpu.svg"} width={500} height={500} />
                         </Fade>
                     </YoloCpu>
                 </Recog>
