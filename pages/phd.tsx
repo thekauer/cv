@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import { ExperienceDescription } from '../components/ExperienceDescription';
 import { PhdIcons } from '../icons';
+import Image from 'next/image'
 
 //#region  "Style"
 const StyledPhd = styled.article`
@@ -447,7 +448,7 @@ export default function Phd()  {
                     <Arrow deg={90} id="arrow3" />
                     <YoloCpu>
                         <Fade triggerOnce>
-                            <img src={"static/yolocpu.svg"} width="500px" />
+                            <Image src={"static/yolocpu.svg"} width={500} height={500} />
                         </Fade>
                     </YoloCpu>
                 </Recog>
