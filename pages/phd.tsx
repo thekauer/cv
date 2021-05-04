@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import { ExperienceDescription } from '../components/ExperienceDescription';
 import { PhdIcons } from '../icons';
-import Image from 'next/image'
 
 //#region  "Style"
 const StyledPhd = styled.article`
