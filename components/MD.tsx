@@ -11,6 +11,7 @@ interface MDProps  {
 export const MD = ({content} : MDProps) => {
     const newProps = {
         plugins: [
+          gfm,
           remarkMath,
         ],
         renderers: {
