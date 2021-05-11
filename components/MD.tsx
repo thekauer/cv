@@ -1,8 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm';
-import MathJax from 'react-mathjax';
 import remarkMath from 'remark-math';
-
+import Tex from '@matejmazur/react-katex'
 
 
 interface MDProps  {
@@ -16,14 +15,12 @@ export const MD = ({content} : MDProps) => {
         ],
         renderers: {
           math: (props:any) => 
-            <MathJax.Node formula={props.value} />,
+            <Tex math={props.value} block/>,
           inlineMath: (props:any) =>
-            <MathJax.Node inline formula={props.value} />
+            <Tex math={props.value}/>
         }
       };
     return (
-        <MathJax.Provider options={{input:"tex"}}>
         <ReactMarkdown {...newProps} children={content} />
-        </MathJax.Provider>
         );
 }

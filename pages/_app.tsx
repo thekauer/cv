@@ -1,4 +1,5 @@
 import '../styles/index.css'
+import 'katex/dist/katex.min.css'
 import Head from 'next/head';
 import { AlertTemplate } from '@components/AlertProvider';
 import Layout from '../components/Layout';
