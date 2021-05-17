@@ -247,7 +247,7 @@ const HashTables = () => {
                     return (options.number + options.c1*i + +options.c2* i*i) % options.m;
                 }
             } else {
-                return options.number === 0 ? 0 : options.number % options.m;
+                return options.number === 0 ? 0 : (options.number % options.m);
             }
         }
         return -1;
@@ -463,6 +463,7 @@ const HashTables = () => {
                 }}>Készít</button>
         </fieldset>
         </div>
+        <fieldset>
         <table>
             <tbody>
             <tr ref={row}>
@@ -470,6 +471,8 @@ const HashTables = () => {
             </tr>
             </tbody>
         </table>
+        {hashtable.length != 0 && <button onClick={()=>{navigator.clipboard.writeText(hashtable.toString().replaceAll(' ',''))}}>Másol</button>}
+        </fieldset>
         {hashtable.length!=0 && (<>
         <fieldset>
             <input type="number" min="0" name="num" onChange={(e)=>setOptions({...options,number:Number(e.target.value)})}></input>
