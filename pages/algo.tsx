@@ -24,8 +24,9 @@ const BinaryTreeCanvas = () => {
     class Node {
         left? : Node;
         right? : Node
-        val : string|number
+        val? : string|number
         constructor(val? : string|number) {
+            if(val)
             this.val = val;
         }
     }
