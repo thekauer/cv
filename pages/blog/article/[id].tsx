@@ -25,8 +25,7 @@ export const StyledBlogArticle = styled.div`
     border:solid 2px black; 
     overflow: hidden;
     transition: var(--transition-time);
-    margin: 2em 0;
-    max-width:768px;
+    margin: 2em 1em;
     & h1 {
         font-size:2.5em;
     }
@@ -35,17 +34,15 @@ interface CoverProps {
     src :string
 }
 export const Cover = styled.div<CoverProps>`
-    min-width:50vw;
-    min-height:300px;
+    height:300px;
     width: 100%;
-    max-height: 400px;
     object-fit: cover;
     border-bottom: solid 2px black;
     background: url(data:image/png;base64,${props=>props.src});
 `
 
 export const Description = styled.div`
-    padding:1em;
+    padding:4em;
     padding-top: 0.5em;
     & p {
         word-wrap: break-word;
