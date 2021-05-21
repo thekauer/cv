@@ -233,6 +233,7 @@ interface HashOptions {
     attempt : number
 }
 const HashTables = () => {
+    let history : ((string | number | (string | number)[])[])[] = [];
     const [options,setOptions] = useState<HashOptions>({type:0,size:0,attempt:0})
     const [hashtable,setHashTable] = useState<(number|string|(number|string)[])[]>([]);
     const row = createRef<HTMLTableRowElement>();
@@ -395,6 +396,12 @@ const HashTables = () => {
             }
         }
     }
+
+    
+    useEffect(()=> {
+        history.push(hashtable)
+        console.log(history)
+    },[hashtable.values()])
     return (
         <>
         <h2>Hasítótáblák</h2>
@@ -402,7 +409,7 @@ const HashTables = () => {
         <div>
         <fieldset>
         <label htmlFor="addressing">címzés</label>
-        <select name="addressing" onChange={(e)=>{setOptions({...options,activeIdx:undefined,type:Number(e.target.value)});setHashTable([]); } }>
+        <select name="addressing" onChange={(e)=>{setOptions({...options,activeIdx:undefined,type:Number(e.target.value)});setHashTable([]);history=[]; } }>
             <option value="0">Direkt</option>
             <option value="1">Direkt Láncolt listával</option>
             <option value="2">Nyílt</option>
@@ -481,6 +488,7 @@ const HashTables = () => {
             <button onClick={options.type==2? (e)=>openInsert() : options.type== 1 ? (e)=>directLLInsert() : (e)=>directInsert() }>Beszúr</button>
             <button onClick={options.type==2? (e)=>openDelete() : options.type== 1 ? (e)=>directLLDelete() : (e)=>directDelete()}>Töröl</button>
             <button onClick={options.type==2? (e)=>openSearch() : options.type== 1 ? (e)=>directLLSearch() : (e)=>directSearch()}>Keres</button>
+            <button onClick={()=>{setHashTable( history.pop() ?? [] )}}>{"<"}</button>
         </fieldset>
         </>)}
         </HashTableContainer>
