@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-import Tex from '@matejmazur/react-katex'
+import { InlineMath, BlockMath } from 'react-katex';
 
 
 interface MDProps  {
@@ -15,9 +15,9 @@ export const MD = ({content} : MDProps) => {
         ],
         renderers: {
           math: (props:any) => 
-            <Tex math={props.value} block/>,
+            <InlineMath math={props.value} block/>,
           inlineMath: (props:any) =>
-            <Tex math={props.value}/>
+            <BlockMath math={props.value}/>
         }
       };
     return (
