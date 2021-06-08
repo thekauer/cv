@@ -66,7 +66,6 @@ const Home = () => {
                     <PortfolioCard title={phdName} desc={phdDesc} color="var(--yellow)" icon="" path="/phd" />
                     <PortfolioCard title={cvName} desc={cvDesc} color="var(--react)" icon="" path="" />
                     <PortfolioCard title={appName} desc={appDesc} color="var(--green)" icon="" path="/androidapp" />
-                    <PortfolioCard title={tdkName} desc={tdkDesc} color="rgb(211 2 2)" icon="" path="" />
                 <Svg viewBox='0 0 100 100' preserveAspectRatio='none'>
                     <path d='m 0,100 h 100 l 0,-90z' id='bottom' />
                 </Svg>
