@@ -11,6 +11,7 @@
     "cors": "latest",
     "dotenv": "latest",
     "firebase": "latest",
+    "html2canvas": "latest",
     "jimp": "latest",
     "next": "latest",
     "react": "latest",
