@@ -7,9 +7,8 @@ interface CarouselProps {
 export const Carousel = styled.div<CarouselProps>`
     box-shadow: 0 0 32px black;
     border-radius:15px;
-    margin:1em;
+    margin:2em;
 
-    width:clamp(320px,100%,640px);
     height:clamp(240px,360px,480px);
     background-size:contain;
     animation: Carousel ${props => props.length}s ease infinite forwards;
