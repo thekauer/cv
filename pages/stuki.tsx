@@ -243,30 +243,30 @@ const Code = ({content}:CodeProps) => {
         //logical
         let parsed = newContnet
         
-        .replaceAll(/==/g,"=")
-        .replaceAll(/!=/g,"\\neq ")    
-        .replaceAll(/&&/g,"\\land ")
-        .replaceAll(/\|\|/g,"\\lor ")
-        .replaceAll(/!/g,"\\lnot ")
-        .replaceAll(/<=/g,'\\le ')
-        .replaceAll(/>=/g,'\\ge ')   
+        .replace(/==/g,"=")
+        .replace(/!=/g,"\\neq ")    
+        .replace(/&&/g,"\\land ")
+        .replace(/\|\|/g,"\\lor ")
+        .replace(/!/g,"\\lnot ")
+        .replace(/<=/g,'\\le ')
+        .replace(/>=/g,'\\ge ')   
         
         //types
-        .replaceAll(/:\ +R/g,":\\mathbb{R} ")
-        .replaceAll(/in\ +R/g,"\\in\\mathbb{R} ")
-        .replaceAll(/:\ +N/g,":\\mathbb{N} ")
-        .replaceAll(/in\ +N/g,"\\in\\mathbb{N} ")
-        .replaceAll(/:\ +Z/g,":\\mathbb{Z} ")
-        .replaceAll(/in\ +Z/g,"\\in\\mathbb{Z} ")
-        .replaceAll(/:\ +S/g,":\\mathbb{S} ")
-        .replaceAll(/in\ +S/g,"\\in\\mathbb{S} ")
-        .replaceAll(/:\ +L/g,":\\mathbb{L} ")
-        .replaceAll(/in\ +L/g,"\\in\\mathbb{L} ")
+        .replace(/:\ +R/g,":\\mathbb{R} ")
+        .replace(/in\ +R/g,"\\in\\mathbb{R} ")
+        .replace(/:\ +N/g,":\\mathbb{N} ")
+        .replace(/in\ +N/g,"\\in\\mathbb{N} ")
+        .replace(/:\ +Z/g,":\\mathbb{Z} ")
+        .replace(/in\ +Z/g,"\\in\\mathbb{Z} ")
+        .replace(/:\ +S/g,":\\mathbb{S} ")
+        .replace(/in\ +S/g,"\\in\\mathbb{S} ")
+        .replace(/:\ +L/g,":\\mathbb{L} ")
+        .replace(/in\ +L/g,"\\in\\mathbb{L} ")
 
         //misc
-        .replaceAll(/(?<=\^*) x/g,'\\times')
-        .replaceAll(/return/g,'\\bold{return} ')
-        .replaceAll(/SKIP/ig,'\\text{SKIP} ')
+        .replace(/(?<=\^*) x/g,'\\times')
+        .replace(/return/g,'\\bold{return} ')
+        .replace(/SKIP/ig,'\\text{SKIP} ')
         ;
 
         return '$'+parsed+'$';
