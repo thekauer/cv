@@ -8,8 +8,12 @@ export const Carousel = styled.div<CarouselProps>`
     box-shadow: 0 0 32px black;
     border-radius:15px;
     margin:2em;
-
-    height:clamp(240px,360px,480px);
+    align-self: center;
+    width:90%;
+    max-width:640px;
+    min-height:300px;
+    height:100%;
+    max-height: 480px;
     background-size:contain;
     animation: Carousel ${props => props.length}s ease infinite forwards;
 
