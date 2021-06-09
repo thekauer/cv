@@ -95,7 +95,6 @@ const Resume = () => {
                     <Experience title={phdName} desc={phdDesc} icons={PhdIcons} path="phd" />
                     <Experience title={cvName} desc={cvDesc} icons={WebsiteIcons} path="" />
                     <Experience title={appName} desc={appDesc} icons={PhoneAppIcons} path="androidapp" />
-                    <Experience title={tdkName} desc={tdkDesc} icons={TdkIcons} path="" />
                 </Exp>
             </StyledResume>
         </>
