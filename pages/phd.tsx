@@ -400,14 +400,14 @@ export default function Phd()  {
                 <Header>
                     <Text>
                         <h1>Phd</h1>
-                        <em>Társszerzője vagyok egy Phd-nek ami kézírás felismérés teknikákkal foglalkozik. Az én feladatom volt implementálni a papír tartalmát, illetve szerepet vállaltam a tervezésben is.</em>
+                        <em>Társszerzője vagyok egy Phd-nek ami kézírás felismerés technikákkal foglalkozik. Az én feladatom volt implementálni a papír tartalmát, illetve szerepet vállaltam a tervezésben is.</em>
                     </Text>
                     <Fade triggerOnce><PhdImage><Image src="/static/phd.png" width={310} height={400}/></PhdImage></Fade>
                 </Header>
                 <Video>
                     <Text>
                         <h2>CNN felismerés</h2>
-                        <em>Az első működő prototípusa a projektnek. Ez viszont nem tudja magától megtalálni a betűket. Éppen ezért az az ötletem támadt, hogy a YOLO technológiát kéne használnunk a jővőben, aminek egy demoja lentebb látható.</em>
+                        <em>Az első működő prototípusa a projektnek. Ez viszont nem tudja magától megtalálni a betűket. Éppen ezért az az ötletem támadt, hogy a YOLO technológiát kéne használnunk a jövőben, aminek egy demoja lentebb látható.</em>
                     </Text>
                     <Fade triggerOnce>
                         <video width="496" height="273" controls preload="none" poster='/static/matlab_thumb.png'>
@@ -453,18 +453,18 @@ export default function Phd()  {
                 </Recog>
                 <DescriptionSection>
                 <ExperienceDescription {...xpprops}>
-                    <p>Pár évvel ezelőtt az egyik tanárom felajánlott egy munkalehetőséget amit én el is vállaltam. Éppen a Phd-jén dolgozott amiben szeretett volna valamilyen módon betűfelismeréssel foglalkozni.</p>
-                    <p>Ehhez nagyon sok betűre volt szüksége, amiekt önkéntesekkel íratott, majd beszkennelt. Az én feladatom volt ezeket körbevágni eggyesével majd átnézzni és normalizálni. Legalább 1000 darabra volt szükség minden betűből de végül inkább többet általában nagyjából 1500at gyűjtöttem. A fizetésemet nem óránként hanem kivágott betűnként kaptam.</p>
-                    <p>Mivel elég monoton és lassú folyamat volt eggyesével kivagdosni a betűket, óránként legjobb esetben olyan 800 darabot tudtam kivágni, már a harmadik betűnél "feladtam" és elhatároztam, hogy a szabadidőmben írni fogok egy programot ami felgyorsítja a folyamatot. Akkor nagyon tetszett a rust programozási nyelv ezért azt használtam. Elhatároztam, hogyha sikerül egy működő prototípust összehozni egy hétvége alatt akkor azt fogom használni. Végül a <a href="https://github.com/thekauer/rustycrop" target="_blank">prototípus</a> olyan jó lett, bár nagyon messze volt a tökéletestől, hogy sose kellett tovább fejlesztenem. Az új programommal már akár 2000-2500 darab betűt is ki tudtam vágni egy óra alatt,de legrosszabb esetben is kétszer olyan gyors voltam mint előtte. Pedig ekkor még csak nem is hallotam olyan algoritmusokrol mint például az MSER.</p>
-                    <p>Ahogy gyűltek a betűk egyre többször fordult elő, hogy rendezni, alakítani kellet őket. Kiderült, hogy én sokkal gyorsabban meg tudtam írni ezeket a scripteket ezért innentől már ez is a feladatommá vált. Ennek köszönhető például, hogy több formátumban is elérhető az adathalmaz amit készítettünk.</p>
-                    <p>A következő fázis a betűfelismerés volt. Ekkorra már teljes mértékben én programoztam az egész projektet. Először CNN-eket használtunk. Megtanultam, hogy hogyan kell neurális hálózatokat felépíteni és megprogramozni és több száz modelt készítetteem, és teszteltem le a betűinken.</p>
+                    <p>Pár évvel ezelőtt az egyik tanárom felajánlott egy munkalehetőséget, amit én el is vállaltam. Éppen a Phd-jén dolgozott, amiben szeretett volna valamilyen módon betűfelismeréssel foglalkozni.</p>
+                    <p>Ehhez nagyon sok betűre volt szüksége, amiket önkéntesekkel íratott, majd beszkennelt. Az én feladatom volt ezeket körbevágni egyesével majd átnézni és normalizálni. Legalább 1000 darabra volt szükség minden betűből, de végül inkább többet általában nagyjából 1500at gyűjtöttem.</p>
+                    <p>Mivel elég monoton és lassú folyamat volt egyesével kivagdosni a betűket, óránként legjobb esetben olyan 800 darabot tudtam kivágni, már a harmadik betűnél "feladtam" és elhatároztam, hogy a szabadidőmben írni fogok egy programot ami felgyorsítja a folyamatot. Akkor nagyon tetszett a rust programozási nyelv ezért azt használtam. Elhatároztam, hogyha sikerül egy működő prototípust összehozni egy hétvége alatt akkor azt fogom használni. Végül a  <a href="https://github.com/thekauer/rustycrop" target="_blank">prototípus</a> olyan jó lett, bár nagyon messze volt a tökéletestől, hogy sose kellett tovább fejlesztenem. Az új programommal már akár 2000-2500 darab betűt is ki tudtam vágni egy óra alatt, de legrosszabb esetben is kétszer olyan gyors voltam, mint előtte. Pedig ekkor még csak nem is hallottam olyan algoritmusokról, mint például az MSER.</p>
+                    <p>Ahogy gyűltek a betűk egyre többször fordult elő, hogy rendezni, alakítani kellet őket. Itt megtudtam mutatni a tudásom, nagyon gyorsan tudtam elkészíteni ezeket a scripteket, és ezért innentől kezdve az én feladatom lett a scriptek írása is. Ennek köszönhető például, hogy több formátumban is elérhető az adathalmaz, amit készítettünk.</p>
+                    <p>A következő fázis a betűfelismerés volt. Ekkorra a projekt implementálását már teljes mértékben én végeztem. Először CNN-eket használtunk. Megtanultam, hogy hogyan kell neurális hálózattokat felépíteni és megprogramozni és több száz modellt készítettem, és teszteltem le a betűinken.</p>
                     <figure>
                     <img src="/static/cnn_result.png"/>
                     <figcaption>Az egyik CNN model</figcaption>
                     </figure>
-                    <p>A CNN-nek viszont meg van az a hátránya, hogy csak fix méretű inputtal működik. Szóval ha írott szöveget szeretnénk felismerni akkor nekünk kell megkeresni és különválasztani a betűket. Ami még angol kézírással egész kivitelezhető, ahogy a fenti videó is mutatja. De ha az ember kicsit össze-vissza ír és összeköti a betűket akkor már közel sem ilyen jók az eredmények.</p>
-                    <p>Ekkor támadt az ötletem, hogy használjunk YOLO hálózatot. Ez egy olyan neurális háló ami nem csak felismeri hanem meg is találja, hogy hol helyezekedik el az adott betű. Megvizsgáltam gyakorlatilag minden lehetőségünket RCNN téren és végül az Ultralitics Yolov5-öt választottam.</p>
-                    <p>A yolohoz már olyan bemenet kellet amin írott szöveg van nem csak egy-egy betű. Nem ált szándékunban hosszú paragrafusokat íratni önkéntesekkel és ezeket címkézni betünként, ezért írtam egy python programot ami a Sherlock Holmos-t leírja a mi betűinkel. Egy bemenet 14 sorbol minden sorban egy szóból ált úgy rendezve, hogy minden hova kerüljön betű. </p>
+                    <p>A CNN-nek viszont meg van az a hátránya, hogy csak fix méretű inputtal működik. Szóval, ha írott szöveget szeretnénk felismerni akkor nekünk kell megkeresni és különválasztani a betűket. Ami még angol kézírással egész kivitelezhető, ahogy a fenti videó is mutatja. De ha az ember kicsit össze-vissza ír és összeköti a betűket akkor már közel sem ilyen jók az eredmények.</p>
+                    <p>Ekkor támadt az ötletem, hogy használjunk YOLO hálózatot. Ez egy olyan neurális háló, ami nem csak felismeri, hanem meg is találja, hogy hol helyezkedik el az adott betű. Megvizsgáltam gyakorlatilag minden lehetőségünket RCNN téren, beleértve a RCNN, Fast RCNN, Faster RCNN, SSD, Darknet ls Retinatet hálózattokat, és végül az Ultralitics-től Yolov5-öt választottam.</p>
+                    <p>A yolohoz már olyan bemenet kellet, amin írott szöveg van nem csak egy-egy betű. Nem ált szándékunkban hosszú paragrafusokat íratni önkéntesekkel és ezeket címkézni betűnkként, ezért írtam egy python programot ami a Sherlock Holmos-t leírja a mi betűinkkel. Egy bemenet 14 sorból minden sorban egy szóból ált úgy rendezve, hogy minden hova kerüljön betű.</p>
                     <figure>
                         <img src="/static/sherlock_input.jpg"/>
                         <figcaption>A Sherlock Holmes-os bemenet</figcaption>
@@ -474,7 +474,7 @@ export default function Phd()  {
                         <img src="/static/coolest_bug.png"/>
                         <figcaption>Bug a bemenetgenerálás kódjában</figcaption>
                     </figure>
-                    <p>Ehez viszont még több betűre volt szükségünk, úgyhogy egyrészt a már a CNN-eknél is alkalmazott augmentáláshoz fordultunk. Amiből írtam is egy TDK dolgozatot. Illetve az az ötletem támadt, hogy használhatnánk úgynevezett GAN modelleket, hogy mesterséges inteligenciával is tudjunk betűket generálni. Írtam erre is egy programot, és egy kis tökéletesítés után egész meggyőző betűket generált és végül minden betűből generáltam 500-at vele.</p>
+                    <p>Ehhez viszont még több betűre volt szükségünk, úgyhogy egyrészt a már a CNN-eknél is alkalmazott augmentáláshoz fordultunk. Amiből írtam is egy TDK dolgozatot. Illetve az az ötletem támadt, hogy használhatnánk úgynevezett GAN modelleket, hogy mesterséges intelligenciával is tudjunk betűket generálni. Írtam erre is egy programot, és egy kis tökéletesítés után egész meggyőző betűket generált és végül minden betűből generáltam 500-at vele.</p>
                     <figure>
                         <div>
                         <img src="/static/GAN_A.png"/>

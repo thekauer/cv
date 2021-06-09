@@ -103,8 +103,8 @@ export default function Fusion() {
         </Fade>
         </Syntax>
         <ExperienceDescription {...xpprops}>
-            <p>A Fusion a saját programnyelvem és egyben hobbi projektem amin már évek óta dolgozom, csak sajnos nem sok időm jut rá. A végső cél egy olyan programnyelv megírása aminek egyszerű a szintakszisa mint a pythonnak, gyors és biztonságos mint a rust, és könnyen lehet vele folytatni bármilyen másik nyelvben írt projektet.</p>
-            <p>C++ban írom és llvm-et használok a kódgeneráláshoz. A jővőben pedig lld fogja linkelni az objekt fájlokat. Teszteléshez a Google Test keretrendszert használom. Az eggyik első számú priorításom most, a coverage reportok készítése és még több teszt eset írása.</p>
+            <p>A Fusion a saját programnyelvem és egyben hobbi projektem, amin már évek óta dolgozom, csak sajnos nem sok időm jut rá. A végső cél egy olyan programnyelv megírása, aminek egyszerű a szintakszisa, mint a pythonnak, gyors és biztonságos, mint a rust, és könnyen lehet vele folytatni bármilyen másik nyelvben írt projektet.</p>
+            <p>C++-ban írom és llvm-et használok a kódgeneráláshoz. A jövőben pedig lld fogja linkelni az objekt fájlokat. Teszteléshez a Google Test keretrendszert használom. Az egyik első számú prioritásom most, a coverage reportok készítése és még több teszteset írása.</p>
         </ExperienceDescription>
         </StyledFusion>
         </>
