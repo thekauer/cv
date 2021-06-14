@@ -113,7 +113,7 @@ export const TrackChart = () => {
 
     const [clicks, setClicks] = useState<Click[]>();
     const [results, setResults] = useState<TrackResult>(); 
-    const [focusedName,setFocusedName] = useState<string>();
+    const [focusedName,setFocusedName] = useState<string>("");
     const [focused, setFocused] = useState<number[]>();
     const getClicks = async () => {
         const today = todayToDays();
@@ -192,7 +192,7 @@ export const TrackChart = () => {
                 pages:getPages(clicks),
                 buttons:getButtons(clicks)
             })
-            setFocusedName('visit'); //default
+            setFocusedName("visit");
         }
 
         getResults()
