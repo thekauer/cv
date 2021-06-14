@@ -99,10 +99,10 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
         );
     }
 
-    const blogItems = posts.map((post : AdminBlogItem) => {
+    const blogItems = posts.map((post : AdminBlogItem,idx) => {
         const p = {...post,date:new Date(post.date)};
         return (
-            <div className="post">
+            <div className="post" key={idx}>
                 <Fade triggerOnce>
                 <AdminBlogCard {...p} />
                 </Fade>
