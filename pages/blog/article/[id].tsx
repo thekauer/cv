@@ -29,6 +29,7 @@ export const StyledBlogArticle = styled.div`
     & h1 {
         font-size:2.5em;
     }
+    max-width:90%;
 `
 interface CoverProps {
     src :string
