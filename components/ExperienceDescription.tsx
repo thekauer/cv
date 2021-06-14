@@ -16,6 +16,9 @@ const Cabinet = styled(Row)`
         margin:0.5em 1em;
     }
 `
+const Img = styled.div`
+    margin:0.5em 1em;
+`
 const Paragraph = styled.div`
     padding:1em;
     border-radius:15px;
@@ -63,7 +66,7 @@ export const ExperienceDescription = ({children,link,icons} : ExperienceDescript
     <Paragraph>
         {children}
     <Cabinet>
-        {icons.map(({src,alt},idx)=>(<Image src={src} alt={alt} key={idx+1} width={64} height={64}/>))}
+        {icons.map(({src,alt},idx)=>(<><Img><Image src={src} alt={alt} key={idx+1} width={64} height={64}/></Img></>))}
         <a href={link} target="_blank"><Image src="/static/github.svg" key={0} width={64} height={64}/></a>
     </Cabinet>
     </Paragraph>
