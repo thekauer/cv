@@ -4,7 +4,7 @@ import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdk
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Head from 'next/head';
-import { FusionIcons, PhdIcons, TdkIcons, PhoneAppIcons, WebsiteIcons } from '../icons';
+import { FusionIcons, PhdIcons, TdkIcons, PhoneAppIcons, WebsiteIcons } from '@utils/icons';
 
 const StyledResume = styled.article`
     display:flex;

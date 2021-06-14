@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { IIcons } from "../icons"
+import { IIcons } from "@utils/icons"
 const Row = styled.div`
     display:flex;
     flex-direction:row;

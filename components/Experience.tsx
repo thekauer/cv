@@ -3,7 +3,7 @@ import React from 'react';
 import { MoreButton } from './MoreButton';
 import {Fade, Zoom} from 'react-awesome-reveal'
 import styled from 'styled-components';
-import { IIcons } from '../icons';
+import { IIcons } from '@utils/icons';
 
 const StyledExperience = styled.section`
     & header h3 {

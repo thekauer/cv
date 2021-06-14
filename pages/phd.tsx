@@ -9,7 +9,7 @@ import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Head from 'next/head';
 import { ExperienceDescription } from '../components/ExperienceDescription';
-import { PhdIcons } from '../icons';
+import { PhdIcons } from '@utils/icons';
 import StyledPhd from '../components/phd/StyledPhd';
 import PhdImage from '../components/phd/PhdImage';
 import Header from '../components/phd/Header';
