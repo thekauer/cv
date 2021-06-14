@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { IIcons } from "@utils/icons"
+import Image from 'next/image'
 const Row = styled.div`
     display:flex;
     flex-direction:row;
@@ -62,8 +63,8 @@ export const ExperienceDescription = ({children,link,icons} : ExperienceDescript
     <Paragraph>
         {children}
     <Cabinet>
-        {icons.map(({src,alt},idx)=>(<img src={src} alt={alt} key={idx+1}/>))}
-        <a href={link} target="_blank"><img src="/static/github.svg" key={0}/></a>
+        {icons.map(({src,alt},idx)=>(<Image src={src} alt={alt} key={idx+1} width={64} height={64}/>))}
+        <a href={link} target="_blank"><Image src="/static/github.svg" key={0} width={64} height={64}/></a>
     </Cabinet>
     </Paragraph>
     </Center>

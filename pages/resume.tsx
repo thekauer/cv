@@ -5,6 +5,7 @@ import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Head from 'next/head';
 import { FusionIcons, PhdIcons, TdkIcons, PhoneAppIcons, WebsiteIcons } from '@utils/icons';
+import Image from 'next/image';
 
 const StyledResume = styled.article`
     display:flex;
@@ -49,8 +50,7 @@ const Row = styled.div`
     flex-direction: row;
     align-items: center;
 `
-const Img = styled.img`
-    width: 2em;
+const Img = styled.div`
     margin-right: 1em;
 `
 
@@ -67,14 +67,18 @@ const Resume = () => {
                 <School>
                     <header><h2>Iskoláim</h2></header>
                     <Row>
-                        <Fade triggerOnce delay={100}><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
+                        <Fade triggerOnce delay={100}>
+                            <Img><Image className="img" src={"/static/school.svg"} alt="Iskola ikon" width={32} height={32} /></Img>
+                        </Fade>
                         <p>
                             <h3>Programtervező Informatikus</h3>
                             <span>Eötvös Loránd Tudomány Egyetem</span>
                         </p>
                     </Row>
                     <Row>
-                        <Fade triggerOnce delay={200}><Img src={"static/school.svg"} alt="Iskola ikon" /></Fade>
+                        <Fade triggerOnce delay={200}>
+                            <Img><Image src={"/static/school.svg"} alt="Iskola ikon" width={32} height={32} /></Img>
+                            </Fade>
                         <p>
                             <h3>Két tanítási nyelvű informatika</h3>
                             <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
@@ -84,7 +88,9 @@ const Resume = () => {
                 <Section>
                     <header><h2>Nyelvtudás</h2></header>
                     <Language>
-                        <Fade triggerOnce delay={300}><Img src={"static/lang.svg"} alt="Nyelv ikon" /></Fade>
+                        <Fade triggerOnce delay={300}>
+                            <Img><Image src={"/static/lang.svg"} alt="Nyelv ikon" width={32} height={32} /></Img>
+                        </Fade>
                         <p>Angol</p>
                         <p>C1</p>
                     </Language>

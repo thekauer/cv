@@ -6,6 +6,7 @@ import useKonami from 'react-use-konami';
 import Popup from 'reactjs-popup';
 import Confetti from 'react-confetti'
 import styled from 'styled-components';
+import Image from 'next/image'
 
 
 const StyledLayout = styled.div`
@@ -57,7 +58,7 @@ export default function Layout({children}:any) {
                 <Money>
                     <StyledConfetti recycle={false} initialVelocityY={20} numberOfPieces={5000}/>
                     <h2>$10,000</h2>
-                    <img src={"static/dollar.svg"} alt="money" />
+                    <Image src={"/static/dollar.svg"} alt="money" width={124} height={68}/>
                 </Money>
             </Popup>
             <StyledLayout className={(checked? "themelight" : "themedark")}>

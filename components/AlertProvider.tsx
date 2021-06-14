@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 
 const Alert = styled.div`
     border-radius:5px;
@@ -19,10 +20,10 @@ const Icon = styled.div`
 
 export const AlertTemplate = ({ style, options, message, close }:any) => {
     const cross = (
-        <Icon><img src={"/static/cross.svg"} /></Icon>
+        <Icon><Image src={"/static/cross.svg"} width={16} height={16} /></Icon>
     );
     const tick = (
-        <Icon><img src={"/static/check.svg"} /></Icon>
+        <Icon><Image src={"/static/check.svg"} width={16} height={16} /></Icon>
     );
     return (
     <Alert>
