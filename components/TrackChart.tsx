@@ -158,7 +158,6 @@ export const TrackChart = () => {
                 thisMonth:val.thisMonth
             })
         })
-        console.log('log:/',results.filter(elem => elem.name==='/'));
         return results;
     }
     const getVisists = (clicks : Click[]) => {
