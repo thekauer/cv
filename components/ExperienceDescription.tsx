@@ -1,5 +1,7 @@
 import styled from "styled-components"
-import { IIcons } from "../icons"
+import { IIcons } from "@utils/icons"
+import Image from 'next/image'
+import { Fade } from 'react-awesome-reveal';
 const Row = styled.div`
     display:flex;
     flex-direction:row;
@@ -14,6 +16,9 @@ const Cabinet = styled(Row)`
         width:4em;
         margin:0.5em 1em;
     }
+`
+const Img = styled.div`
+    margin:0.5em 1em;
 `
 const Paragraph = styled.div`
     padding:1em;
@@ -62,8 +67,18 @@ export const ExperienceDescription = ({children,link,icons} : ExperienceDescript
     <Paragraph>
         {children}
     <Cabinet>
-        {icons.map(({src,alt},idx)=>(<img src={src} alt={alt} key={idx+1}/>))}
-        <a href={link} target="_blank"><img src="/static/github.svg" key={0}/></a>
+        {
+        icons.map(({src,alt},idx) => (
+        <>
+        <Fade triggerOnce delay={(idx+1)*100}>
+            <Img><Image src={src} alt={alt} key={idx+1} width={64} height={64}/></Img>
+        </Fade>
+        </>
+        ))
+        }
+        <Fade triggerOnce delay={(icons.length+1)*100}>
+            <a href={link} target="_blank"><Image src="/static/github.svg" key={0} width={64} height={64}/></a>
+        </Fade>
     </Cabinet>
     </Paragraph>
     </Center>

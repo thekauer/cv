@@ -1,5 +1,5 @@
 import { AdminBlogItem } from "@pages/admin";
-import { db } from "../firebase";
+import { db } from "@utils/firebase";
 import { useEffect, useState } from "react";
 
 export const useFetchPost = (id : string) => {

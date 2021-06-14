@@ -3,7 +3,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import styled from 'styled-components';
 import { AdminBlogItem } from '@pages/admin';
 import Router from 'next/router'
-import formatDate from '../util';
+import formatDate from '@utils/util';
 import { Card, Cover, Description, Footer, Button } from './BlogCard'
 
 

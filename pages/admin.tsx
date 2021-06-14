@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import firebase, { auth, isMe, db } from '../firebase'
+import firebase, { auth, isMe, db } from '@utils/firebase'
 import {AddAdminBlogCard, AdminBlogCard} from '../components/AdminBlogCard'
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
@@ -99,10 +99,10 @@ const Admin = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => 
         );
     }
 
-    const blogItems = posts.map((post : AdminBlogItem) => {
+    const blogItems = posts.map((post : AdminBlogItem,idx) => {
         const p = {...post,date:new Date(post.date)};
         return (
-            <div className="post">
+            <div className="post" key={idx}>
                 <Fade triggerOnce>
                 <AdminBlogCard {...p} />
                 </Fade>

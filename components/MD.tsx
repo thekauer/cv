@@ -15,9 +15,9 @@ export const MD = ({content} : MDProps) => {
         ],
         renderers: {
           math: (props:any) => 
-            <InlineMath math={props.value} block/>,
+            <BlockMath math={" "+props.value} block/>,
           inlineMath: (props:any) =>
-            <BlockMath math={props.value}/>
+            <InlineMath math={" "+props.value}/>
         }
       };
     return (

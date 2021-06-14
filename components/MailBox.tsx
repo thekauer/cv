@@ -1,4 +1,4 @@
-import { db } from '../firebase';
+import { db } from '@utils/firebase';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { MD } from './MD';
@@ -100,12 +100,12 @@ export const MailBox = ({ messages }: MailBoxProps) => {
             </>
         );
     }
-    const drawMessage = (message: Message) => {
+    const drawMessage = (message: Message, idx : number) => {
         return (
-            <Tr onClick={() =>setMsg(message)}>
-                <Td style={{ width: "25%" }}><MD content={message.name} /></Td>
-                <Td style={{ width: "25%" }}><MD content={message.email} /></Td>
-                <Td style={{ width: "50%" }}><MD content={message.message.length > 40 ? message.message.slice(0, 40) + "..." : message.message} /></Td>
+            <Tr onClick={() =>setMsg(message)} key={idx}>
+                <Td style={{ width: "25%" }}><MD content={message.name}/></Td>
+                <Td style={{ width: "25%" }}><MD content={message.email}/></Td>
+                <Td style={{ width: "50%" }}><MD content={message.message.length > 40 ? message.message.slice(0, 40) + "..." : message.message}/></Td>
             </Tr>
         )
     }
@@ -119,9 +119,11 @@ export const MailBox = ({ messages }: MailBoxProps) => {
                     <tr>
                         <td>
                             <Table>
+                                <tbody>
                                 <tr>
                                     <th style={{ width: "25%" }}>Név</th><th style={{ width: "25%" }}>Email</th><th style={{ width: "50%" }}>Üzenet</th>
                                 </tr>
+                                </tbody>
                             </Table>
                         </td>
                     </tr>
@@ -131,7 +133,9 @@ export const MailBox = ({ messages }: MailBoxProps) => {
                         <Body>
                             { messages.length > 0 ?
                             <Table>
+                                <tbody>
                                 {messages.map(drawMessage)}
+                                </tbody>
                             </Table>
                             :
                             <a>Úgy látszik még nem kaptál üzenetet.</a>

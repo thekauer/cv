@@ -1,4 +1,4 @@
-import { db } from "../firebase";
+import { db } from "@utils/firebase";
 import { useEffect, useState } from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { todayToDays } from '@hooks/useTrack'
@@ -34,7 +34,10 @@ const Column = styled.section`
 interface RowProps {
     value?:number;
     max?:number;
-    name:string
+    name:string;
+    fullName:string;
+    active?:boolean;
+    click? : (name:string)=>void
 }
     const StyledRow = styled.div`
         cursor: pointer;
@@ -47,8 +50,8 @@ interface RowProps {
         &:hover {
             background-color:var(--theme-mid);
         }
-        &:focus {
-            border-bottom:solid 1px var(--blue);
+        &.active {
+            border-bottom:solid 2px var(--blue);
         }
     `
     const ProgessContainer = styled.div`
@@ -77,10 +80,10 @@ interface RowProps {
     `
     const Value = styled.div`
     `
-const Row = ({value,max,name}:RowProps) => {
+const Row = ({value,max,name,active,click,fullName}:RowProps) => {
     return (
         <>
-        <StyledRow>
+        <StyledRow className={active ? "active" : ""} onClick={click ? () => click(fullName) : _ => {} }>
             <ProgessContainer><Progess value={value} max={max}/><em>{name}</em></ProgessContainer><Value>{value}</Value>
         </StyledRow>
         </>
@@ -105,14 +108,16 @@ interface TrackResult {
 }
 export const TrackChart = () => {
     const getCount = ( name : string, clicks : Click[] ) => {
-        return clicks?.filter(click=>click.name===name).map(visit=>visit.count);
+        return clicks?.filter(click=>click.name===name).sort((a,b)=>a.days-b.days).map(visit=>visit.count);
     }
 
     const [clicks, setClicks] = useState<Click[]>();
     const [results, setResults] = useState<TrackResult>(); 
+    const [focusedName,setFocusedName] = useState<string>("");
     const [focused, setFocused] = useState<number[]>();
     const getClicks = async () => {
-        const last30days = await db.collection('clicks').orderBy('days','desc').limit(30).get();
+        const today = todayToDays();
+        const last30days = await db.collection('clicks').orderBy('days','desc').where('days','>=',today-30).get();
         let clicks : Click[] = [];
         last30days.docs.map((doc)=>{
             clicks.push({...doc.data()} as Click)
@@ -138,19 +143,16 @@ export const TrackChart = () => {
         const names =  new Map<string,TrackedNumber>();
         let results : NamedTrackedNumber[] = [];
         const today = todayToDays();
-        clicks.forEach((click) =>{
-            if(click.name.startsWith(prefix)) {
-                let current = names.get(click.name);
-                if(current) {
-                    names.set(click.name,current);
-                    console.log(click.name,current);
-                    if(click.days=today) {
-                        current.today=click.count;
-                    }
-                    current.thisMonth+=click.count
-                } else {
-                    names.set(click.name,{today:click.count,thisMonth:click.count});
+        clicks.filter( click => click.name.startsWith(prefix)).forEach( click => {
+            let current = names.get(click.name);
+            if(current) {
+                if(click.days==today) {
+                    current.today=click.count;
                 }
+                current.thisMonth += click.count;
+                names.set(click.name,current);
+            } else {
+                names.set(click.name,{today:click.count,thisMonth:click.count});
             }
         })
         names.forEach((val,key)=>{
@@ -171,6 +173,16 @@ export const TrackChart = () => {
     const getButtons = (clicks: Click[]) => {
         return getTrackedResultsForType('button',clicks);
     }
+
+    const rowClick = (name : string) => {
+        setFocusedName(name);
+    }
+    const drawRowFor = (prefix:string) => {
+        return (item : NamedTrackedNumber,idx : number) =>
+        (
+            <Row name={item.name} fullName={prefix+item.name} value={item.today} key={idx} max={100} active={prefix+item.name===focusedName} click={rowClick}/>
+        )
+    }
     useEffect(()=>{
         const getResults = async () => {
             const clicks = await getClicks();
@@ -180,12 +192,17 @@ export const TrackChart = () => {
                 pages:getPages(clicks),
                 buttons:getButtons(clicks)
             })
-            setFocused(getCount('visit',clicks));
-
+            setFocusedName("visit");
         }
 
         getResults()
     },[]);
+
+    useEffect(()=> {
+        if(focusedName && clicks) {
+            setFocused(getCount(focusedName,clicks));
+        }
+    },[focusedName])
     return (
         <>
         <StyledTrackChart>
@@ -199,22 +216,20 @@ export const TrackChart = () => {
         <Table>
             <Column>
                 <header><h3>Megtekintések</h3></header>
-                <Row name={"megtekintések"} value={results?.visits.today} max={30}/>
+                {
+                    <Row name={"megtekintések"} fullName={"visit"} value={results?.visits.today} max={30} active={focusedName==='visit'} click={rowClick}/>
+                }
             </Column>
             <Column>
                 <header><h3>Lapok</h3></header>
                 {
-                    results?.pages.sort((a,b)=>a.today>=b.today?-1:1).map( page => (
-                        <Row name={page.name} value={page.today} max={100}/>
-                    ))
+                    results?.pages.sort((a,b)=>a.today>=b.today?-1:1).map( drawRowFor('page:') )
                 }
             </Column>
             <Column>
                 <header><h3>Gombok</h3></header>
                 {
-                    results?.buttons.sort((a,b)=>a.today>=b.today?-1:1).map( button => (
-                        <Row name={button.name} value={button.today} max={100}/>
-                    ))
+                    results?.buttons.sort((a,b)=>a.today>=b.today?-1:1).map( drawRowFor("button:") )
                 }
             </Column>
         </Table>
