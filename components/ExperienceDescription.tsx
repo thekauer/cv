@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { IIcons } from "@utils/icons"
 import Image from 'next/image'
+import { Fade } from 'react-awesome-reveal';
 const Row = styled.div`
     display:flex;
     flex-direction:row;
@@ -66,8 +67,18 @@ export const ExperienceDescription = ({children,link,icons} : ExperienceDescript
     <Paragraph>
         {children}
     <Cabinet>
-        {icons.map(({src,alt},idx)=>(<><Img><Image src={src} alt={alt} key={idx+1} width={64} height={64}/></Img></>))}
-        <a href={link} target="_blank"><Image src="/static/github.svg" key={0} width={64} height={64}/></a>
+        {
+        icons.map(({src,alt},idx) => (
+        <>
+        <Fade triggerOnce delay={(idx+1)*100}>
+            <Img><Image src={src} alt={alt} key={idx+1} width={64} height={64}/></Img>
+        </Fade>
+        </>
+        ))
+        }
+        <Fade triggerOnce delay={(icons.length+1)*100}>
+            <a href={link} target="_blank"><Image src="/static/github.svg" key={0} width={64} height={64}/></a>
+        </Fade>
     </Cabinet>
     </Paragraph>
     </Center>

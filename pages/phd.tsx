@@ -26,6 +26,10 @@ const DescriptionSection = styled.section`
     align-items:center;
     justify-content:center;
 `
+const Row = styled.div`
+    display:flex;
+    flex-direction:row;
+`
 
 export default function Phd()  {
     const drawCountUp = (end: number) => {
@@ -111,28 +115,40 @@ export default function Phd()  {
                     <p>Ahogy gyűltek a betűk egyre többször fordult elő, hogy rendezni, alakítani kellet őket. Itt megtudtam mutatni a tudásom, nagyon gyorsan tudtam elkészíteni ezeket a scripteket, és ezért innentől kezdve az én feladatom lett a scriptek írása is. Ennek köszönhető például, hogy több formátumban is elérhető az adathalmaz, amit készítettünk.</p>
                     <p>A következő fázis a betűfelismerés volt. Ekkorra a projekt implementálását már teljes mértékben én végeztem. Először CNN-eket használtunk. Megtanultam, hogy hogyan kell neurális hálózattokat felépíteni és megprogramozni és több száz modellt készítettem, és teszteltem le a betűinken.</p>
                     <figure>
+                    <Fade triggerOnce delay={100}>
                     <Image src="/static/cnn_result.png" width={550} height={286}/>
+                    </Fade>
                     <figcaption>Az egyik CNN model</figcaption>
                     </figure>
                     <p>A CNN-nek viszont meg van az a hátránya, hogy csak fix méretű inputtal működik. Szóval, ha írott szöveget szeretnénk felismerni akkor nekünk kell megkeresni és különválasztani a betűket. Ami még angol kézírással egész kivitelezhető, ahogy a fenti videó is mutatja. De ha az ember kicsit össze-vissza ír és összeköti a betűket akkor már közel sem ilyen jók az eredmények.</p>
                     <p>Ekkor támadt az ötletem, hogy használjunk YOLO hálózatot. Ez egy olyan neurális háló, ami nem csak felismeri, hanem meg is találja, hogy hol helyezkedik el az adott betű. Megvizsgáltam gyakorlatilag minden lehetőségünket RCNN téren, beleértve a RCNN, Fast RCNN, Faster RCNN, SSD, Darknet ls Retinatet hálózattokat, és végül az Ultralitics-től Yolov5-öt választottam.</p>
                     <p>A yolohoz már olyan bemenet kellet, amin írott szöveg van nem csak egy-egy betű. Nem ált szándékunkban hosszú paragrafusokat íratni önkéntesekkel és ezeket címkézni betűnkként, ezért írtam egy python programot ami a Sherlock Holmos-t leírja a mi betűinkkel. Egy bemenet 14 sorból minden sorban egy szóból ált úgy rendezve, hogy minden hova kerüljön betű.</p>
                     <figure>
+                        <Fade triggerOnce delay={100}>
                         <Image src="/static/sherlock_input.jpg" width={552} height={552}/>
+                        </Fade>
                         <figcaption>A Sherlock Holmes-os bemenet</figcaption>
                     </figure>
                     <p>Ennek az implementációja közben írtam meg a kedvenc bugomat is. Amitől a bemenetnek csak a körvonala látszott.</p>
                     <figure>
+                    <Fade triggerOnce delay={100}>
                         <Image src="/static/coolest_bug.png" width={416} height={416}/>
+                        </Fade>
                         <figcaption>Bug a bemenetgenerálás kódjában</figcaption>
                     </figure>
                     <p>Ehhez viszont még több betűre volt szükségünk, úgyhogy egyrészt a már a CNN-eknél is alkalmazott augmentáláshoz fordultunk. Amiből írtam is egy TDK dolgozatot. Illetve az az ötletem támadt, hogy használhatnánk úgynevezett GAN modelleket, hogy mesterséges intelligenciával is tudjunk betűket generálni. Írtam erre is egy programot, és egy kis tökéletesítés után egész meggyőző betűket generált és végül minden betűből generáltam 500-at vele.</p>
                     <figure>
-                        <div>
-                        <Image src="/static/GAN_A.png" width={28} height={28}/>
-                        <Image src="/static/GAN_Q.png" width={28} height={28}/>
-                        <Image src="/static/GAN_P.png" width={28} height={28}/>
-                        </div>
+                        <Row>
+                        {
+                            ["/static/GAN_A.png","/static/GAN_Q.png","/static/GAN_Q.png"].map( (path,idx) => (
+                                <>
+                                <Fade triggerOnce delay={(idx+1)*100}>
+                                    <Image src={path} width={28} height={28} />
+                                </Fade>
+                                </>
+                            ) )
+                        }
+                        </Row>
                         <figcaption>GAN által generált betűk</figcaption>
                     </figure>
                 </ExperienceDescription>
