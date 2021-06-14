@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 import {Slide,Fade} from 'react-awesome-reveal';
 import styled from 'styled-components';
 import { ExperienceDescription } from '@components/ExperienceDescription'
-import { FusionIcons } from 'icons';
+import { FusionIcons } from '@utils/icons';
 
 const StyledFusion = styled.article`
     display: flex;
@@ -88,7 +88,7 @@ export default function Fusion() {
             <CountUp end={402} delay={0.5}></CountUp>
             </Data>
             <Data>
-            <h2>Tesztek</h2>
+            <h2>Buildek</h2>
             <CountUp end={456} delay={0.5}></CountUp>
             </Data>
             </Slide>
