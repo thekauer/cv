@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
 
-
-const Svg = styled.svg<any>`
-
-`
-const Path = styled.path`
-
-`
 const StyledArrow = styled.div<any>`
     & svg {
         width: 8em;
