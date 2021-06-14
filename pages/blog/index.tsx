@@ -4,7 +4,7 @@ import BlogCard from '../../components/BlogCard';
 import BlogHighlight from '../../components/BlogHighlight';
 import { useEffect, useState } from 'react';
 import { db } from '../@utils/firebase';
-import formatDate from '../../util';
+import formatDate from '../@utils/util';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Head from 'next/head';

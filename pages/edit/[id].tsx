@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { AdminBlogItem } from '../admin';
 import { BlogArticleContainer, Cover, Description, Footer, StyledBlogArticle } from '../blog/article/[id]';
-import formatDate from '../../util';
+import formatDate from '../@utils/util';
 import { Button } from '../../components/BlogCard';
 import firebase,{ db } from '../@utils/firebase';
 import { MD } from '../../components/MD';
