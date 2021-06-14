@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import formatDate from '../../../util';
+import formatDate from '@utils/util';
 import styled from 'styled-components';
 import { MD } from '@components/MD';
 import { Button } from '@components/BlogCard';

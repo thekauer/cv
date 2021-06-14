@@ -1,6 +1,6 @@
 ;
 import { Experience } from '../components/Experience';
-import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '../content';
+import { appDesc, appName, cvDesc, cvName, fsDesc, fsName, phdDesc, phdName, tdkDesc, tdkName } from '@utils/content';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Head from 'next/head';

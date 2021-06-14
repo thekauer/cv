@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import firebase, { auth, isMe, db } from '../firebase'
+import firebase, { auth, isMe, db } from '@utils/firebase'
 import {AddAdminBlogCard, AdminBlogCard} from '../components/AdminBlogCard'
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';

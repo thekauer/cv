@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import firebase,{ db } from '../firebase'
+import firebase,{ db } from '@utils/firebase'
 export const dateToDays = (date: Date) => {
     return Math.floor(date as any as number /8.64e7);
 }

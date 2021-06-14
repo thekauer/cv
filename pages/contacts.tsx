@@ -1,8 +1,8 @@
-import { db } from '../firebase';
+import { db } from '@utils/firebase';
 import { useRef } from 'react';
 import styled from 'styled-components';
 import { useAlert } from 'react-alert';
-import firebase from '../firebase';
+import firebase from '@utils/firebase';
 
 const StyledContacts = styled.article`
     display:flex;

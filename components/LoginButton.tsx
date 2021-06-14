@@ -1,6 +1,6 @@
 ;
 import { useEffect, useState } from 'react';
-import { doGoogleSignIn, signOut, auth, isMe } from '../firebase';
+import { doGoogleSignIn, signOut, auth, isMe } from '@utils/firebase';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { appDesc, appName } from '../content';
+import { appDesc, appName } from '@utils/content';
 import { Fade } from 'react-awesome-reveal';
 import { ExperienceDescription } from '../components/ExperienceDescription';
 import { PhoneAppIcons } from '../icons';

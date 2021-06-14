@@ -1,6 +1,6 @@
 import { Carousel } from '../components/Carousel';
 import styled from 'styled-components'
-import {cvDesc} from '../content'
+import {cvDesc} from '@utils/content'
 import { Fade } from 'react-awesome-reveal';
 import { useEffect, useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { db } from "../firebase";
+import { db } from "@utils/firebase";
 import { useEffect, useState } from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { todayToDays } from '@hooks/useTrack'

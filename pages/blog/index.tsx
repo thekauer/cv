@@ -3,7 +3,7 @@ import BlogCardContainer from '../../components/BlogCardContainer';
 import BlogCard from '../../components/BlogCard';
 import BlogHighlight from '../../components/BlogHighlight';
 import { useEffect, useState } from 'react';
-import { db } from '../../firebase';
+import { db } from '../@utils/firebase';
 import formatDate from '../../util';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';

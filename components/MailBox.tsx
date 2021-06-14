@@ -1,4 +1,4 @@
-import { db } from '../firebase';
+import { db } from '@utils/firebase';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { MD } from './MD';

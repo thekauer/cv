@@ -5,7 +5,7 @@ import { AdminBlogItem } from '../admin';
 import { BlogArticleContainer, Cover, Description, Footer, StyledBlogArticle } from '../blog/article/[id]';
 import formatDate from '../../util';
 import { Button } from '../../components/BlogCard';
-import firebase,{ db } from '../../firebase';
+import firebase,{ db } from '../@utils/firebase';
 import { MD } from '../../components/MD';
 import { useAlert } from 'react-alert';
 import { useRouter } from 'next/router';
