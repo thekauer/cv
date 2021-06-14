@@ -112,7 +112,8 @@ export const TrackChart = () => {
     const [results, setResults] = useState<TrackResult>(); 
     const [focused, setFocused] = useState<number[]>();
     const getClicks = async () => {
-        const last30days = await db.collection('clicks').orderBy('days','desc').limit(30).get();
+        const today = todayToDays();
+        const last30days = await db.collection('clicks').orderBy('days','desc').where('days','>=',today-30).get();
         let clicks : Click[] = [];
         last30days.docs.map((doc)=>{
             clicks.push({...doc.data()} as Click)
@@ -138,19 +139,16 @@ export const TrackChart = () => {
         const names =  new Map<string,TrackedNumber>();
         let results : NamedTrackedNumber[] = [];
         const today = todayToDays();
-        clicks.forEach((click) =>{
-            if(click.name.startsWith(prefix)) {
-                let current = names.get(click.name);
-                if(current) {
-                    names.set(click.name,current);
-                    console.log(click.name,current);
-                    if(click.days=today) {
-                        current.today=click.count;
-                    }
-                    current.thisMonth+=click.count
-                } else {
-                    names.set(click.name,{today:click.count,thisMonth:click.count});
+        clicks.filter( click => click.name.startsWith(prefix)).forEach( click => {
+            let current = names.get(click.name);
+            if(current) {
+                if(click.days==today) {
+                    current.today=click.count;
                 }
+                current.thisMonth += click.count;
+                names.set(click.name,current);
+            } else {
+                names.set(click.name,{today:click.count,thisMonth:click.count});
             }
         })
         names.forEach((val,key)=>{
@@ -160,6 +158,7 @@ export const TrackChart = () => {
                 thisMonth:val.thisMonth
             })
         })
+        console.log('log:/',results.filter(elem => elem.name==='/'));
         return results;
     }
     const getVisists = (clicks : Click[]) => {
@@ -204,16 +203,16 @@ export const TrackChart = () => {
             <Column>
                 <header><h3>Lapok</h3></header>
                 {
-                    results?.pages.sort((a,b)=>a.today>=b.today?-1:1).map( page => (
-                        <Row name={page.name} value={page.today} max={100}/>
+                    results?.pages.sort((a,b)=>a.today>=b.today?-1:1).map( (page,idx) => (
+                        <Row name={page.name} value={page.today} key={idx} max={100}/>
                     ))
                 }
             </Column>
             <Column>
                 <header><h3>Gombok</h3></header>
                 {
-                    results?.buttons.sort((a,b)=>a.today>=b.today?-1:1).map( button => (
-                        <Row name={button.name} value={button.today} max={100}/>
+                    results?.buttons.sort((a,b)=>a.today>=b.today?-1:1).map( (button,idx) => (
+                        <Row name={button.name} value={button.today} key={idx} max={100}/>
                     ))
                 }
             </Column>
