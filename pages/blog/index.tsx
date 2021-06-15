@@ -63,13 +63,13 @@ const Blog = (props: any) => {
 
     const createBlogFeed = () => {
         const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime())
-        const blogItems = sortedPosts.map((post) => {
+        const blogItems = sortedPosts.map((post,idx) => {
             const p = {
                 ...post
             }
 
             return (
-                <BlogCard title={p.title} desc={p.desc} date={formatDate(p.date)} image={p.image} item={p} click={handleReadClicked} />
+                <BlogCard key={idx} title={p.title} desc={p.desc} date={formatDate(p.date)} image={p.image} item={p} click={handleReadClicked} />
             )
         });
 
