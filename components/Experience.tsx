@@ -42,7 +42,7 @@ const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
         <em>{desc}</em>
         <Icons>
             {icons.map((icon : any,index)=>(
-                <Fade delay={100*index} triggerOnce><Icon src={icon.src} alt={icon.alt}/></Fade>
+                <Fade delay={100*index} triggerOnce  key={index}><Icon src={icon.src} alt={icon.alt}/></Fade>
             ))}
         </Icons>
         <MoreButton to={path}/>
