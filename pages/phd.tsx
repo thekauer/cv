@@ -142,7 +142,7 @@ export default function Phd()  {
                         {
                             ["/static/GAN_A.png","/static/GAN_Q.png","/static/GAN_P.png"].map( (path,idx) => (
                                 <>
-                                <Fade triggerOnce delay={(idx+1)*100}>
+                                <Fade triggerOnce delay={(idx+1)*100} key={idx}>
                                     <Image src={path} width={28} height={28} />
                                 </Fade>
                                 </>
