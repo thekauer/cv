@@ -4,6 +4,7 @@ import { MoreButton } from './MoreButton';
 import {Fade, Zoom} from 'react-awesome-reveal'
 import styled from 'styled-components';
 import { IIcons } from '@utils/icons';
+import Image from 'next/image';
 
 const StyledExperience = styled.section`
     & header h3 {
@@ -18,7 +19,7 @@ const Icons = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
 `
-const StyledIcon = styled.img`
+const StyledIcon = styled.div`
     width: 2em;
     height: 2em;
     margin-top:0.3em;
@@ -41,7 +42,7 @@ const Experience : React.FC<ExperienceProps> = ({title,desc,path,icons}) => {
         <em>{desc}</em>
         <Icons>
             {icons.map((icon : any,index)=>(
-                <Fade delay={100*index} triggerOnce><Icon src={icon.src} alt={icon.alt}/></Fade>
+                <Fade delay={100*index} triggerOnce  key={index}><Icon src={icon.src} alt={icon.alt}/></Fade>
             ))}
         </Icons>
         <MoreButton to={path}/>
@@ -57,7 +58,9 @@ const Icon : React.FC<IconProps> = ({src,alt}) => {
     return (
         <>
         <Zoom cascade triggerOnce delay={200} fraction={1}>
-        <StyledIcon src={src} alt={alt}/>
+        <StyledIcon>
+            <Image src={src} alt={alt} width={32} height={32}/>
+        </StyledIcon>
         </Zoom> 
         </>
     );

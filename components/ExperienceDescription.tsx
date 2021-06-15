@@ -70,14 +70,14 @@ export const ExperienceDescription = ({children,link,icons} : ExperienceDescript
         {
         icons.map(({src,alt},idx) => (
         <>
-        <Fade triggerOnce delay={(idx+1)*100}>
-            <Img><Image src={src} alt={alt} key={idx+1} width={64} height={64}/></Img>
+        <Fade triggerOnce delay={(idx+1)*100} key={idx}>
+            <Img><Image src={src} alt={alt} width={64} height={64}/></Img>
         </Fade>
         </>
         ))
         }
         <Fade triggerOnce delay={(icons.length+1)*100}>
-            <a href={link} target="_blank"><Image src="/static/github.svg" key={0} width={64} height={64}/></a>
+            <a href={link} target="_blank"><Image src="/static/github.svg" width={64} height={64}/></a>
         </Fade>
     </Cabinet>
     </Paragraph>

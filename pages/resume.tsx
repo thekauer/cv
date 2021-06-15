@@ -26,7 +26,7 @@ const Section = styled.section`
 `
 const School = styled(Section)`
     padding: 2em 1;
-    & p {
+    & section {
         margin:1em 0;
     }
 `
@@ -68,28 +68,28 @@ const Resume = () => {
                     <header><h2>Iskoláim</h2></header>
                     <Row>
                         <Fade triggerOnce delay={100}>
-                            <Img><Image className="img" src={"/static/school.svg"} alt="Iskola ikon" width={32} height={32} /></Img>
+                            <Img><Image className="img" src={"/static/school.svg"} alt="Iskola ikon" layout="fixed" width={32} height={32} /></Img>
                         </Fade>
-                        <p>
+                        <section>
                             <h3>Programtervező Informatikus</h3>
                             <span>Eötvös Loránd Tudomány Egyetem</span>
-                        </p>
+                        </section>
                     </Row>
                     <Row>
                         <Fade triggerOnce delay={200}>
-                            <Img><Image src={"/static/school.svg"} alt="Iskola ikon" width={32} height={32} /></Img>
-                            </Fade>
-                        <p>
+                            <Img><Image src={"/static/school.svg"} alt="Iskola ikon" layout="fixed" width={32} height={32} /></Img>
+                        </Fade>
+                        <section>
                             <h3>Két tanítási nyelvű informatika</h3>
                             <span>Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium</span>
-                        </p>
+                        </section>
                     </Row>
                 </School>
                 <Section>
                     <header><h2>Nyelvtudás</h2></header>
                     <Language>
                         <Fade triggerOnce delay={300}>
-                            <Img><Image src={"/static/lang.svg"} alt="Nyelv ikon" width={32} height={32} /></Img>
+                            <Img><Image src={"/static/lang.svg"} alt="Nyelv ikon" layout="fixed" width={32} height={32} /></Img>
                         </Fade>
                         <p>Angol</p>
                         <p>C1</p>

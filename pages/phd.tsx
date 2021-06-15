@@ -140,9 +140,9 @@ export default function Phd()  {
                     <figure>
                         <Row>
                         {
-                            ["/static/GAN_A.png","/static/GAN_Q.png","/static/GAN_Q.png"].map( (path,idx) => (
+                            ["/static/GAN_A.png","/static/GAN_Q.png","/static/GAN_P.png"].map( (path,idx) => (
                                 <>
-                                <Fade triggerOnce delay={(idx+1)*100}>
+                                <Fade triggerOnce delay={(idx+1)*100} key={idx}>
                                     <Image src={path} width={28} height={28} />
                                 </Fade>
                                 </>
