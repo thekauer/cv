@@ -21,17 +21,30 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@static/*": ["public/static/*"],
-      "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"],
-      "@hooks/*":["hooks/*"],
-      "@utils/*":["utils/*"]
+      "@static/*": [
+        "public/static/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
     }
   },
   "include": [
     "pages",
-    "." ],
+    "."
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "public",
+    ".next"
   ]
 }

@@ -16,6 +16,7 @@
     "react": "latest",
     "react-alert": "latest",
     "react-awesome-reveal": "latest",
+    "react-beautiful-dnd": "^13.1.0",
     "react-confetti": "latest",
     "react-countup": "latest",
     "react-dom": "latest",
@@ -59,10 +60,13 @@
   },
   "devDependencies": {
     "@types/react-alert": "latest",
+    "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-dom": "latest",
     "@types/react-mathjax": "latest",
     "@types/react-sparklines": "latest",
     "@types/styled-components": "latest",
-    "babel-plugin-styled-components": "latest"
+    "babel-plugin-styled-components": "latest",
+    "i": "^0.3.7",
+    "npm": "^8.3.2"
   }
 }

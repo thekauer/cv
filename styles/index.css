@@ -9,6 +9,10 @@
   --green:#2ECB2D;
   --selection:#343a40;
   --strong-selection:#346ba1;
+  --retro-from: #00c853;
+  --retro-to: #39b3fc;
+  --fit4all-from: #0cb3b9;
+  --fit4all-to: #3e448b;
 }
 .themedark {
   --nav-font-color:#888;
