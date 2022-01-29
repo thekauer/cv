@@ -8,6 +8,18 @@ import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 
 export const Retro = () => {
+  const Counter = ({ end }: { end: number }) => (
+    <S.CoverageText>
+      <CountUp start={0} end={end} delay={0.5}>
+        {({ countUpRef, start }) => (
+          <VisibilitySensor onChange={start} delayedCall>
+            <span ref={countUpRef} />
+          </VisibilitySensor>
+        )}
+      </CountUp>
+      %
+    </S.CoverageText>
+  );
   return (
     <S.Container>
       <S.Header>
@@ -64,16 +76,7 @@ export const Retro = () => {
           <S.TextBox>
             <h2>Tesztelés</h2>
             <p>
-              <S.CoverageText>
-                <CountUp start={0} end={17} delay={0.5}>
-                  {({ countUpRef, start }) => (
-                    <VisibilitySensor onChange={start} delayedCall>
-                      <span ref={countUpRef} />
-                    </VisibilitySensor>
-                  )}
-                </CountUp>
-                %
-              </S.CoverageText>
+              <Counter end={17} />
               -al nőtt a test coverage, amíg a projekten voltam.
             </p>
             <br />
@@ -92,8 +95,29 @@ export const Retro = () => {
         <h2>Backend</h2>
       </S.Backend>
       <S.Database>
-        <h2>Adatbázis</h2>
-        <RedisLogo />
+        <S.Row>
+          <S.TextBox>
+            <h2>Adatbázis</h2>
+            <p>
+              MySql-t és redis-t használtunk a projekten. A kedvenc taskom az
+              adatbázisok kapcsán az volt, hogy egy viszonylag ritkábban
+              használt feature-ről kiderült, hogy bugosan működik bizonyos
+              esetekben. Ahoz, hogy kiderüljön mi a probléma le kellet másolnom
+              a production adatbásit és localeban próbálkozni. Kiderült, hogy
+              egy rosszul megírt select querry az ok ami lényegében egy
+              Descartes-szorzatot adott vissza. Olyan sokáig tartott lekérni ezt
+              a querry-t, hogy bőven timeoutolt a request mire megjött volna az
+              adat. Miután bement a fixem <Counter end={18076} />
+              -al lett gyorsabb a lekérés, így már 1 másodperc alatt futott.
+            </p>
+          </S.TextBox>
+          <S.Row>
+            <RedisLogo />
+            <Fade triggerOnce>
+              <Image src="/static/mysql.svg" width={150} height={150} />
+            </Fade>
+          </S.Row>
+        </S.Row>
       </S.Database>
     </S.Container>
   );

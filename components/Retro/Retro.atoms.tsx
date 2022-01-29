@@ -45,7 +45,7 @@ export const Row = styled.div`
 export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 0.5;
+  flex: 0.5 0;
   min-width: 40ch;
   padding: 1rem;
   align-self: baseline;
