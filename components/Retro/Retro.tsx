@@ -62,11 +62,11 @@ export const Retro = () => {
           <S.Row>
             <Fade triggerOnce>
               <S.SpinContainer>
-                <Image src="/static/react.svg" width={200} height={200} />
+                <Image src="/static/react.svg" width={150} height={150} />
               </S.SpinContainer>
             </Fade>
             <Fade triggerOnce>
-              <Image src="/static/redux.svg" width={140} height={140} />
+              <Image src="/static/redux.svg" width={100} height={100} />
             </Fade>
           </S.Row>
         </S.Row>
@@ -111,7 +111,7 @@ export const Retro = () => {
           <S.Row>
             <RedisLogo />
             <Fade triggerOnce>
-              <Image src="/static/mysql.svg" width={150} height={150} />
+              <Image src="/static/mysql.svg" width={130} height={130} />
             </Fade>
           </S.Row>
         </S.Row>
