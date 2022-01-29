@@ -24,7 +24,9 @@ export const Column = ({ column, droppableId }: ColumnProps) => {
                   color={card.color}
                 />
               ))}
-              {provided.placeholder}
+              <S.PlaceholderContainer draggingOver={snapshot.isDraggingOver}>
+                {provided.placeholder}
+              </S.PlaceholderContainer>
             </S.CardsContainer>
           </S.InnerColumn>
         )}

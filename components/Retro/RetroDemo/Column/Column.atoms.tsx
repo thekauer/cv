@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Column = styled.div`
   background-color: #f2f4f5;
@@ -50,4 +50,15 @@ export const CardsContainer = styled.div`
   width: 100%;
   min-height: 9rem;
   gap: 1rem;
+`;
+
+export const PlaceholderContainer = styled.div<{ draggingOver: boolean }>`
+  ${(props) =>
+    props.draggingOver &&
+    css`
+      & {
+        border: 2px dashed black;
+        border-radius: 5px;
+      }
+    `}
 `;
