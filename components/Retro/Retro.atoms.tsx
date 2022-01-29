@@ -32,3 +32,23 @@ export const Test = styled(Section)``;
 export const Backend = styled(Section)``;
 
 export const Database = styled(Section)``;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const TextBox = styled.div`
+  max-width: min-content;
+  min-width: 40ch;
+  padding: 1rem;
+  align-self: baseline;
+
+  & h2 {
+    margin-bottom: 1rem;
+  }
+`;

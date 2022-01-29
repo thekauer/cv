@@ -48,5 +48,6 @@ export const CardsContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  min-height: 9rem;
   gap: 1rem;
 `;

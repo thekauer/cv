@@ -10,8 +10,18 @@ export const Retro = () => {
         <h1>Power Retro</h1>
       </S.Header>
       <S.RetroSection>
-        <h2>Retrospektív alkalmazás</h2>
-        <RetroDemo />
+        <S.Row>
+          <S.TextBox>
+            <h2>Retrospektív alkalmazás</h2>
+            <p>
+              A <a href="https://powerretro.io/">power retro</a> egy
+              retrospektív alkalmazás. Segítségével nincs szükség külön
+              szoftverre a a retrospektívekhez, hanem rögtön a JIRA-ból nyílik
+              erre lehetőségunk.
+            </p>
+          </S.TextBox>
+          <RetroDemo />
+        </S.Row>
       </S.RetroSection>
       <S.Frontend>
         <h2>Frontend</h2>
