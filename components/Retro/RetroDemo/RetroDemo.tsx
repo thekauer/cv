@@ -2,6 +2,7 @@ import * as S from "./RetroDemo.atoms";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Column } from "./Column/Column";
 import { Slide } from "react-awesome-reveal";
+import { resetServerContext } from "react-beautiful-dnd";
 
 import { useState } from "react";
 
@@ -60,13 +61,14 @@ export const RetroDemo = () => {
     }
   };
 
+  resetServerContext();
   return (
     <S.Container>
       <DragDropContext
         onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([id, column], index) => (
-          <Slide triggerOnce direction="up" delay={index * 150} key={id}>
+          <Slide triggerOnce direction="up" delay={index * 150} key={index}>
             <Column column={column} droppableId={id} key={id} />
           </Slide>
         ))}
