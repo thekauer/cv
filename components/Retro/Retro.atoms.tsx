@@ -43,12 +43,43 @@ export const Row = styled.div`
 `;
 
 export const TextBox = styled.div`
-  max-width: min-content;
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
   min-width: 40ch;
   padding: 1rem;
   align-self: baseline;
 
   & h2 {
     margin-bottom: 1rem;
+  }
+`;
+
+export const SpinContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  animation: spin 7s linear infinite;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+export const CoverageText = styled.div`
+  display: inline;
+  & span,
+  & {
+    background: linear-gradient(to bottom right, #00c853, #39b3fc);
+    color: transparent;
+    -webkit-background-clip: text;
+    font-size: 1.5rem;
+    text-transform: uppercase;
   }
 `;

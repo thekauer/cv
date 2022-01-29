@@ -66,8 +66,8 @@ export const RetroDemo = () => {
         onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
         {Object.entries(columns).map(([id, column], index) => (
-          <Slide triggerOnce direction="up" delay={index * 150}>
-            <Column key={id} column={column} droppableId={id} />
+          <Slide triggerOnce direction="up" delay={index * 150} key={id}>
+            <Column column={column} droppableId={id} />
           </Slide>
         ))}
       </DragDropContext>

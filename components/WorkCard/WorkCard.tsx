@@ -28,7 +28,7 @@ export const WorkCard = ({
       </S.Header>
       <S.LogoContainer>
         {icons.map((icon, index) => (
-          <Fade triggerOnce delay={150 * index}>
+          <Fade triggerOnce delay={150 * index} key={index}>
             <Image {...icon} width="24" height="24" />
           </Fade>
         ))}
