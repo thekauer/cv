@@ -91,9 +91,6 @@ export const Retro = () => {
           <TestingAnim />
         </S.Row>
       </S.Test>
-      <S.Backend>
-        <h2>Backend</h2>
-      </S.Backend>
       <S.Database>
         <S.Row>
           <S.TextBox>

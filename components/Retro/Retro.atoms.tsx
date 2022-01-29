@@ -29,8 +29,6 @@ export const Frontend = styled(Section)``;
 
 export const Test = styled(Section)``;
 
-export const Backend = styled(Section)``;
-
 export const Database = styled(Section)``;
 
 export const Row = styled.div`
