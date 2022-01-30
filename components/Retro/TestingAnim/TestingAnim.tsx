@@ -7,7 +7,7 @@ import { TestCase } from "./TestCase/TestCase";
 export const TestingAnim = () => {
   const initialDelay = 1000;
   const typeDelay = 70;
-  const terminalText = "npm run dev";
+  const terminalText = " npm run test";
   const prompt = "λ: ";
   const firstFinish = initialDelay + terminalText.length * typeDelay;
 

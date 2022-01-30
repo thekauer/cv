@@ -23,7 +23,6 @@ export const Retro = () => {
   return (
     <S.Container>
       <S.Header>
-        {" "}
         <h1>Power Retro</h1>
       </S.Header>
       <S.RetroSection>

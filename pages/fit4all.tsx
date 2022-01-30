@@ -1,5 +1,7 @@
-const Fit4All = () => {
-  return <h1>Fit4All</h1>;
+import { Fit4all } from "../components/Fit4all/Fit4all";
+
+const Fit4AllPage = () => {
+  return <Fit4all />;
 };
 
-export default Fit4All;
+export default Fit4AllPage;
