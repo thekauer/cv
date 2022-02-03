@@ -100,13 +100,15 @@ const Resume = () => {
             </header>
             <Experience
               title={"Power Retro"}
-              desc={fsDesc}
+              desc={"JIRA-ból elérhető retrospektív alkalmazás"}
               icons={RetroIcons}
               path="retro"
             />
             <Experience
               title={"Fit4all"}
-              desc={fsDesc}
+              desc={
+                "Egy olyan platform ami egy véroxygén mérő setítségével tudományos alapokra helyezi az edzéseket."
+              }
               icons={Fit4allIcons}
               path="fit4all"
             />

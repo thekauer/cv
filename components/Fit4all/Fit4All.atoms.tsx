@@ -80,3 +80,13 @@ export const TechLogos = styled.div`
     )}
   }
 `;
+
+export const ImageShadow = styled.div`
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+`;
+
+export const DbImageContainer = styled.div`
+  max-width: 400px;
+  max-height: 400px;
+  margin-top: -2rem;
+`;

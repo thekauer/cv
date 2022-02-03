@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   gap: 2rem;
   max-width: 90vw;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
