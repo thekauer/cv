@@ -107,7 +107,7 @@ const Resume = () => {
             <Experience
               title={"Fit4all"}
               desc={
-                "Egy olyan platform ami egy véroxygén mérő setítségével tudományos alapokra helyezi az edzéseket."
+                "Egy olyan platform ami egy véroxigénszint mérő segítségével tudományos alapokra helyezi az edzéseket."
               }
               icons={Fit4allIcons}
               path="fit4all"
