@@ -23,7 +23,9 @@ export const WorkCard = ({
   return (
     <S.Container from={from} to={to}>
       <S.Header>
-        <Image height="32" width="32" src={logo} />
+        <S.Logo>
+          <Image layout="fill" src={logo} />
+        </S.Logo>
         <h2>{title}</h2>
       </S.Header>
       <S.LogoContainer>

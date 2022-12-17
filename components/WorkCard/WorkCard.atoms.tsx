@@ -49,3 +49,10 @@ export const Footer = styled.div`
   justify-content: flex-end;
   width: 100%;
 `;
+
+export const Logo = styled.div`
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+`;

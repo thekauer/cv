@@ -16,7 +16,7 @@ import {
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import { WorkCard } from "../components/WorkCard/WorkCard";
-import { Fit4allIcons, RetroIcons } from "../utils/icons";
+import { Fit4allIcons, RetroIcons, UstreamIcons } from "../utils/icons";
 
 const StyledHome = styled.article`
   padding: 1.5em 0;
@@ -104,6 +104,14 @@ const Home = () => {
           title="Fit4all"
           from="#0cb3b9"
           to="#3e448b"
+        />
+        <WorkCard
+          logo="/static/ibmvs_sm.png"
+          icons={UstreamIcons}
+          path="ibm"
+          title="IBM Video Streaming"
+          from="#40b1e6"
+          to="#3f3f3f"
         />
         <Svg viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d="m 0,100 h 100 l 0,-90z" id="bottom" />
