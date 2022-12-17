@@ -18,7 +18,7 @@ export const IBM = () => {
               lehetővé teszi a felhasználóknak, hogy videókat, hanganyagokat és
               interaktív tartalmakat osszanak meg a közösséggel. Támogat on
               demand és live streaminget is. Elérhető átlag embereknek és üzleti
-              felhasználóknak egyaránt.
+              felhasználóknak is egyaránt.
             </p>
           </S.TextBox>
         </S.Row>
@@ -28,11 +28,11 @@ export const IBM = () => {
           <S.TextBox>
             <h2>Slack</h2>
             <p>
-              Együtt dolgoztam a Slack csapatával, hogy szolgáltatásunk Slack
-              integrációján. Ezzel lehetővé válik, hogy a felhasználók a Slacken
-              belül tudjanak streameket és on demand tartalmakat megosztani és
-              megtekinteni. A megvalósításhoz, node.js-t, terraformot és IBM
-              cloudot használtam.
+              Együtt dolgoztam a Slack csapatával, szolgáltatásunk Slack
+              integrációján. Ezzel lehetővé válik a felhasználók számára, hogy a
+              Slacken belül tudjanak streameket, illetve, on demand tartalmakat
+              megosztani és megtekinteni. A megvalósításhoz, node.js-t,
+              terraformot és IBM cloudot használtam.
             </p>
           </S.TextBox>
         </S.Row>
@@ -43,7 +43,7 @@ export const IBM = () => {
             <h2>360 Video vezérlés</h2>
             <p>
               A 360 videó szolgáltatásunkhoz implementáltam, egy akadálymentes
-              vezérlést, amivel desktopon kontrol koronggal, mobilon érintő
+              vezérlőt, amivel desktopon kontrol koronggal, mobilon érintő
               képernyővel és gyroszkóppal lehet navigálni a videóban. A
               funkcióhoz Three.js-t használtam. A vezérlésbe programoztam, egy
               kis tehetetlenséget is, hogy természetesebb legyen a mozgás.
@@ -56,11 +56,11 @@ export const IBM = () => {
           <S.TextBox>
             <h2>Visibility detection</h2>
             <p>
-              A platformon nem bandwidth hanem viewer hour alapú a számlálás.
+              A platformon nem bandwidth hanem viewer hour alapú a számlázás.
               Épp egy visibility-vel kapcsolatos taskon dolgoztam, amikor jött
               az ötlet, hogy akkor már lejjebb is válthatnánk a videó minőségét,
-              ha a felhasználó nem nézi a videót. 2 nappal a release után már 50
-              Tb adatotforgalmat spóroltunk meg.
+              ha a felhasználó épp nem nézi a videót. 2 nappal release után már
+              50 Tb adatotforgalmat spóroltunk meg, ezzel az új featurerel.
             </p>
           </S.TextBox>
         </S.Row>
