@@ -22,6 +22,7 @@ import {
   WebsiteIcons,
   RetroIcons,
   Fit4allIcons,
+  UstreamIcons,
 } from "@utils/icons";
 import Image from "next/image";
 
@@ -96,11 +97,24 @@ const Resume = () => {
           </header>
           <Tile>
             <header>
+              <h3>IBM Watson Media</h3>
+            </header>
+            <Experience
+              title={"IBM Video Streaming"}
+              desc={
+                "Enterprise video streaming szolgáltatás. Régi nevén ustream."
+              }
+              icons={UstreamIcons}
+              path="ibm"
+            />
+          </Tile>
+          <Tile>
+            <header>
               <h3>Tappcoding</h3>
             </header>
             <Experience
               title={"Power Retro"}
-              desc={"JIRA-ból elérhető retrospektív alkalmazás"}
+              desc={"JIRA-ból elérhető retrospektív alkalmazás."}
               icons={RetroIcons}
               path="retro"
             />

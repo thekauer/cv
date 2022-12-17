@@ -57,3 +57,15 @@ export const Fit4allIcons = [
   { src: "/static/postgree.svg", alt: "Postgree sql logo" },
   { src: "/static/redis.svg", alt: "Redis logo" },
 ];
+
+export const UstreamIcons = [
+  { src: "/static/react.svg", alt: "React logo" },
+  { src: "/static/redux.svg", alt: "Redux logo" },
+  { src: "/static/jest.svg", alt: "Jest logo" },
+  { src: "/static/three.svg", alt: "Threejs logo" },
+  { src: "/static/webpack.svg", alt: "Webpack logo" },
+  { src: "/static/ibmcloud.svg", alt: "IBM Cloud logo" },
+  { src: "/static/node.svg", alt: "Node logo" },
+  { src: "/static/terraform.svg", alt: "Terraform logo" },
+  { src: "/static/elastic_observability.svg", alt: "Elastic logo" },
+];
