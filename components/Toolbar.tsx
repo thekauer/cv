@@ -81,9 +81,9 @@ const Toolbar = ({ checked, setChecked }: ToolbarProps) => {
             </ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/blog/" activeClassName="active" matchAny={true}>
+            {/* <ActiveLink href="/blog/" activeClassName="active" matchAny={true}>
               <a>Blog</a>
-            </ActiveLink>
+            </ActiveLink> */}
           </li>
           <li>
             <ActiveLink href="/contacts" activeClassName="active">
