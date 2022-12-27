@@ -79,7 +79,7 @@ export default function Layout({ children }: any) {
       <StyledLayout className={checked ? "themelight" : "themedark"}>
         <Toolbar checked={checked} setChecked={setChecked} />
         <Content id="main">{children}</Content>
-        <Footer />
+        {/* <Footer /> */}
       </StyledLayout>
     </>
   );
