@@ -7,7 +7,6 @@ export const Fit4all = () => {
       <S.Header>
         <S.Row>
           <h1>Fit4All</h1>
-          <Image src="/static/work-in-progress.png" width={100} height={100} />
         </S.Row>
       </S.Header>
       <S.Section>
