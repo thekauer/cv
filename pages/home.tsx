@@ -137,13 +137,13 @@ const Home = () => {
             icon=""
             path="/phd"
           />
-          <PortfolioCard
+          {/* <PortfolioCard
             title={cvName}
             desc={cvDesc}
             color="var(--react)"
             icon=""
             path="/website"
-          />
+          /> */}
           <PortfolioCard
             title={appName}
             desc={appDesc}

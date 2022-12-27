@@ -144,12 +144,12 @@ const Resume = () => {
             icons={PhdIcons}
             path="phd"
           />
-          <Experience
+          {/* <Experience
             title={cvName}
             desc={cvDesc}
             icons={WebsiteIcons}
             path="website"
-          />
+          /> */}
           <Experience
             title={appName}
             desc={appDesc}
