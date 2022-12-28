@@ -1,8 +1,9 @@
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Fit4all } from "../components/Fit4all/Fit4all";
-export const getServerSideProps = async ({ locale }) => ({
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["f4a", "common"])),
+    ...(await serverSideTranslations(locale!, ["f4a", "common"])),
   },
 });
 

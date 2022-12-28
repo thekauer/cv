@@ -1,9 +1,10 @@
+import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Phd from "../components/phd";
 
-export const getServerSideProps = async ({ locale }) => ({
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["phd", "common"])),
+    ...(await serverSideTranslations(locale!, ["phd", "common"])),
   },
 });
 
