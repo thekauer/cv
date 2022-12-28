@@ -1,0 +1,10 @@
+{
+  "title": "Kapcsolat",
+  "phone": "telefon",
+  "send": "Küldés",
+  "sent_successfully": "Sikeresen elküldve",
+  "error": "Valami probléma történt. Próbálkozz újra később.",
+  "name": "Név",
+  "email": "E-mail",
+  "message": "Üzenet"
+}
