@@ -9,5 +9,10 @@
   "appName": "Android Application",
   "appDesc": "Native android application, with GeoLocation support",
   "tdkName": "Tdk",
-  "tdkDesc": "Data augmentation techniques for handwritten text recognition"
+  "tdkDesc": "Data augmentation techniques for handwritten text recognition",
+  "toolbar": {
+    "home": "Home",
+    "resume": "Resume",
+    "contact": "Contact"
+  }
 }

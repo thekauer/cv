@@ -9,5 +9,10 @@
   "appName": "Android Alkalmazás",
   "appDesc": "Native android alkalmazás, helymeghatározással és adatbázissal",
   "tdkName": "Tdk",
-  "tdkDesc": "Adat augmentálási technikák kézirásfelsimeréshez"
+  "tdkDesc": "Adat augmentálási technikák kézirásfelsimeréshez",
+  "toolbar": {
+    "home": "Főoldal",
+    "resume": "Resume",
+    "contact": "Kapcsolat"
+  }
 }
