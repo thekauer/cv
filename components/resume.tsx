@@ -83,19 +83,19 @@ const Tile = styled.div`
 `;
 
 const Resume = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("resume");
   return (
     <>
       <Head>
-        <title>Resmue - Kauer András</title>
+        <title>{t("head")}</title>
       </Head>
       <StyledResume>
         <header>
-          <h1>Resume</h1>
+          <h1>{t("title")}</h1>
         </header>
         <Exp>
           <header>
-            <h2>Munkásságom</h2>
+            <h2>{t("my_work")}</h2>
           </header>
           <Tile>
             <header>
@@ -103,9 +103,7 @@ const Resume = () => {
             </header>
             <Experience
               title={"IBM Video Streaming"}
-              desc={
-                "Enterprise video streaming szolgáltatás. Régi nevén ustream."
-              }
+              desc={t("ibmDesc")}
               icons={UstreamIcons}
               path="ibm"
             />
@@ -116,15 +114,13 @@ const Resume = () => {
             </header>
             <Experience
               title={"Power Retro"}
-              desc={"JIRA-ból elérhető retrospektív alkalmazás."}
+              desc={t("retroDesc")}
               icons={RetroIcons}
               path="retro"
             />
             <Experience
               title={"Fit4all"}
-              desc={
-                "Egy olyan platform ami egy véroxigénszint mérő segítségével tudományos alapokra helyezi az edzéseket."
-              }
+              desc={t("f4aDesc")}
               icons={Fit4allIcons}
               path="fit4all"
             />
@@ -132,17 +128,17 @@ const Resume = () => {
         </Exp>
         <Exp>
           <header>
-            <h2>Referenciák</h2>
+            <h2>{t("references")}</h2>
           </header>
           <Experience
-            title={fsName}
-            desc={fsDesc}
+            title="fsName"
+            desc="fsDesc"
             icons={FusionIcons}
             path="fusion"
           />
           <Experience
-            title={phdName}
-            desc={phdDesc}
+            title="phdName"
+            desc="phdDesc"
             icons={PhdIcons}
             path="phd"
           />
@@ -153,15 +149,15 @@ const Resume = () => {
             path="website"
           /> */}
           <Experience
-            title={appName}
-            desc={appDesc}
+            title="appName"
+            desc="appDesc"
             icons={PhoneAppIcons}
             path="androidapp"
           />
         </Exp>
         <School>
           <header>
-            <h2>Iskoláim</h2>
+            <h2>{t("education")}</h2>
           </header>
           <Row>
             <Fade triggerOnce delay={100}>
@@ -177,8 +173,8 @@ const Resume = () => {
               </Img>
             </Fade>
             <section>
-              <h3>Programtervező Informatikus</h3>
-              <span>Eötvös Loránd Tudomány Egyetem</span>
+              <h3>{t("pti")}</h3>
+              <span>{t("elte")}</span>
             </section>
           </Row>
           <Row>
@@ -194,16 +190,14 @@ const Resume = () => {
               </Img>
             </Fade>
             <section>
-              <h3>Két tanítási nyelvű informatika</h3>
-              <span>
-                Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium
-              </span>
+              <h3>{t("bilingual_it")}</h3>
+              <span>{t("szechenyi")}</span>
             </section>
           </Row>
         </School>
         <Section>
           <header>
-            <h2>Nyelvtudás</h2>
+            <h2>{t("langs")}</h2>
           </header>
           <Language>
             <Fade triggerOnce delay={300}>
@@ -217,7 +211,7 @@ const Resume = () => {
                 />
               </Img>
             </Fade>
-            <p>Angol</p>
+            <p>{t("en")}</p>
             <p>C1</p>
           </Language>
         </Section>

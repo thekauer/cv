@@ -1,3 +1,16 @@
 {
-  "head": "Resume - Kauer András"
+  "head": "Resume - Kauer András",
+  "title": "Resume",
+  "my_work": "Munkásságom",
+  "ibmDesc": "Enterprise video streaming szolgáltatás. Régi nevén ustream.",
+  "retroDecs": "JIRA-ból elérhető retrospektív alkalmazás.",
+  "f4aDesc": "Egy olyan platform ami egy véroxigénszint mérő segítségével tudományos alapokra helyezi az edzéseket.",
+  "references": "Referenciák",
+  "education": "Iskoláim",
+  "pti": "Programtervező Informatikus",
+  "elte": "Eötvös Loránd Tudomány Egyetem",
+  "bilingual_it": "Két tanítási nyelvű informatika",
+  "szechenyi": "Székesfehérvári SZC Széchenyi István Műszaki Szakgimnázium",
+  "langs": "Nyelvtudás",
+  "en": "Angol"
 }
