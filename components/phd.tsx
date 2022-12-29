@@ -22,6 +22,7 @@ import Video from "./phd/Video";
 import Process from "./phd/Process";
 import { Box, GearBox } from "./phd/Box";
 import { Grid, Recog, DrawContainer, YoloCpu, Line } from "./phd/Grid";
+import { useTranslation } from "next-i18next";
 
 const DescriptionSection = styled.section`
   display: flex;
@@ -35,6 +36,7 @@ const Row = styled.div`
 `;
 
 export default function Phd() {
+  const { t } = useTranslation("phd");
   const drawCountUp = (end: number) => {
     return (
       <CountUp end={end} duration={1}>
@@ -53,17 +55,13 @@ export default function Phd() {
   return (
     <>
       <Head>
-        <title>Phd - Kauer András</title>
+        <title>{t("head_title")}</title>
       </Head>
       <StyledPhd>
         <Header>
           <Text>
             <h1>Phd</h1>
-            <em>
-              Társszerzője vagyok egy Phd-nek ami kézírás felismerés
-              technikákkal foglalkozik. Az én feladatom volt implementálni a
-              papír tartalmát, illetve szerepet vállaltam a tervezésben is.
-            </em>
+            <em>{t("desc")}</em>
           </Text>
           <Fade triggerOnce>
             <PhdImage>
@@ -73,13 +71,8 @@ export default function Phd() {
         </Header>
         <Video>
           <Text>
-            <h2>CNN felismerés</h2>
-            <em>
-              Az első működő prototípusa a projektnek. Ez viszont nem tudja
-              magától megtalálni a betűket. Éppen ezért az az ötletem támadt,
-              hogy a YOLO technológiát kéne használnunk a jövőben, aminek egy
-              demoja lentebb látható.
-            </em>
+            <h2>{t("cnn_title")}</h2>
+            <em>{t("cnn")}</em>
           </Text>
           <Fade triggerOnce>
             <video
@@ -96,11 +89,11 @@ export default function Phd() {
         <Process>
           <Grid>
             <Box id="box1">
-              <h2>Feldolgozott Dokumentumok</h2>
+              <h2>{t("documents")}</h2>
               {drawCountUp(388)}
-              <h2>Begyűjtött betűk</h2>
+              <h2>{t("letters")}</h2>
               {drawCountUp(78000)}
-              <h2>Augmentálással</h2>
+              <h2>{t("augmentation")}</h2>
               {drawCountUp(156000)}
             </Box>
             <Arrow id="arrow1" />
@@ -108,7 +101,7 @@ export default function Phd() {
               <Gear customClass="blue-gear gear" />
               <Gear customClass="yellow-gear gear" />
               <Gear customClass="gray-gear gear" />
-              <h2>Python feldolgozás</h2>
+              <h2>{t("python_processing")}</h2>
             </GearBox>
             <Arrow id="arrow2" />
             <Box id="box3">
@@ -116,14 +109,14 @@ export default function Phd() {
                 <img src={"/static/lines.svg"} />
                 <div>
                   {drawCountUp(70000)}
-                  <h2>Sor Sherlock</h2>
+                  <h2>{t("lines_of_sherlock")}</h2>
                 </div>
               </Line>
               <Line>
                 <img src={"/static/gan.svg"} />
                 <div>
                   {drawCountUp(78 * 500)}
-                  <h2>GAN generált betű</h2>
+                  <h2>{t("gan_letters")}</h2>
                 </div>
               </Line>
             </Box>
@@ -148,83 +141,26 @@ export default function Phd() {
         </Recog>
         <DescriptionSection>
           <ExperienceDescription {...xpprops}>
+            <p>{t("p1")}</p>
+            <p>{t("p2")}</p>
             <p>
-              Pár évvel ezelőtt az egyik tanárom felajánlott egy
-              munkalehetőséget, amit én el is vállaltam. Éppen a Phd-jén
-              dolgozott, amiben szeretett volna valamilyen módon
-              betűfelismeréssel foglalkozni.
-            </p>
-            <p>
-              Ehhez nagyon sok betűre volt szüksége, amiket önkéntesekkel
-              íratott, majd beszkennelt. Az én feladatom volt ezeket körbevágni
-              egyesével majd átnézni és normalizálni. Legalább 1000 darabra volt
-              szükség minden betűből, de végül inkább többet általában nagyjából
-              1500at gyűjtöttem.
-            </p>
-            <p>
-              Mivel elég monoton és lassú folyamat volt egyesével kivagdosni a
-              betűket, óránként legjobb esetben olyan 800 darabot tudtam
-              kivágni, már a harmadik betűnél "feladtam" és elhatároztam, hogy a
-              szabadidőmben írni fogok egy programot ami felgyorsítja a
-              folyamatot. Akkor nagyon tetszett a rust programozási nyelv ezért
-              azt használtam. Elhatároztam, hogyha sikerül egy működő
-              prototípust összehozni egy hétvége alatt akkor azt fogom
-              használni. Végül a{" "}
+              {t("p3")}
               <a href="https://github.com/thekauer/rustycrop" target="_blank">
-                prototípus
-              </a>{" "}
-              olyan jó lett, bár nagyon messze volt a tökéletestől, hogy sose
-              kellett tovább fejlesztenem. Az új programommal már akár 2000-2500
-              darab betűt is ki tudtam vágni egy óra alatt, de legrosszabb
-              esetben is kétszer olyan gyors voltam, mint előtte. Pedig ekkor
-              még csak nem is hallottam olyan algoritmusokról, mint például az
-              MSER.
+                {t("prototype")}
+              </a>
+              {t("p4")}
             </p>
-            <p>
-              Ahogy gyűltek a betűk egyre többször fordult elő, hogy rendezni,
-              alakítani kellet őket. Itt megtudtam mutatni a tudásom, nagyon
-              gyorsan tudtam elkészíteni ezeket a scripteket, és ezért innentől
-              kezdve az én feladatom lett a scriptek írása is. Ennek köszönhető
-              például, hogy több formátumban is elérhető az adathalmaz, amit
-              készítettünk.
-            </p>
-            <p>
-              A következő fázis a betűfelismerés volt. Ekkorra a projekt
-              implementálását már teljes mértékben én végeztem. Először CNN-eket
-              használtunk. Megtanultam, hogy hogyan kell neurális hálózattokat
-              felépíteni és megprogramozni és több száz modellt készítettem, és
-              teszteltem le a betűinken.
-            </p>
+            <p>{t("p5")}</p>
+            <p>{t("p6")}</p>
             <figure>
               <Fade triggerOnce delay={100}>
                 <Image src="/static/cnn_result.png" width={550} height={286} />
               </Fade>
-              <figcaption>Az egyik CNN model</figcaption>
+              <figcaption>{t("cnn_caption")}</figcaption>
             </figure>
-            <p>
-              A CNN-nek viszont meg van az a hátránya, hogy csak fix méretű
-              inputtal működik. Szóval, ha írott szöveget szeretnénk felismerni
-              akkor nekünk kell megkeresni és különválasztani a betűket. Ami még
-              angol kézírással egész kivitelezhető, ahogy a fenti videó is
-              mutatja. De ha az ember kicsit össze-vissza ír és összeköti a
-              betűket akkor már közel sem ilyen jók az eredmények.
-            </p>
-            <p>
-              Ekkor támadt az ötletem, hogy használjunk YOLO hálózatot. Ez egy
-              olyan neurális háló, ami nem csak felismeri, hanem meg is találja,
-              hogy hol helyezkedik el az adott betű. Megvizsgáltam gyakorlatilag
-              minden lehetőségünket RCNN téren, beleértve a RCNN, Fast RCNN,
-              Faster RCNN, SSD, Darknet ls Retinatet hálózattokat, és végül az
-              Ultralitics-től Yolov5-öt választottam.
-            </p>
-            <p>
-              A yolohoz már olyan bemenet kellet, amin írott szöveg van nem csak
-              egy-egy betű. Nem ált szándékunkban hosszú paragrafusokat íratni
-              önkéntesekkel és ezeket címkézni betűnkként, ezért írtam egy
-              python programot ami a Sherlock Holmos-t leírja a mi betűinkkel.
-              Egy bemenet 14 sorból minden sorban egy szóból ált úgy rendezve,
-              hogy minden hova kerüljön betű.
-            </p>
+            <p>{t("p7")}</p>
+            <p>{t("p8")}</p>
+            <p>{t("p9")}</p>
             <figure>
               <Fade triggerOnce delay={100}>
                 <Image
@@ -233,27 +169,16 @@ export default function Phd() {
                   height={552}
                 />
               </Fade>
-              <figcaption>A Sherlock Holmes-os bemenet</figcaption>
+              <figcaption>{t("sherlock_input")}</figcaption>
             </figure>
-            <p>
-              Ennek az implementációja közben írtam meg a kedvenc bugomat is.
-              Amitől a bemenetnek csak a körvonala látszott.
-            </p>
+            <p>{t("p10")}</p>
             <figure>
               <Fade triggerOnce delay={100}>
                 <Image src="/static/coolest_bug.png" width={416} height={416} />
               </Fade>
-              <figcaption>Bug a bemenetgenerálás kódjában</figcaption>
+              <figcaption>{t("bug_caption")}</figcaption>
             </figure>
-            <p>
-              Ehhez viszont még több betűre volt szükségünk, úgyhogy egyrészt a
-              már a CNN-eknél is alkalmazott augmentáláshoz fordultunk. Amiből
-              írtam is egy TDK dolgozatot. Illetve az az ötletem támadt, hogy
-              használhatnánk úgynevezett GAN modelleket, hogy mesterséges
-              intelligenciával is tudjunk betűket generálni. Írtam erre is egy
-              programot, és egy kis tökéletesítés után egész meggyőző betűket
-              generált és végül minden betűből generáltam 500-at vele.
-            </p>
+            <p>{t("p11")}</p>
             <figure>
               <Row>
                 {[
@@ -268,7 +193,7 @@ export default function Phd() {
                   </>
                 ))}
               </Row>
-              <figcaption>GAN által generált betűk</figcaption>
+              <figcaption>{t("gan_caption")}</figcaption>
             </figure>
           </ExperienceDescription>
         </DescriptionSection>
