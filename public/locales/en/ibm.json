@@ -2,7 +2,7 @@
   "desc": "IBM Video Streaming is a streaming service that allows users to share videos, audio files and interactive content with the community. It supports on demand videos and live streaming.",
   "slack": "I worked with the Slack team to integrate our service. This allows users to share streams and on demand videos on Slack. I used node.js, terraform and IBM cloud to implement this feature.",
   "360_title": "360 Video control",
-  "360": "I implemented a control for 360 videos. It allows users to navigate the video with a control ring on desktop, touch on mobile and gyroscope on mobile. I used Three.js for this feature. I programmed a little bit of inertia to make the navigation more natural.",
+  "360": "I implemented a control for 360 videos. It allows users to navigate the video with a control ring on desktop, touch and gyroscope on mobile. I used Three.js for this feature. I programmed a little bit of inertia to make the navigation more natural.",
   "visibility": "On the platform the billing is based on viewer hours not bandwidth. I was working on a task related to visibility when I had the idea that we could lower the video quality when the user is not watching the video. 2 days after the release we saved 50 Tb of data traffic with this new feature.",
   "rtl_title": "React testing library and accessibility",
   "rtl": "It was very important to make the platform accessible. When I joined the team we were using enzyme for testing. I was the only one with experience with testing library. I managed to convince the team to switch gradually. With testing library we could test the accessibility of the components much easier."
