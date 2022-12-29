@@ -1,0 +1,20 @@
+{
+  "more": "Több",
+  "fsName": "Programozási nyelv",
+  "fsDesc": "llvm alapú, fordított, általános célú programozási nyelv",
+  "phdName": "Phd",
+  "phdDesc": "Több nyelven kézírásfelismerés módszerek mesterséges inteligenciával",
+  "cvName": "Weboldal",
+  "cvDesc": "React alapú modern személyes portfólió",
+  "appName": "Android Alkalmazás",
+  "appDesc": "Native android alkalmazás, helymeghatározással és adatbázissal",
+  "tdkName": "Tdk",
+  "tdkDesc": "Adat augmentálási technikák kézirásfelsimeréshez",
+  "toolbar": {
+    "home": "Főoldal",
+    "resume": "Resume",
+    "contact": "Kapcsolat"
+  },
+  "erase": "Töröl",
+  "send": "Küldés"
+}

@@ -1,0 +1,13 @@
+{
+  "retro_title": "Retrospektív alkalmazás",
+  "retro_desc": " egy retrospektív alkalmazás. Aminek a segítségével nincs szükség külön szoftverre a retrospektívekhez, hanem rögtön a JIRA-ból nyílik erre lehetőségünk.",
+  "frontend": "A frontend Reactel és Reduxal készült. Az egyik kiemelkedőbb feladatom a drag and drop teljes refactorálása és új funkciókkal való kiegészítése volt. Aminek én terveztem meg a logikáját, majd csapatban implementáltuk. Az implementáció 1 hónapon át tartott ami közben számos kihívással kellet szembenéznünk ugyan is olyan feature-öket is írnunk kellet, amit a react-beautiful-dnd nem támogatott.",
+  "frontend2": "Egyéb kiemelkedő feladatom a real time board template váltás, az uncategorized oszlop és a lobby animáció volt.",
+  "testing_title": "Tesztelés",
+  "testing_0": "",
+  "testing_1": "-al nőtt a test coverage, amíg a projekten voltam.",
+  "testing_2": "Nagyon fontosnak tartom a tesztelést, és éppen ezért amíg a projekten voltam végig a tesztelés mellet lobbyztam. Nem hiszek abban, hogy csak azért írjunk tesztet, hogy legyen. Viszont szükség van az üzleti logika letesztelésére, hogy még időben kiderüljenek az esetleges bugok.",
+  "db_title": "Adatbázis",
+  "db": "MySql-t és redis-t használtunk a projekten. A kedvenc taskom az adatbázisok kapcsán az volt, hogy egy viszonylag ritkábban használt feature-ről kiderült, hogy bugosan működik bizonyos esetekben. Ahhoz, hogy kiderüljön mi a probléma le kellet másolnom a production adatbázist és localeban próbálkozni. Kiderült, hogy egy rosszul megírt select query az ok ami lényegében egy Descartes-szorzatot adott vissza. Olyan sokáig tartott lekérni ezt a querry-t, hogy bőven timeoutolt a request mire megjött volna az adat. Miután bement a fixem ",
+  "db2": "-al lett gyorsabb a lekérés, így már 1 másodperc alatt futott."
+}

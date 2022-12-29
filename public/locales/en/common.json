@@ -1,0 +1,20 @@
+{
+  "more": "More",
+  "fsName": "Programming Language",
+  "fsDesc": "llvm based compiled, general purpose, multi-paradigm programming language",
+  "phdName": "Phd",
+  "phdDesc": "Multilingual text recognition with AI",
+  "cvName": "Website",
+  "cvDesc": "Nextjs based modern portfolio website",
+  "appName": "Android Application",
+  "appDesc": "Native android application, with GeoLocation support",
+  "tdkName": "Tdk",
+  "tdkDesc": "Data augmentation techniques for handwritten text recognition",
+  "toolbar": {
+    "home": "Home",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "erase": "Erase",
+  "send": "Send"
+}

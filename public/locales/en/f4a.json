@@ -1,0 +1,11 @@
+{
+  "desc": "Fit4all is a platform that allows you to place your daily workouts on scientific grounds. It processes the data of a pulse oximeter, a device that measures the oxygen level in the blood. Coaches and their clients can register, even by invitation. Coaches can see a lot of data about their clients, which can help them create a more effective training plan.",
+  "beginning": "The project started with my own proof of concept application. It already contained its own jwt, access token based authentication, cached responses, request validation, swagger documentation, and encrypted database, as well as a minimal frontend with which all of this could be tried out.",
+  "beginning_title": "Beginnings",
+  "auth_title": "Authentication",
+  "auth": "In the beginning, We used the authentication I created. It was very well researched and secure. However, the customer requested that we use a third-party service, and the choice fell on Auth0. I also implemented most of it.",
+  "test_title": "Testing",
+  "test": "On this project we also take testing seriously. There are already front- and backend end to end tests, most of which I wrote. On the frontend with Cypress, on the backend with nest's own tools.",
+  "db_title": "Database",
+  "db": "Since the data is stored encrypted in the database, I created an EncryptedColumn decorator, which can be used like the Column decorator, but automatically encrypts the data. This greatly simplified the development process. It also includes that the application works with a lot of data and I created \"smart\" seeds for it, which also greatly accelerated the development pace."
+}

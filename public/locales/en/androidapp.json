@@ -1,0 +1,15 @@
+{
+  "head_title": "Android Application - András Kauer",
+  "supports": "The application supports the following data manipulations:",
+  "click_to_play": "Click to play",
+  "desc_title": "About the app",
+  "desc": "I made it for a friend's company. They are the ones who get called when the alarm goes of in a certain area. They have a dispatcher and a driver. The dispatcher calls the driver and tells him the code of the place. Then he has to find it in a big pile of papers. The application helps them to find the place by just typing in the code. It also helps them to find the place by taking a picture and the application can find the place based on the EXIF data of the picture.",
+  "add": "Addition",
+  "delete": "Deletion",
+  "edit": "Editing",
+  "gps": "GPS",
+  "exif": "Exif location",
+  "import": "Importing/Exporting",
+  "appName": "Android Application",
+  "appDesc": "Native android application, with GeoLocation support"
+}

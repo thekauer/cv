@@ -1,6 +1,6 @@
-import { Skill } from "../components/Skill";
+import { Skill } from "./Skill";
 import React from "react";
-import PortfolioCard from "../components/PortfolioCard";
+import PortfolioCard from "./PortfolioCard";
 import {
   appDesc,
   appName,
@@ -15,8 +15,9 @@ import {
 } from "@utils/content";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
-import { WorkCard } from "../components/WorkCard/WorkCard";
+import { WorkCard } from "./WorkCard/WorkCard";
 import { Fit4allIcons, RetroIcons, UstreamIcons } from "../utils/icons";
+import { useTranslation } from "next-i18next";
 
 const StyledHome = styled.article`
   padding: 1.5em 0;
@@ -73,15 +74,16 @@ const Svg = styled.svg<any>`
   transform: rotate(${(props) => props.top && "180"}deg);
 `;
 const Home = () => {
+  const { t } = useTranslation("home");
   return (
     <StyledHome>
       <Header>
         <Fade triggerOnce>
-          <h1>Kauer András</h1>
+          <h1>{t("name")}</h1>
         </Fade>
         <Fade triggerOnce delay={300}>
           <h2>
-            <span>Full Stack</span> fejlesztő
+            <span>Full Stack</span> {t("developer")}
           </h2>
         </Fade>
       </Header>
@@ -120,19 +122,19 @@ const Home = () => {
 
       <Skills>
         <header>
-          <h2>Referenciák</h2>
+          <h2>{t("references")}</h2>
         </header>
         <SkillContainer>
           <PortfolioCard
-            title={fsName}
-            desc={fsDesc}
+            title={"fsName"}
+            desc={"fsDesc"}
             color="var(--blue)"
             icon=""
             path="/fusion"
           />
           <PortfolioCard
-            title={phdName}
-            desc={phdDesc}
+            title={"phdName"}
+            desc={"phdDesc"}
             color="var(--yellow)"
             icon=""
             path="/phd"
@@ -145,8 +147,8 @@ const Home = () => {
             path="/website"
           /> */}
           <PortfolioCard
-            title={appName}
-            desc={appDesc}
+            title={"appName"}
+            desc={"appDesc"}
             color="var(--green)"
             icon=""
             path="/androidapp"

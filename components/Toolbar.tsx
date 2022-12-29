@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
+import { useTranslation } from "next-i18next";
+import { LanguageSelector } from "./LanguageSelector";
 
 const Nav = styled.nav`
   padding: 0.5em 0em;
@@ -66,18 +68,20 @@ const Toolbar = ({ checked, setChecked }: ToolbarProps) => {
     onColor: "#252526",
     offColor: "#eaeaeb",
   };
+
+  const { t } = useTranslation();
   return (
     <>
       <Nav>
         <ul>
           <li>
             <ActiveLink href="/" activeClassName="active">
-              <a>Főoldal</a>
+              <a>{t("toolbar.home")}</a>
             </ActiveLink>
           </li>
           <li>
             <ActiveLink href="/resume" activeClassName="active">
-              <a>Resume</a>
+              <a>{t("toolbar.resume")}</a>
             </ActiveLink>
           </li>
           <li>
@@ -87,10 +91,11 @@ const Toolbar = ({ checked, setChecked }: ToolbarProps) => {
           </li>
           <li>
             <ActiveLink href="/contacts" activeClassName="active">
-              <a>Kapcsolat</a>
+              <a>{t("toolbar.contact")}</a>
             </ActiveLink>
           </li>
           <NavRight>
+            <LanguageSelector />
             <Sw {...swProps} />
             <LoginButton />
           </NavRight>

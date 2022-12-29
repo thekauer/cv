@@ -1,0 +1,13 @@
+{
+  "retro_title": "Retrospective application",
+  "retro_desc": "is a retrospective application. With this application you don't need any other software for retrospectives, you can do it directly from JIRA.",
+  "frontend": "The frontend was built with React and Redux. One of the most important tasks I had was to refactor the drag and drop and add new features to it. I designed the logic of it and then we implemented it together as a team. The implementation took 1 month and we had to face a lot of challenges while we were writing new features that the react-beautiful-dnd didn't support.",
+  "frontend2": "Other important tasks were the real time board template switch, the uncategorized column and the lobby animation.",
+  "testing_title": "Testing",
+  "testing_0": "The test coverage went up by ",
+  "testing_1": " while I was working on the project.",
+  "testing_2": "Testing is very important to me, and that's why I was lobbying for testing while I was working on the project. I don't believe that we should write tests just for the sake of writing tests. But we need to test the business logic to find bugs in time.",
+  "db_title": "Database",
+  "db": "We used MySql and redis on the project. My favorite task was to fix a bug that was caused by a badly written query. The query was so slow that it caused a timeout on the request. After I fixed the query, it became ",
+  "db2": " faster, so the request was running in under 1 second."
+}

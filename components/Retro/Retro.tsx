@@ -6,8 +6,10 @@ import { RedisLogo } from "./RedisLogo/RedisLogo";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
+import { useTranslation } from "next-i18next";
 
 export const Retro = () => {
+  const { t } = useTranslation("retro");
   const Counter = ({ end }: { end: number }) => (
     <S.CoverageText>
       <CountUp start={0} end={end} delay={0.5}>
@@ -28,12 +30,9 @@ export const Retro = () => {
       <S.RetroSection>
         <S.Row>
           <S.TextBox>
-            <h2>Retrospektív alkalmazás</h2>
+            <h2>{t("retro_title")}</h2>
             <p>
-              A <a href="https://powerretro.io/">Power Retro</a> egy
-              retrospektív alkalmazás. Segítségével nincs szükség külön
-              szoftverre a retrospektívekhez, hanem rögtön a JIRA-ból nyílik
-              erre lehetőségünk.
+              <a href="https://powerretro.io/">Power Retro</a> {t("retro_desc")}
             </p>
           </S.TextBox>
           <RetroDemo />
@@ -43,20 +42,9 @@ export const Retro = () => {
         <S.Row>
           <S.TextBox>
             <h2>Frontend</h2>
-            <p>
-              A frontend Reactel és Reduxal készült. Az egyik kiemelkedőbb
-              feladatom a drag and drop teljes refactorálása és új funkciókkal
-              való kiegészítése volt. Aminek én terveztem meg a logikáját, majd
-              csapatban implementáltuk. Az implementáció 1 hónapon át tartott
-              ami közben számos kihívással kellet szembenéznünk ugyan is olyan
-              feature-öket is írnunk kellet, amit a react-beautiful-dnd nem
-              támogatott.
-            </p>
+            <p>{t("frontend")}</p>
             <br />
-            <p>
-              Egyéb kiemelkedő feladatom a real time board template váltás, az
-              uncategorized oszlop és a lobby animáció volt.
-            </p>
+            <p>{t("frontend2")}</p>
           </S.TextBox>
           <S.Row>
             <Fade triggerOnce>
@@ -73,19 +61,14 @@ export const Retro = () => {
       <S.Test>
         <S.Row>
           <S.TextBox>
-            <h2>Tesztelés</h2>
+            <h2>{t("testing_title")}</h2>
             <p>
+              {t("testing_0")}
               <Counter end={17} />
-              -al nőtt a test coverage, amíg a projekten voltam.
+              {t("testing_1")}
             </p>
             <br />
-            <p>
-              Nagyon fontosnak tartom a tesztelést, és éppen ezért amíg a
-              projekten voltam végig a tesztelés mellet lobbyztam. Nem hiszek
-              abban, hogy csak azért írjunk tesztet, hogy legyen. Viszont
-              szükség van az üzleti logika letesztelésére, hogy még időben
-              kiderüljenek az esetleges bugok.
-            </p>
+            <p>{t("testing_2")}</p>
           </S.TextBox>
           <TestingAnim />
         </S.Row>
@@ -93,18 +76,11 @@ export const Retro = () => {
       <S.Database>
         <S.Row>
           <S.TextBox>
-            <h2>Adatbázis</h2>
+            <h2>{t("db_title")}</h2>
             <p>
-              MySql-t és redis-t használtunk a projekten. A kedvenc taskom az
-              adatbázisok kapcsán az volt, hogy egy viszonylag ritkábban
-              használt feature-ről kiderült, hogy bugosan működik bizonyos
-              esetekben. Ahhoz, hogy kiderüljön mi a probléma le kellet másolnom
-              a production adatbázist és localeban próbálkozni. Kiderült, hogy
-              egy rosszul megírt select query az ok ami lényegében egy
-              Descartes-szorzatot adott vissza. Olyan sokáig tartott lekérni ezt
-              a querry-t, hogy bőven timeoutolt a request mire megjött volna az
-              adat. Miután bement a fixem <Counter end={18076} />
-              -al lett gyorsabb a lekérés, így már 1 másodperc alatt futott.
+              {t("db")}
+              <Counter end={18076} />
+              {t("db2")}
             </p>
           </S.TextBox>
           <S.Row>

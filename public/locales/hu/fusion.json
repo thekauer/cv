@@ -1,0 +1,10 @@
+{
+  "desc": "Fordított, llvm-alapú programozási nyelv",
+  "lines": "Sorok",
+  "commits": "Commitok",
+  "builds": "Buildek",
+  "syntax_title": "Tiszta szintakszis",
+  "syntax": "Ne tévesszen meg a fusion letisztult szintakszisa, a nyelv erősen típusos, sőt ígyekszik minimalizálni a futás idejű hibák számát.",
+  "long_desc1": "A Fusion a saját programnyelvem és egyben hobbi projektem, amin már évek óta dolgozom, csak sajnos nem sok időm jut rá. A végső cél egy olyan programnyelv megírása, aminek egyszerű a szintakszisa, mint a pythonnak, gyors és biztonságos, mint a rust, és könnyen lehet vele folytatni bármilyen másik nyelvben írt projektet.",
+  "long_desc2": "C++-ban írom és llvm-et használok a kódgeneráláshoz. A jövőben pedig lld fogja linkelni az objekt fájlokat. Teszteléshez a Google Test keretrendszert használom. Az egyik első számú prioritásom most, a coverage reportok készítése és még több teszteset írása."
+}

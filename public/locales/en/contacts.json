@@ -1,0 +1,10 @@
+{
+  "title": "Contact",
+  "phone": "mobile",
+  "send": "Send",
+  "sent_successfully": "Sent successfully",
+  "error": "Something went wrong. Please try again later.",
+  "name": "Name",
+  "email": "E-mail",
+  "message": "Message"
+}
