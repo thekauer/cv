@@ -181,7 +181,7 @@ const Contacts = () => {
                 required
               />
             </Fieldset>
-            <Submit type="submit" value={t("send")} />
+            <Submit type="submit" value={t("send") as string} />
           </Form>
         </Content>
       </StyledContacts>
