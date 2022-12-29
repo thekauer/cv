@@ -1,4 +1,5 @@
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -11,9 +12,16 @@ const Img = styled.img`
 
 export const LanguageSelector = () => {
   const { i18n } = useTranslation();
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  const router = useRouter();
+  const { pathname, query, asPath } = router;
+  function changeLanguage(locale: string) {
+    i18n.changeLanguage(locale);
+    router.push({ pathname, query }, asPath, {
+      locale,
+      scroll: false,
+      shallow: true,
+    });
+  }
   const isEnglish = i18n.language === "en";
   return (
     <div
