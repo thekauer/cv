@@ -1,0 +1,9 @@
+{
+  "desc": "Az IBM Video Streaming egy olyan streaming szolgáltatás, lehetővé teszi a felhasználóknak, hogy videókat, hanganyagokat interaktív tartalmakat osszanak meg a közösséggel. Támogat on demand és live streaminget is.",
+  "slack": "Együtt dolgoztam a Slack csapatával, szolgáltatásunk integrációján. Ezzel lehetővé válik a felhasználók számára, hogy Slacken belül tudjanak streameket, illetve, on demand videókat megosztani és megtekinteni. A megvalósításhoz, node.js-t terraformot és IBM cloudot használtam.",
+  "360_title": "360 Video vezérlés",
+  "360": "A 360 videó szolgáltatásunkhoz implementáltam, egy vezérlőt, amivel desktopon kontrol koronggal, mobilon érintéssel és gyroszkóppal lehet navigálni a videóban. A funkcióhoz Three.js-t használtam. A vezérlésbe programoztam, kis tehetetlenséget is, hogy természetesebb legyen a navigálás.",
+  "visibility": "A platformon nem bandwidth hanem viewer hour alapú a számlázás. Épp egy visibility-vel kapcsolatos taskon dolgoztam, amikor az ötlet, hogy akkor már lejjebb is válthatnánk a videó minőségétha a felhasználó épp nem nézi a videót. 2 nappal release után 50 Tb adatotforgalmat spóroltunk meg, ezzel az új featurerel.",
+  "rtl_title": "React testing library és akadálymentesítés",
+  "rtl": "Nagyon fontos volt az akadálymentesítés, a projekten. Amikor csapathoz csatlakoztam, még enzymot használtunk tesztelésre. Csak nekem volt tapasztalatom a testing libraryvel. Végül sikerült meggyőzni a csapatot a fokozatos váltásról. A testing segítségével sokkal könnyebben tudtuk tesztelni akadálymentesített komponenseket."
+}
