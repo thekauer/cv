@@ -9,8 +9,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   },
 });
 
-const Index = (props: any) => {
-  console.log(props);
+const Index = () => {
   return <Home />;
 };
 
