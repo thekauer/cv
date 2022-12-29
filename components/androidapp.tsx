@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import { ExperienceDescription } from "./ExperienceDescription";
 import { PhoneAppIcons } from "@utils/icons";
 import { useTrack } from "@hooks/useTrack";
+import { useTranslation } from "next-i18next";
 
 const StyledAndroid = styled.article`
   & * {
@@ -106,6 +107,7 @@ const Column = styled.div`
   margin-top: 3em;
 `;
 export default function AndroidApp() {
+  const { t } = useTranslation("androidapp");
   const [loaded, setLoaded] = useState(false);
   const videoClick = (e: any) => {
     useTrack("button:androidPlay");
@@ -129,33 +131,33 @@ export default function AndroidApp() {
   };
 
   const list = [
-    { path: "/static/add.svg", name: "hozzáadás" },
-    { path: "/static/remove.svg", name: "Törlés" },
-    { path: "/static/edit.svg", name: "Szerkesztés" },
-    { path: "/static/place.svg", name: "GPS" },
-    { path: "/static/exif.svg", name: "Exif helymeghatározás" },
-    { path: "/static/import_export.svg", name: "Importálás/Exportálás" },
+    { path: "/static/add.svg", name: "add" },
+    { path: "/static/remove.svg", name: "delete" },
+    { path: "/static/edit.svg", name: "edit" },
+    { path: "/static/place.svg", name: "gps" },
+    { path: "/static/exif.svg", name: "exif" },
+    { path: "/static/import_export.svg", name: "import" },
   ];
   return (
     <>
       <Head>
-        <title>Android Alkalmazás - Kauer András</title>
+        <title>{t("head_title")}</title>
       </Head>
       <StyledAndroid>
         <Header>
           <div>
-            <h1>{appName}</h1>
-            <em>{appDesc}</em>
+            <h1>{t("appName")}</h1>
+            <em>{t("appDesc")}</em>
           </div>
         </Header>
         <VideoSection>
           <P>
-            <em>Az alkalmazásban lehetőség van adatok:</em>
+            <em>{t("supports")}</em>
             {list.map((item, idx) => (
               <Fade delay={idx * 100} triggerOnce key={idx}>
                 <Row>
                   <Icon path={item.path} />
-                  {item.name}
+                  {t(item.name)}
                 </Row>
               </Fade>
             ))}
@@ -168,26 +170,13 @@ export default function AndroidApp() {
                 </video>
               </Fade>
             </Phone>
-            <em>Kattits a lejátszáshoz</em>
+            <em>{t("click_to_play")}</em>
           </Column>
         </VideoSection>
         <WaveSection>
           <ExperienceDescription {...xpprops}>
-            <h2>Az alkalmazásról</h2>
-            <p>
-              Egy ismerős cég megkérésére készítettem. Gyakorlatialg azzal
-              foglalkoznak, hogy amikor a körzetükben valakinél megszólal a
-              riasztó, akkor ők mennek ki. Ezt úgy oldották meg, hogy mindig
-              volt egy készenléti diszpécser és autós. A diszpécser, ha
-              riasztanak, felhívja az autóst és bemondja a hely kódját, amit
-              utána ki kell keresnie egy nagy papírhalomból és ha megtalálta
-              akkor indult. Az alkalmazás segítségével viszont csak beírja az
-              általában 4 jegyű kódot és a telefon már navigálás is. Az is
-              problémát jelentett, hogy gyakran a cím még nem elég, hogy
-              megtalálják, hogy pontosan hova kell menni. Ezért az alkalmazásban
-              lehetőség van képet készíteni és a képből már tudja is az app,
-              hogy hova kell menni.
-            </p>
+            <h2>{t("desc_title")}</h2>
+            <p>{t("desc")}</p>
           </ExperienceDescription>
         </WaveSection>
       </StyledAndroid>
