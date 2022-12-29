@@ -1,0 +1,10 @@
+{
+  "desc": "Compiled, llvm-based programming language",
+  "lines": "Lines",
+  "commits": "Commits",
+  "builds": "Builds",
+  "syntax_title": "Clear Syntax",
+  "syntax": "Don't be fooled by the clean syntax of fusion, the language is strongly typed, and it tries to minimize the number of runtime errors.",
+  "long_desc1": "Fusion is my own programming language and hobby project, which I have been working on for years, but unfortunately I don't have much time for it. The ultimate goal is to create a programming language that has a simple syntax like python, is fast and safe like rust, and can easily continue any other project written in any other language.",
+  "long_desc2": "I write it in C++ and use llvm for code generation. In the future, lld will link the object files. I use the Google Test framework for testing. One of the first priorities now is to create coverage reports and write even more test cases."
+}

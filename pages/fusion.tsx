@@ -4,7 +4,7 @@ import Fusion from "../components/fusion";
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale!, ["phd", "common"])),
+    ...(await serverSideTranslations(locale!, ["fusion", "common"])),
   },
 });
 
